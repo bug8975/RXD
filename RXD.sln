@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RXD", "RXD\RXD.csproj", "{AC0ED4B6-DAF9-4E74-894D-B1FF20594190}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC0ED4B6-DAF9-4E74-894D-B1FF20594190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC0ED4B6-DAF9-4E74-894D-B1FF20594190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC0ED4B6-DAF9-4E74-894D-B1FF20594190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC0ED4B6-DAF9-4E74-894D-B1FF20594190}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D06BC201-F460-4024-86E5-BAB915309476}
+	EndGlobalSection
+EndGlobal
