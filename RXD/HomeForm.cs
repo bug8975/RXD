@@ -68,7 +68,7 @@ namespace RXD
 
         private void RecMsg1()
         {
-            string time = DateTime.Now.ToString("yyyy_MM_dd_00-00-00");
+            string time = DateTime.Now.ToString("yyyy_M_d_0-0-0");
             string filePath = @"ReceivedTofile1-TCPCLIENT-" + time + ".DAT";
             try
             {
@@ -205,7 +205,7 @@ namespace RXD
         private void ReadFile()
         {
             String fileName = @"static.pos";
-            List<Sensor> SensorList = new List<Sensor>();
+            List<pojo.DataView> SensorList = new List<pojo.DataView>();
             StreamReader sr = new StreamReader(fileName, Encoding.Default);
             string line;
             while ((line = sr.ReadLine()) != null)
@@ -220,7 +220,7 @@ namespace RXD
                 DateTime dt;
                 DateTime.TryParse(result[0], out dt);
                 dt.ToString("yyyy/MM/dd HH:mm:ss");
-                Sensor sensor = new Sensor(double.Parse(result[1]), double.Parse(result[2]), double.Parse(result[3]), 0d, 0d, 0d, dt);
+                pojo.DataView sensor = new pojo.DataView(double.Parse(result[1]), double.Parse(result[2]), double.Parse(result[3]), dt, 0);
                 SensorList.Add(sensor);
             }
             //插入数据库
@@ -265,7 +265,7 @@ namespace RXD
 
         private void RecMsg2()
         {
-            string time = DateTime.Now.ToString("yyyy_MM_dd_00-00-00");
+            string time = DateTime.Now.ToString("yyyy_M_d_0-0-0");
             string filePath = @"ReceivedTofile2-TCPCLIENT-" + time + ".DAT";
             try
             {
@@ -282,6 +282,7 @@ namespace RXD
                             byte[] tem = new byte[length];
                             Array.Copy(arrRecMsg, 0, tem, 0, length);
                             bw.Write(arrRecMsg);
+                            Console.WriteLine(Encoding.UTF8.GetString(arrRecMsg));
                             bw.Flush();
                         }
                     }

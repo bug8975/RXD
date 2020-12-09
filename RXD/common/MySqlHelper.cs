@@ -201,16 +201,17 @@ namespace RXD.common
         /// 批量插入
         /// </summary>
         /// <param name="list"></param>
-        public static void InsertTable(List<Sensor> list)
+        public static void InsertTable(List<pojo.DataView> list)
         {
             Stopwatch sp = new Stopwatch();
             sp.Start();
-            string sqlInsert = @" insert into sensor(x,y,z,time) value (@x,@y,@z,@time);";
+            string sqlInsert = @" insert into dataview (x,y,z,times,sensor_id) value (@x,@y,@z,@times,@sensor_id);";
             DataTable dt = new DataTable();
             dt.Columns.Add("x", typeof(double));
             dt.Columns.Add("y", typeof(double));
             dt.Columns.Add("z", typeof(double));
-            dt.Columns.Add("time", typeof(DateTime));
+            dt.Columns.Add("times", typeof(DateTime));
+            dt.Columns.Add("sensor_id", typeof(int));
             MySqlConnection conn = ConnectionPool.getPool().getConnection();
             MySqlTransaction transaction = conn.BeginTransaction();
             var mySqlDataAdapter = new MySqlDataAdapter();
@@ -218,7 +219,8 @@ namespace RXD.common
             mySqlDataAdapter.InsertCommand.Parameters.Add("@x", MySqlDbType.String, 20, "x");
             mySqlDataAdapter.InsertCommand.Parameters.Add("@y", MySqlDbType.String, 20, "y");
             mySqlDataAdapter.InsertCommand.Parameters.Add("@z", MySqlDbType.String, 20, "z");
-            mySqlDataAdapter.InsertCommand.Parameters.Add("@time", MySqlDbType.DateTime, 20, "time");
+            mySqlDataAdapter.InsertCommand.Parameters.Add("@times", MySqlDbType.DateTime, 20, "times");
+            mySqlDataAdapter.InsertCommand.Parameters.Add("@sensor_id", MySqlDbType.Int32, 10, "sensor_id");
             mySqlDataAdapter.InsertCommand.UpdatedRowSource = UpdateRowSource.None;
             foreach (var item in list)
             {
@@ -226,7 +228,8 @@ namespace RXD.common
                 row["x"] = item.X;
                 row["y"] = item.Y;
                 row["z"] = item.Z;
-                row["time"] = item.Time;
+                row["times"] = item.Time;
+                row["sensor_id"] = item.Sensorid;
                 dt.Rows.Add(row);
             }
             mySqlDataAdapter.UpdateBatchSize = 10000;

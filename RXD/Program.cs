@@ -14,9 +14,14 @@ namespace RXD
         [STAThread]
         static void Main()
         {
+            //Register skins
+            DevExpress.UserSkins.BonusSkins.Register();
+            DevExpress.Skins.SkinManager.EnableFormSkins();
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("Lilian");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomeForm());
+            Application.Run(new BasicForm());
         }
     }
 }
