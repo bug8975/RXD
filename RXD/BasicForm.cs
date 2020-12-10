@@ -58,8 +58,8 @@ namespace RXD
 
         private void BasicForm_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“rxdDataSet.project”中。您可以根据需要移动或删除它。
-            this.projectTableAdapter.Fill(this.rxdDataSet.project);
+            // TODO: 这行代码将数据加载到表“rxdDataSet.dataview”中。您可以根据需要移动或删除它。
+            this.dataviewTableAdapter.Fill(this.rxdDataSet.dataview);
             // TODO: 这行代码将数据加载到表“rxdDataSet.dataview”中。您可以根据需要移动或删除它。
             this.dataviewTableAdapter.Fill(this.rxdDataSet.dataview);
             SkinHelper.InitSkinPopupMenu(MenuSkin);
@@ -114,13 +114,13 @@ namespace RXD
         private void item_LinkClicked(object sender, NavBarLinkEventArgs e)
         {
             this.alertControl1.Show(this, "提示", e.Link.Caption + ".." + e.Link.Item.Tag + ".." + e.Link.ItemName);
-            //string sql = "select * from dataview where sensor_id = ?";
-            //MySqlParameter mp = new MySqlParameter(@"sensor_id", MySqlDbType.Int32) { Value = e.Link.Item.Tag };
-            //DataSet ds = common.MySqlHelper.GetDataSet(sql, mp);
-            //this.chartControl1.DataSource = null;
-            //this.gridControl1.DataSource = null;
-            //this.chartControl1.DataSource = ds;
-            //this.gridControl1.DataSource = ds;
+            string sql = "select * from dataview where sensor_id = ?";
+            MySqlParameter mp = new MySqlParameter(@"sensor_id", MySqlDbType.Int32) { Value = e.Link.Item.Tag };
+            DataSet ds = common.MySqlHelper.GetDataSet(sql, mp);
+            this.chartControl1.DataSource = null;
+            this.gridControl1.DataSource = null;
+            this.chartControl1.DataSource = ds.Tables[0];
+            this.gridControl1.DataSource = ds.Tables[0];
         }
 
         /// <summary>
@@ -161,6 +161,7 @@ namespace RXD
 
             //TODO:2注册定时任务（从文件向数据库写入数据）
             timer1.Start();
+            timer2.Start();
 
             //加载菜单栏项目下拉列表和点击事件
             string sql = "select * from project";
@@ -393,8 +394,20 @@ namespace RXD
             //TODO: 5.读取POS文件，批量插入dataview表
             ThreadPool.QueueUserWorkItem(new WaitCallback(ReadPosFile), pos_dic);
         }
+
         #endregion
 
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.dataviewTableAdapter.FillBy(this.rxdDataSet.dataview);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
+        }
     }
 }

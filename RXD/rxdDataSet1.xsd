@@ -77,7 +77,16 @@
               <Mapping SourceColumn="times" DataSetColumn="times" />
               <Mapping SourceColumn="sensor_id" DataSetColumn="sensor_id" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="rxdConnectionString (Settings)" DbObjectName="rxd.dataview" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, x, y, z, times, sensor_id FROM dataview</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="fileTableAdapter" GeneratorDataComponentClassName="fileTableAdapter" Name="file" UserDataComponentName="fileTableAdapter">
             <MainSource>
@@ -458,7 +467,7 @@
   <xs:element name="rxdDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="rxdDataSet" msprop:Generator_UserDSName="rxdDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="dataview" msprop:Generator_TableClassName="dataviewDataTable" msprop:Generator_TableVarName="tabledataview" msprop:Generator_RowChangedName="dataviewRowChanged" msprop:Generator_TablePropName="dataview" msprop:Generator_RowDeletingName="dataviewRowDeleting" msprop:Generator_RowChangingName="dataviewRowChanging" msprop:Generator_RowEvHandlerName="dataviewRowChangeEventHandler" msprop:Generator_RowDeletedName="dataviewRowDeleted" msprop:Generator_RowClassName="dataviewRow" msprop:Generator_UserTableName="dataview" msprop:Generator_RowEvArgName="dataviewRowChangeEvent">
+        <xs:element name="dataview" msprop:Generator_TableClassName="dataviewDataTable" msprop:Generator_TableVarName="tabledataview" msprop:Generator_TablePropName="dataview" msprop:Generator_RowDeletingName="dataviewRowDeleting" msprop:Generator_RowChangingName="dataviewRowChanging" msprop:Generator_RowEvHandlerName="dataviewRowChangeEventHandler" msprop:Generator_RowDeletedName="dataviewRowDeleted" msprop:Generator_UserTableName="dataview" msprop:Generator_RowChangedName="dataviewRowChanged" msprop:Generator_RowEvArgName="dataviewRowChangeEvent" msprop:Generator_RowClassName="dataviewRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:unsignedInt" />
@@ -470,7 +479,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="file" msprop:Generator_TableClassName="fileDataTable" msprop:Generator_TableVarName="tablefile" msprop:Generator_RowChangedName="fileRowChanged" msprop:Generator_TablePropName="file" msprop:Generator_RowDeletingName="fileRowDeleting" msprop:Generator_RowChangingName="fileRowChanging" msprop:Generator_RowEvHandlerName="fileRowChangeEventHandler" msprop:Generator_RowDeletedName="fileRowDeleted" msprop:Generator_RowClassName="fileRow" msprop:Generator_UserTableName="file" msprop:Generator_RowEvArgName="fileRowChangeEvent">
+        <xs:element name="file" msprop:Generator_TableClassName="fileDataTable" msprop:Generator_TableVarName="tablefile" msprop:Generator_TablePropName="file" msprop:Generator_RowDeletingName="fileRowDeleting" msprop:Generator_RowChangingName="fileRowChanging" msprop:Generator_RowEvHandlerName="fileRowChangeEventHandler" msprop:Generator_RowDeletedName="fileRowDeleted" msprop:Generator_UserTableName="file" msprop:Generator_RowChangedName="fileRowChanged" msprop:Generator_RowEvArgName="fileRowChangeEvent" msprop:Generator_RowClassName="fileRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:unsignedInt" />
@@ -492,7 +501,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="frequency" msprop:Generator_TableClassName="frequencyDataTable" msprop:Generator_TableVarName="tablefrequency" msprop:Generator_RowChangedName="frequencyRowChanged" msprop:Generator_TablePropName="frequency" msprop:Generator_RowDeletingName="frequencyRowDeleting" msprop:Generator_RowChangingName="frequencyRowChanging" msprop:Generator_RowEvHandlerName="frequencyRowChangeEventHandler" msprop:Generator_RowDeletedName="frequencyRowDeleted" msprop:Generator_RowClassName="frequencyRow" msprop:Generator_UserTableName="frequency" msprop:Generator_RowEvArgName="frequencyRowChangeEvent">
+        <xs:element name="frequency" msprop:Generator_TableClassName="frequencyDataTable" msprop:Generator_TableVarName="tablefrequency" msprop:Generator_TablePropName="frequency" msprop:Generator_RowDeletingName="frequencyRowDeleting" msprop:Generator_RowChangingName="frequencyRowChanging" msprop:Generator_RowEvHandlerName="frequencyRowChangeEventHandler" msprop:Generator_RowDeletedName="frequencyRowDeleted" msprop:Generator_UserTableName="frequency" msprop:Generator_RowChangedName="frequencyRowChanged" msprop:Generator_RowEvArgName="frequencyRowChangeEvent" msprop:Generator_RowClassName="frequencyRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:unsignedInt" />
@@ -508,7 +517,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="monitorline" msprop:Generator_TableClassName="monitorlineDataTable" msprop:Generator_TableVarName="tablemonitorline" msprop:Generator_RowChangedName="monitorlineRowChanged" msprop:Generator_TablePropName="monitorline" msprop:Generator_RowDeletingName="monitorlineRowDeleting" msprop:Generator_RowChangingName="monitorlineRowChanging" msprop:Generator_RowEvHandlerName="monitorlineRowChangeEventHandler" msprop:Generator_RowDeletedName="monitorlineRowDeleted" msprop:Generator_RowClassName="monitorlineRow" msprop:Generator_UserTableName="monitorline" msprop:Generator_RowEvArgName="monitorlineRowChangeEvent">
+        <xs:element name="monitorline" msprop:Generator_TableClassName="monitorlineDataTable" msprop:Generator_TableVarName="tablemonitorline" msprop:Generator_TablePropName="monitorline" msprop:Generator_RowDeletingName="monitorlineRowDeleting" msprop:Generator_RowChangingName="monitorlineRowChanging" msprop:Generator_RowEvHandlerName="monitorlineRowChangeEventHandler" msprop:Generator_RowDeletedName="monitorlineRowDeleted" msprop:Generator_UserTableName="monitorline" msprop:Generator_RowChangedName="monitorlineRowChanged" msprop:Generator_RowEvArgName="monitorlineRowChangeEvent" msprop:Generator_RowClassName="monitorlineRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:unsignedInt" />
@@ -523,7 +532,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="project" msprop:Generator_TableClassName="projectDataTable" msprop:Generator_TableVarName="tableproject" msprop:Generator_RowChangedName="projectRowChanged" msprop:Generator_TablePropName="project" msprop:Generator_RowDeletingName="projectRowDeleting" msprop:Generator_RowChangingName="projectRowChanging" msprop:Generator_RowEvHandlerName="projectRowChangeEventHandler" msprop:Generator_RowDeletedName="projectRowDeleted" msprop:Generator_RowClassName="projectRow" msprop:Generator_UserTableName="project" msprop:Generator_RowEvArgName="projectRowChangeEvent">
+        <xs:element name="project" msprop:Generator_TableClassName="projectDataTable" msprop:Generator_TableVarName="tableproject" msprop:Generator_TablePropName="project" msprop:Generator_RowDeletingName="projectRowDeleting" msprop:Generator_RowChangingName="projectRowChanging" msprop:Generator_RowEvHandlerName="projectRowChangeEventHandler" msprop:Generator_RowDeletedName="projectRowDeleted" msprop:Generator_UserTableName="project" msprop:Generator_RowChangedName="projectRowChanged" msprop:Generator_RowEvArgName="projectRowChangeEvent" msprop:Generator_RowClassName="projectRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:unsignedInt" />
@@ -537,7 +546,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sensor" msprop:Generator_TableClassName="sensorDataTable" msprop:Generator_TableVarName="tablesensor" msprop:Generator_RowChangedName="sensorRowChanged" msprop:Generator_TablePropName="sensor" msprop:Generator_RowDeletingName="sensorRowDeleting" msprop:Generator_RowChangingName="sensorRowChanging" msprop:Generator_RowEvHandlerName="sensorRowChangeEventHandler" msprop:Generator_RowDeletedName="sensorRowDeleted" msprop:Generator_RowClassName="sensorRow" msprop:Generator_UserTableName="sensor" msprop:Generator_RowEvArgName="sensorRowChangeEvent">
+        <xs:element name="sensor" msprop:Generator_TableClassName="sensorDataTable" msprop:Generator_TableVarName="tablesensor" msprop:Generator_TablePropName="sensor" msprop:Generator_RowDeletingName="sensorRowDeleting" msprop:Generator_RowChangingName="sensorRowChanging" msprop:Generator_RowEvHandlerName="sensorRowChangeEventHandler" msprop:Generator_RowDeletedName="sensorRowDeleted" msprop:Generator_UserTableName="sensor" msprop:Generator_RowChangedName="sensorRowChanged" msprop:Generator_RowEvArgName="sensorRowChangeEvent" msprop:Generator_RowClassName="sensorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:unsignedInt" />
@@ -569,7 +578,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="monitorpoint" msprop:Generator_TableClassName="monitorpointDataTable" msprop:Generator_TableVarName="tablemonitorpoint" msprop:Generator_TablePropName="monitorpoint" msprop:Generator_RowDeletingName="monitorpointRowDeleting" msprop:Generator_RowChangingName="monitorpointRowChanging" msprop:Generator_RowEvHandlerName="monitorpointRowChangeEventHandler" msprop:Generator_RowDeletedName="monitorpointRowDeleted" msprop:Generator_UserTableName="monitorpoint" msprop:Generator_RowChangedName="monitorpointRowChanged" msprop:Generator_RowEvArgName="monitorpointRowChangeEvent" msprop:Generator_RowClassName="monitorpointRow">
+        <xs:element name="monitorpoint" msprop:Generator_TableClassName="monitorpointDataTable" msprop:Generator_TableVarName="tablemonitorpoint" msprop:Generator_RowChangedName="monitorpointRowChanged" msprop:Generator_TablePropName="monitorpoint" msprop:Generator_RowDeletingName="monitorpointRowDeleting" msprop:Generator_RowChangingName="monitorpointRowChanging" msprop:Generator_RowEvHandlerName="monitorpointRowChangeEventHandler" msprop:Generator_RowDeletedName="monitorpointRowDeleted" msprop:Generator_RowClassName="monitorpointRow" msprop:Generator_UserTableName="monitorpoint" msprop:Generator_RowEvArgName="monitorpointRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:unsignedInt" />
@@ -620,12 +629,12 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="dataview_ibfk_1" msdata:parent="sensor" msdata:child="dataview" msdata:parentkey="id" msdata:childkey="sensor_id" msprop:Generator_UserChildTable="dataview" msprop:Generator_ChildPropName="GetdataviewRows" msprop:Generator_UserRelationName="dataview_ibfk_1" msprop:Generator_ParentPropName="sensorRow" msprop:Generator_RelationVarName="relationdataview_ibfk_1" msprop:Generator_UserParentTable="sensor" />
-      <msdata:Relationship name="file_ibfk_1" msdata:parent="sensor" msdata:child="file" msdata:parentkey="id" msdata:childkey="sensor_id" msprop:Generator_UserChildTable="file" msprop:Generator_ChildPropName="GetfileRows" msprop:Generator_UserRelationName="file_ibfk_1" msprop:Generator_ParentPropName="sensorRow" msprop:Generator_RelationVarName="relationfile_ibfk_1" msprop:Generator_UserParentTable="sensor" />
-      <msdata:Relationship name="frequency_ibfk_1" msdata:parent="monitorline" msdata:child="frequency" msdata:parentkey="id" msdata:childkey="monitorline_id" msprop:Generator_UserChildTable="frequency" msprop:Generator_ChildPropName="GetfrequencyRows" msprop:Generator_UserRelationName="frequency_ibfk_1" msprop:Generator_ParentPropName="monitorlineRow" msprop:Generator_RelationVarName="relationfrequency_ibfk_1" msprop:Generator_UserParentTable="monitorline" />
-      <msdata:Relationship name="monitorline_ibfk_1" msdata:parent="project" msdata:child="monitorline" msdata:parentkey="id" msdata:childkey="project_id" msprop:Generator_UserChildTable="monitorline" msprop:Generator_ChildPropName="GetmonitorlineRows" msprop:Generator_UserRelationName="monitorline_ibfk_1" msprop:Generator_ParentPropName="projectRow" msprop:Generator_RelationVarName="relationmonitorline_ibfk_1" msprop:Generator_UserParentTable="project" />
-      <msdata:Relationship name="sensor_ibfk_1" msdata:parent="monitorline" msdata:child="sensor" msdata:parentkey="id" msdata:childkey="monitorline_id" msprop:Generator_UserChildTable="sensor" msprop:Generator_ChildPropName="GetsensorRows" msprop:Generator_UserRelationName="sensor_ibfk_1" msprop:Generator_RelationVarName="relationsensor_ibfk_1" msprop:Generator_UserParentTable="monitorline" msprop:Generator_ParentPropName="monitorlineRow" />
-      <msdata:Relationship name="monitorpoint_ibfk_1" msdata:parent="sensor" msdata:child="monitorpoint" msdata:parentkey="id" msdata:childkey="sensor_id" msprop:Generator_UserChildTable="monitorpoint" msprop:Generator_ChildPropName="GetmonitorpointRows" msprop:Generator_UserRelationName="monitorpoint_ibfk_1" msprop:Generator_ParentPropName="sensorRow" msprop:Generator_RelationVarName="relationmonitorpoint_ibfk_1" msprop:Generator_UserParentTable="sensor" />
+      <msdata:Relationship name="dataview_ibfk_1" msdata:parent="sensor" msdata:child="dataview" msdata:parentkey="id" msdata:childkey="sensor_id" msprop:Generator_UserChildTable="dataview" msprop:Generator_ChildPropName="GetdataviewRows" msprop:Generator_UserRelationName="dataview_ibfk_1" msprop:Generator_RelationVarName="relationdataview_ibfk_1" msprop:Generator_UserParentTable="sensor" msprop:Generator_ParentPropName="sensorRow" />
+      <msdata:Relationship name="file_ibfk_1" msdata:parent="sensor" msdata:child="file" msdata:parentkey="id" msdata:childkey="sensor_id" msprop:Generator_UserChildTable="file" msprop:Generator_ChildPropName="GetfileRows" msprop:Generator_UserRelationName="file_ibfk_1" msprop:Generator_RelationVarName="relationfile_ibfk_1" msprop:Generator_UserParentTable="sensor" msprop:Generator_ParentPropName="sensorRow" />
+      <msdata:Relationship name="frequency_ibfk_1" msdata:parent="monitorline" msdata:child="frequency" msdata:parentkey="id" msdata:childkey="monitorline_id" msprop:Generator_UserChildTable="frequency" msprop:Generator_ChildPropName="GetfrequencyRows" msprop:Generator_UserRelationName="frequency_ibfk_1" msprop:Generator_RelationVarName="relationfrequency_ibfk_1" msprop:Generator_UserParentTable="monitorline" msprop:Generator_ParentPropName="monitorlineRow" />
+      <msdata:Relationship name="monitorline_ibfk_1" msdata:parent="project" msdata:child="monitorline" msdata:parentkey="id" msdata:childkey="project_id" msprop:Generator_UserChildTable="monitorline" msprop:Generator_ChildPropName="GetmonitorlineRows" msprop:Generator_UserRelationName="monitorline_ibfk_1" msprop:Generator_RelationVarName="relationmonitorline_ibfk_1" msprop:Generator_UserParentTable="project" msprop:Generator_ParentPropName="projectRow" />
+      <msdata:Relationship name="sensor_ibfk_1" msdata:parent="monitorline" msdata:child="sensor" msdata:parentkey="id" msdata:childkey="monitorline_id" msprop:Generator_UserChildTable="sensor" msprop:Generator_ChildPropName="GetsensorRows" msprop:Generator_UserRelationName="sensor_ibfk_1" msprop:Generator_ParentPropName="monitorlineRow" msprop:Generator_RelationVarName="relationsensor_ibfk_1" msprop:Generator_UserParentTable="monitorline" />
+      <msdata:Relationship name="monitorpoint_ibfk_1" msdata:parent="sensor" msdata:child="monitorpoint" msdata:parentkey="id" msdata:childkey="sensor_id" msprop:Generator_UserChildTable="monitorpoint" msprop:Generator_ChildPropName="GetmonitorpointRows" msprop:Generator_UserRelationName="monitorpoint_ibfk_1" msprop:Generator_RelationVarName="relationmonitorpoint_ibfk_1" msprop:Generator_UserParentTable="sensor" msprop:Generator_ParentPropName="sensorRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

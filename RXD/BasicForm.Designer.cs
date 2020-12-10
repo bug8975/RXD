@@ -51,7 +51,6 @@
             this.rxdDataSet = new RXD.rxdDataSet();
             this.sidePanel8 = new DevExpress.XtraEditors.SidePanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dataviewBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colx = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coly = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -85,9 +84,7 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
-            this.projectTableAdapter = new RXD.rxdDataSetTableAdapters.projectTableAdapter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.sidePanel1.SuspendLayout();
@@ -107,7 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.rxdDataSet)).BeginInit();
             this.sidePanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataviewBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.sidePanel6.SuspendLayout();
             this.sidePanel11.SuspendLayout();
@@ -121,7 +117,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel1
@@ -231,7 +226,7 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.DataSource = this.dataviewBindingSource1;
+            this.gridControl1.DataSource = this.dataviewBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(0, 1);
             this.gridControl1.MainView = this.gridView1;
@@ -240,11 +235,6 @@
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            // 
-            // dataviewBindingSource1
-            // 
-            this.dataviewBindingSource1.DataMember = "dataview";
-            this.dataviewBindingSource1.DataSource = this.rxdDataSet;
             // 
             // gridView1
             // 
@@ -343,6 +333,8 @@
             // 
             // chartControl2
             // 
+            this.chartControl2.DataAdapter = this.dataviewTableAdapter;
+            this.chartControl2.DataSource = this.rxdDataSet.dataview;
             polarDiagram1.AxisX.Label.TextDirection = DevExpress.XtraCharts.RadarAxisXLabelTextDirection.Tangent;
             polarDiagram1.RotationDirection = DevExpress.XtraCharts.RadarDiagramRotationDirection.Clockwise;
             this.chartControl2.Diagram = polarDiagram1;
@@ -619,15 +611,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
             // 
-            // projectBindingSource
-            // 
-            this.projectBindingSource.DataMember = "project";
-            this.projectBindingSource.DataSource = this.rxdDataSet;
-            // 
-            // projectTableAdapter
-            // 
-            this.projectTableAdapter.ClearBeforeFill = true;
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
@@ -669,7 +652,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.rxdDataSet)).EndInit();
             this.sidePanel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataviewBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.sidePanel6.ResumeLayout(false);
             this.sidePanel11.ResumeLayout(false);
@@ -684,7 +666,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -730,16 +711,13 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraBars.SkinBarSubItem MenuSkin;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
-        private rxdDataSetTableAdapters.dataviewTableAdapter dataviewTableAdapter;
-        private rxdDataSet rxdDataSet;
-        private System.Windows.Forms.BindingSource projectBindingSource;
-        private rxdDataSetTableAdapters.projectTableAdapter projectTableAdapter;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.BindingSource dataviewBindingSource;
-        private System.Windows.Forms.BindingSource dataviewBindingSource1;
         private System.Windows.Forms.Timer timer2;
+        private rxdDataSetTableAdapters.dataviewTableAdapter dataviewTableAdapter;
+        private rxdDataSet rxdDataSet;
+        private System.Windows.Forms.BindingSource dataviewBindingSource;
     }
 }
