@@ -32,6 +32,7 @@
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel3 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel7 = new DevExpress.XtraEditors.SidePanel();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.comboBoxEdit8 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEdit5 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
@@ -56,6 +57,7 @@
             this.rxdDataSet = new RXD.rxdDataSet();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.projectTableAdapter = new RXD.rxdDataSetTableAdapters.projectTableAdapter();
+            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.sidePanel1.SuspendLayout();
             this.sidePanel3.SuspendLayout();
             this.sidePanel7.SuspendLayout();
@@ -80,7 +82,7 @@
             this.sidePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidePanel1.Location = new System.Drawing.Point(0, 0);
             this.sidePanel1.Name = "sidePanel1";
-            this.sidePanel1.Size = new System.Drawing.Size(639, 441);
+            this.sidePanel1.Size = new System.Drawing.Size(647, 500);
             this.sidePanel1.TabIndex = 0;
             this.sidePanel1.Text = "sidePanel1";
             // 
@@ -93,12 +95,13 @@
             this.sidePanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidePanel3.Location = new System.Drawing.Point(0, 0);
             this.sidePanel3.Name = "sidePanel3";
-            this.sidePanel3.Size = new System.Drawing.Size(639, 441);
+            this.sidePanel3.Size = new System.Drawing.Size(647, 500);
             this.sidePanel3.TabIndex = 1;
             this.sidePanel3.Text = "sidePanel3";
             // 
             // sidePanel7
             // 
+            this.sidePanel7.Controls.Add(this.simpleButton3);
             this.sidePanel7.Controls.Add(this.comboBoxEdit8);
             this.sidePanel7.Controls.Add(this.comboBoxEdit5);
             this.sidePanel7.Controls.Add(this.labelControl8);
@@ -114,9 +117,21 @@
             this.sidePanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidePanel7.Location = new System.Drawing.Point(0, 132);
             this.sidePanel7.Name = "sidePanel7";
-            this.sidePanel7.Size = new System.Drawing.Size(639, 241);
+            this.sidePanel7.Size = new System.Drawing.Size(647, 300);
             this.sidePanel7.TabIndex = 3;
             this.sidePanel7.Text = "sidePanel7";
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            this.simpleButton3.Appearance.Options.UseBackColor = true;
+            this.simpleButton3.Location = new System.Drawing.Point(42, 248);
+            this.simpleButton3.Margin = new System.Windows.Forms.Padding(6);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(80, 39);
+            this.simpleButton3.TabIndex = 25;
+            this.simpleButton3.Text = "测试连接";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // comboBoxEdit8
             // 
@@ -252,9 +267,9 @@
             this.sidePanel6.Controls.Add(this.simpleButton2);
             this.sidePanel6.Controls.Add(this.simpleButton1);
             this.sidePanel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.sidePanel6.Location = new System.Drawing.Point(0, 373);
+            this.sidePanel6.Location = new System.Drawing.Point(0, 432);
             this.sidePanel6.Name = "sidePanel6";
-            this.sidePanel6.Size = new System.Drawing.Size(639, 68);
+            this.sidePanel6.Size = new System.Drawing.Size(647, 68);
             this.sidePanel6.TabIndex = 2;
             this.sidePanel6.Text = "sidePanel6";
             // 
@@ -277,6 +292,7 @@
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Enabled = false;
             this.simpleButton1.Location = new System.Drawing.Point(392, 12);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(94, 44);
@@ -291,7 +307,7 @@
             this.sidePanel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.sidePanel5.Location = new System.Drawing.Point(0, 67);
             this.sidePanel5.Name = "sidePanel5";
-            this.sidePanel5.Size = new System.Drawing.Size(639, 65);
+            this.sidePanel5.Size = new System.Drawing.Size(647, 65);
             this.sidePanel5.TabIndex = 1;
             this.sidePanel5.Text = "sidePanel5";
             // 
@@ -323,7 +339,7 @@
             this.sidePanel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.sidePanel4.Location = new System.Drawing.Point(0, 0);
             this.sidePanel4.Name = "sidePanel4";
-            this.sidePanel4.Size = new System.Drawing.Size(639, 67);
+            this.sidePanel4.Size = new System.Drawing.Size(647, 67);
             this.sidePanel4.TabIndex = 0;
             this.sidePanel4.Text = "sidePanel4";
             // 
@@ -371,11 +387,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 441);
+            this.ClientSize = new System.Drawing.Size(647, 500);
             this.Controls.Add(this.sidePanel1);
             this.Name = "SensorTypeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "新建";
+            this.Text = "新增传感器信息";
             this.Load += new System.EventHandler(this.XtraForm1_Load);
             this.sidePanel1.ResumeLayout(false);
             this.sidePanel3.ResumeLayout(false);
@@ -429,5 +445,7 @@
         private rxdDataSet rxdDataSet;
         private System.Windows.Forms.BindingSource projectBindingSource;
         private rxdDataSetTableAdapters.projectTableAdapter projectTableAdapter;
+        private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
     }
 }

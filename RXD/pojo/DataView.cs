@@ -15,6 +15,10 @@ namespace RXD.pojo
         private DateTime time;
         private int sensorid;
 
+        public DataView()
+        {
+        }
+
         public DataView(double x, double y, double z, DateTime time, int sensorid)
         {
             this.x = x;

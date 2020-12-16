@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using MySql.Data.MySqlClient;
+using System.Net.Sockets;
+using NLog;
 
 namespace RXD
 {
     public partial class SensorTypeForm : DevExpress.XtraEditors.XtraForm
     {
+        Logger _logger = LogManager.GetCurrentClassLogger();
         public SensorTypeForm()
         {
             InitializeComponent();
@@ -96,6 +99,11 @@ namespace RXD
             MySqlParameter states = new MySqlParameter("@states", MySqlDbType.Int32) { Value = (comboBoxEdit8.SelectedItem as ComboxData).Value };
             string sql = "INSERT INTO sensor (name,capation,type,url,port,states,monitorline_id) VALUES (?,?,?,?,?,?,?)";
             int result = common.MySqlHelper.ExecuteNonQuery(sql, name, capation, type, url, port, states, monitorline_id);
+            if (result == 1)
+                alertControl1.Show(this, "提示", "新增成功");
+            else
+                alertControl1.Show(this, "提示", "新增失败");
+            this.Close();
         }
 
         /// <summary>
@@ -124,6 +132,36 @@ namespace RXD
             {
                 comboBoxEdit6.Enabled = true;
                 comboBoxEdit7.Enabled = true;
+            }
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TcpClient client = new TcpClient();
+                string ip = comboBoxEdit6.Text.Trim();
+                string port = comboBoxEdit7.Text.Trim();
+                //参数1指定ip地址，参数2指定端口
+                var result = client.BeginConnect(ip, Convert.ToInt32(port), null, null);
+                //TimeSpan.FromSeconds(1) 表示测试连接1秒，即超时时间
+                var success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
+                if (success)
+                {
+                    alertControl1.Show(this, "提示", "测试连接成功");
+                    simpleButton1.Enabled = true;
+                }
+                else
+                {
+                    alertControl1.Show(this, "提示", "测试连接失败");
+                    simpleButton1.Enabled = false;
+                }
+                client.Close();
+                Console.WriteLine(success);
+            }
+            catch (Exception ex)
+            {
+                _logger.Info(ex.Message);
             }
         }
     }

@@ -68,7 +68,7 @@ namespace RXD
 
         private void RecMsg1()
         {
-            string time = DateTime.Now.ToString("yyyy_M_d_0-0-0");
+            string time = DateTime.Now.ToString("yyyy_M_d_H-0-0");
             string filePath = @"ReceivedTofile1-TCPCLIENT-" + time + ".DAT";
             try
             {
@@ -224,7 +224,7 @@ namespace RXD
                 SensorList.Add(sensor);
             }
             //插入数据库
-            MySqlHelper.InsertTable(SensorList);
+            MySqlHelper.InsertTable_DataView(SensorList);
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
@@ -265,7 +265,7 @@ namespace RXD
 
         private void RecMsg2()
         {
-            string time = DateTime.Now.ToString("yyyy_M_d_0-0-0");
+            string time = DateTime.Now.ToString("yyyy_M_d_H-0-0");
             string filePath = @"ReceivedTofile2-TCPCLIENT-" + time + ".DAT";
             try
             {

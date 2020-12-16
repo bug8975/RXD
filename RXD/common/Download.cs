@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,6 +19,7 @@ namespace RXD.common
         private static Download instance = null;
         private static readonly object locker = new object();
         public CancellationTokenSource ctsToken = new CancellationTokenSource();
+        Logger _logger = LogManager.GetCurrentClassLogger();
         public static Download GetInstance()
         {
             if (instance == null)
@@ -56,7 +58,7 @@ namespace RXD.common
                         { 0, id },
                         { 1, socket }
                     };
-                    string time = DateTime.Now.ToString("yyyy_M_d_0-0-0");
+                    string time = DateTime.Now.ToString("yyyy_M_d_H-0-0");
                     string fileName = @"ReceivedTofile" + id + "-TCPCLIENT-" + time;
                     Dictionary<int, string> insertParamDic = new Dictionary<int, string>
                     {
@@ -71,18 +73,17 @@ namespace RXD.common
                     ThreadPool.QueueUserWorkItem(new WaitCallback(insertFile), insertParamDic);
                     //ThreadPool.QueueUserWorkItem(p => { try { RecMsg(id, socket); } catch (Exception ex) { Console.WriteLine(ex.Message); } } );
                 }
-                Console.WriteLine("主线程获取数据流");
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                _logger.Trace(ex.Message);
             }
         }
 
         private void RecMsg(object obj,CancellationToken token)
         {
             Dictionary<int, object> dic = obj as Dictionary<int, object>;
-            string time = DateTime.Now.ToString("yyyy_M_d_0-0-0");
+            string time = DateTime.Now.ToString("yyyy_M_d_H-0-0");
             string fileName = @"ReceivedTofile" + dic[0] + "-TCPCLIENT-" + time + ".DAT";
             try
             {
@@ -109,25 +110,31 @@ namespace RXD.common
             }
             catch (Exception ex)
             {
-                System.Media.SystemSounds.Asterisk.Play();
-                Console.WriteLine(ex.Message);
+                _logger.Trace(ex.Message);
             }
         }
 
 
         private void insertFile(object obj)
         {
-            Dictionary<int, string> dic = obj as Dictionary<int, string>;
-            string sqlCheckName = "select * from file where name = ?";
-            MySqlParameter name = new MySqlParameter(@"name", MySqlDbType.VarChar) { Value = dic[0] };
-            MySqlParameter path = new MySqlParameter(@"path", MySqlDbType.VarChar) { Value = dic[1] };
-            MySqlParameter createtime = new MySqlParameter(@"createtime", MySqlDbType.DateTime) { Value = DateTime.Now.ToString("yyyy-M-d") };
-            MySqlParameter sensor_id = new MySqlParameter(@"sensor_id", MySqlDbType.VarChar) { Value = dic[2] };
-            DataTable dt = common.MySqlHelper.GetDataSet(sqlCheckName, name).Tables[0];
-            if (dt.Rows.Count != 0)
-                return;
-            string sql = "INSERT INTO file (name,path,createtime,sensor_id) VALUES (?,?,?,?)";
-            int cnt = common.MySqlHelper.ExecuteNonQuery(sql, name, path, createtime, sensor_id);
+            try
+            {
+                Dictionary<int, string> dic = obj as Dictionary<int, string>;
+                string sqlCheckName = "select * from file where name = ?";
+                MySqlParameter name = new MySqlParameter(@"name", MySqlDbType.VarChar) { Value = dic[0] };
+                MySqlParameter path = new MySqlParameter(@"path", MySqlDbType.VarChar) { Value = dic[1] };
+                MySqlParameter createtime = new MySqlParameter(@"createtime", MySqlDbType.DateTime) { Value = DateTime.Now.ToString("yyyy-M-d") };
+                MySqlParameter sensor_id = new MySqlParameter(@"sensor_id", MySqlDbType.VarChar) { Value = dic[2] };
+                DataTable dt = common.MySqlHelper.GetDataSet(sqlCheckName, name).Tables[0];
+                if (dt.Rows.Count != 0)
+                    return;
+                string sql = "INSERT INTO file (name,path,createtime,sensor_id) VALUES (?,?,?,?)";
+                int cnt = common.MySqlHelper.ExecuteNonQuery(sql, name, path, createtime, sensor_id);
+            }
+            catch (Exception ex)
+            {
+                _logger.Trace(ex.Message);
+            }
         }
 
     }

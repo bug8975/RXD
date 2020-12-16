@@ -22,6 +22,7 @@ namespace RXD
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BasicForm());
+            //Application.Run(new Form1());
         }
     }
 }

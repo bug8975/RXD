@@ -28,20 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(URLForm));
             this.sidePanel5 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.sidePanel5.SuspendLayout();
             this.sidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             this.sidePanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,9 +58,7 @@
             // sidePanel2
             // 
             this.sidePanel2.Controls.Add(this.textEdit1);
-            this.sidePanel2.Controls.Add(this.textEdit2);
             this.sidePanel2.Controls.Add(this.labelControl1);
-            this.sidePanel2.Controls.Add(this.labelControl2);
             this.sidePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidePanel2.Location = new System.Drawing.Point(0, 0);
             this.sidePanel2.Name = "sidePanel2";
@@ -71,47 +68,25 @@
             // 
             // textEdit1
             // 
-            this.textEdit1.EditValue = "12016";
-            this.textEdit1.Location = new System.Drawing.Point(143, 115);
-            this.textEdit1.Margin = new System.Windows.Forms.Padding(6);
+            this.textEdit1.EditValue = "";
+            this.textEdit1.Location = new System.Drawing.Point(144, 82);
+            this.textEdit1.Margin = new System.Windows.Forms.Padding(5);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.textEdit1.Properties.Appearance.Options.UseFont = true;
             this.textEdit1.Size = new System.Drawing.Size(184, 34);
-            this.textEdit1.TabIndex = 20;
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.EditValue = "139.224.27.26";
-            this.textEdit2.Location = new System.Drawing.Point(143, 64);
-            this.textEdit2.Margin = new System.Windows.Forms.Padding(5);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Size = new System.Drawing.Size(184, 34);
-            this.textEdit2.TabIndex = 19;
+            this.textEdit1.TabIndex = 19;
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(81, 120);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(8);
+            this.labelControl1.Location = new System.Drawing.Point(29, 85);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(6);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(48, 29);
-            this.labelControl1.TabIndex = 18;
-            this.labelControl1.Text = "端口";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(62, 69);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(6);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(70, 29);
-            this.labelControl2.TabIndex = 17;
-            this.labelControl2.Text = "IP地址";
+            this.labelControl1.Size = new System.Drawing.Size(96, 29);
+            this.labelControl1.TabIndex = 17;
+            this.labelControl1.Text = "工程名称";
             // 
             // sidePanel1
             // 
@@ -157,12 +132,11 @@
             this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("URLForm.IconOptions.LargeImage")));
             this.Name = "URLForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "新增URL地址";
+            this.Text = "新增工程信息";
             this.sidePanel5.ResumeLayout(false);
             this.sidePanel2.ResumeLayout(false);
             this.sidePanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             this.sidePanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -174,10 +148,9 @@
         private DevExpress.XtraEditors.SidePanel sidePanel2;
         private DevExpress.XtraEditors.SidePanel sidePanel1;
         private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
     }
 }

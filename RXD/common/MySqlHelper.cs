@@ -201,7 +201,7 @@ namespace RXD.common
         /// 批量插入
         /// </summary>
         /// <param name="list"></param>
-        public static void InsertTable(List<pojo.DataView> list)
+        public static void InsertTable_DataView(List<pojo.DataView> list)
         {
             Stopwatch sp = new Stopwatch();
             sp.Start();
@@ -216,9 +216,9 @@ namespace RXD.common
             MySqlTransaction transaction = conn.BeginTransaction();
             var mySqlDataAdapter = new MySqlDataAdapter();
             mySqlDataAdapter.InsertCommand = new MySqlCommand(sqlInsert, conn);
-            mySqlDataAdapter.InsertCommand.Parameters.Add("@x", MySqlDbType.String, 20, "x");
-            mySqlDataAdapter.InsertCommand.Parameters.Add("@y", MySqlDbType.String, 20, "y");
-            mySqlDataAdapter.InsertCommand.Parameters.Add("@z", MySqlDbType.String, 20, "z");
+            mySqlDataAdapter.InsertCommand.Parameters.Add("@x", MySqlDbType.Double, 20, "x");
+            mySqlDataAdapter.InsertCommand.Parameters.Add("@y", MySqlDbType.Double, 20, "y");
+            mySqlDataAdapter.InsertCommand.Parameters.Add("@z", MySqlDbType.Double, 20, "z");
             mySqlDataAdapter.InsertCommand.Parameters.Add("@times", MySqlDbType.DateTime, 20, "times");
             mySqlDataAdapter.InsertCommand.Parameters.Add("@sensor_id", MySqlDbType.Int32, 10, "sensor_id");
             mySqlDataAdapter.InsertCommand.UpdatedRowSource = UpdateRowSource.None;
@@ -237,5 +237,44 @@ namespace RXD.common
             transaction.Commit();
             sp.Stop();
         }
+
+
+        public static void InsertTable_SensorInfo(List<pojo.SensorInfo> list)
+        {
+            Stopwatch sp = new Stopwatch();
+            sp.Start();
+            string sqlInsert = @" insert into sensorinfo (name,longitude,latitude,times,sensor_id) value (@name,@longitude,@latitude,@times,@sensor_id);";
+            DataTable dt = new DataTable();
+            dt.Columns.Add("name", typeof(string));
+            dt.Columns.Add("longitude", typeof(double));
+            dt.Columns.Add("latitude", typeof(double));
+            dt.Columns.Add("times", typeof(DateTime));
+            dt.Columns.Add("sensor_id", typeof(int));
+            MySqlConnection conn = ConnectionPool.getPool().getConnection();
+            MySqlTransaction transaction = conn.BeginTransaction();
+            var mySqlDataAdapter = new MySqlDataAdapter();
+            mySqlDataAdapter.InsertCommand = new MySqlCommand(sqlInsert, conn);
+            mySqlDataAdapter.InsertCommand.Parameters.Add("@name", MySqlDbType.String, 20, "name");
+            mySqlDataAdapter.InsertCommand.Parameters.Add("@longitude", MySqlDbType.Double, 20, "longitude");
+            mySqlDataAdapter.InsertCommand.Parameters.Add("@latitude", MySqlDbType.Double, 20, "latitude");
+            mySqlDataAdapter.InsertCommand.Parameters.Add("@times", MySqlDbType.DateTime, 20, "times");
+            mySqlDataAdapter.InsertCommand.Parameters.Add("@sensor_id", MySqlDbType.Int32, 10, "sensor_id");
+            mySqlDataAdapter.InsertCommand.UpdatedRowSource = UpdateRowSource.None;
+            foreach (var item in list)
+            {
+                DataRow row = dt.NewRow();
+                row["name"] = item.Name;
+                row["longitude"] = item.Longitude;
+                row["latitude"] = item.Latitude;
+                row["times"] = item.Times;
+                row["sensor_id"] = item.Sensorid;
+                dt.Rows.Add(row);
+            }
+            mySqlDataAdapter.UpdateBatchSize = 10000;
+            mySqlDataAdapter.Update(dt);
+            transaction.Commit();
+            sp.Stop();
+        }
+
     }
 }
