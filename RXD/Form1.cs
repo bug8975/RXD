@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RXD.common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,16 +24,22 @@ namespace RXD
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string sql = "select s.id, f.createtime, f.name, s.monitorline_id from file f left join sensor s on f.sensor_id = s.id where f.states = 0 and s.type = 0";
-            DataTable dt = common.MySqlHelper.GetDataSet(sql, null).Tables[0];
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                int id = Convert.ToInt32(dt.Rows[i].ItemArray[0]);
-                DateTime time = (DateTime)dt.Rows[i].ItemArray[1];
-                //TODO: 生成卫星位置文件
-                int result_sky = rtklib_sky(id, time.Year, time.Month, time.Day, time.Hour);
-                Console.WriteLine("ddd" + result_sky);
-            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //TODO:1开启多线程获取数据流
+            Download.GetInstance().DownloadData();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //TODO: 1.终止线程池中的正在获取数据源的线程
+            Download.GetInstance().ctsToken.Cancel();
+            Download.GetInstance().ctsToken = new CancellationTokenSource();
+            //TODO:1开启多线程获取数据流
+            Download.GetInstance().DownloadData();
         }
     }
 }

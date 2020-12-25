@@ -40,7 +40,15 @@
             DevExpress.XtraCharts.PolarDiagram polarDiagram1 = new DevExpress.XtraCharts.PolarDiagram();
             DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.PolarPointSeriesView polarPointSeriesView1 = new DevExpress.XtraCharts.PolarPointSeriesView();
+            DevExpress.XtraCharts.PolarPointSeriesView polarPointSeriesView2 = new DevExpress.XtraCharts.PolarPointSeriesView();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasicForm));
+            DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery2 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel5 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel7 = new DevExpress.XtraEditors.SidePanel();
@@ -58,7 +66,15 @@
             this.coltime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.sidePanel6 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel11 = new DevExpress.XtraEditors.SidePanel();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
+            this.queryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.chartControl3 = new DevExpress.XtraCharts.ChartControl();
+            this.queryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.sidePanel3 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel12 = new DevExpress.XtraEditors.SidePanel();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -87,7 +103,6 @@
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.sidePanel1.SuspendLayout();
             this.sidePanel5.SuspendLayout();
             this.sidePanel7.SuspendLayout();
@@ -108,10 +123,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.sidePanel6.SuspendLayout();
             this.sidePanel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(polarDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(polarPointSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(polarPointSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource1)).BeginInit();
             this.sidePanel3.SuspendLayout();
             this.sidePanel12.SuspendLayout();
             this.sidePanel4.SuspendLayout();
@@ -160,7 +185,7 @@
             this.sidePanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidePanel9.Location = new System.Drawing.Point(0, 0);
             this.sidePanel9.Name = "sidePanel9";
-            this.sidePanel9.Size = new System.Drawing.Size(1067, 426);
+            this.sidePanel9.Size = new System.Drawing.Size(1067, 398);
             this.sidePanel9.TabIndex = 1;
             this.sidePanel9.Text = "sidePanel9";
             // 
@@ -198,7 +223,7 @@
         series2,
         series3};
             this.chartControl1.SeriesTemplate.View = lineSeriesView4;
-            this.chartControl1.Size = new System.Drawing.Size(1067, 426);
+            this.chartControl1.Size = new System.Drawing.Size(1067, 398);
             this.chartControl1.TabIndex = 0;
             // 
             // dataviewTableAdapter
@@ -219,9 +244,9 @@
             // 
             this.sidePanel8.Controls.Add(this.gridControl1);
             this.sidePanel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.sidePanel8.Location = new System.Drawing.Point(0, 426);
+            this.sidePanel8.Location = new System.Drawing.Point(0, 398);
             this.sidePanel8.Name = "sidePanel8";
-            this.sidePanel8.Size = new System.Drawing.Size(1067, 340);
+            this.sidePanel8.Size = new System.Drawing.Size(1067, 368);
             this.sidePanel8.TabIndex = 0;
             this.sidePanel8.Text = "sidePanel8";
             // 
@@ -232,7 +257,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 1);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1067, 339);
+            this.gridControl1.Size = new System.Drawing.Size(1067, 367);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -324,33 +349,140 @@
             // 
             // sidePanel11
             // 
-            this.sidePanel11.Controls.Add(this.chartControl2);
+            this.sidePanel11.Controls.Add(this.panelControl1);
+            this.sidePanel11.Controls.Add(this.panelControl2);
+            this.sidePanel11.Controls.Add(this.windowsUIButtonPanel1);
             this.sidePanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sidePanel11.Location = new System.Drawing.Point(1, 398);
+            this.sidePanel11.Location = new System.Drawing.Point(1, 194);
             this.sidePanel11.Name = "sidePanel11";
-            this.sidePanel11.Size = new System.Drawing.Size(287, 368);
+            this.sidePanel11.Size = new System.Drawing.Size(287, 572);
             this.sidePanel11.TabIndex = 2;
             this.sidePanel11.Text = "sidePanel11";
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.chartControl2);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 89);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(287, 483);
+            this.panelControl1.TabIndex = 2;
+            // 
             // chartControl2
             // 
-            this.chartControl2.DataAdapter = this.dataviewTableAdapter;
-            this.chartControl2.DataSource = this.rxdDataSet.dataview;
+            this.chartControl2.DataSource = this.queryBindingSource;
             polarDiagram1.AxisX.Label.TextDirection = DevExpress.XtraCharts.RadarAxisXLabelTextDirection.Tangent;
             polarDiagram1.RotationDirection = DevExpress.XtraCharts.RadarDiagramRotationDirection.Clockwise;
             this.chartControl2.Diagram = polarDiagram1;
             this.chartControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chartControl2.Legend.Name = "Default Legend";
             this.chartControl2.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
-            this.chartControl2.Location = new System.Drawing.Point(0, 0);
+            this.chartControl2.Location = new System.Drawing.Point(2, 2);
             this.chartControl2.Name = "chartControl2";
+            series4.ArgumentDataMember = "longitude";
             series4.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
             series4.Name = "Series 1";
+            series4.ToolTipHintDataMember = "type";
+            series4.ValueDataMembersSerializable = "latitude";
             series4.View = polarPointSeriesView1;
             this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series4};
-            this.chartControl2.Size = new System.Drawing.Size(287, 368);
+            this.chartControl2.SeriesTemplate.ArgumentDataMember = "longitude";
+            this.chartControl2.SeriesTemplate.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
+            this.chartControl2.SeriesTemplate.ToolTipHintDataMember = "type";
+            this.chartControl2.SeriesTemplate.ValueDataMembersSerializable = "latitude";
+            this.chartControl2.SeriesTemplate.View = polarPointSeriesView2;
+            this.chartControl2.Size = new System.Drawing.Size(283, 479);
             this.chartControl2.TabIndex = 0;
+            this.chartControl2.BoundDataChanged += new DevExpress.XtraCharts.BoundDataChangedEventHandler(this.chartControl2_BoundDataChanged);
+            // 
+            // queryBindingSource
+            // 
+            this.queryBindingSource.DataMember = "Query";
+            this.queryBindingSource.DataSource = this.sqlDataSource1;
+            // 
+            // sqlDataSource1
+            // 
+            this.sqlDataSource1.ConnectionName = "localhost_rxd_Connection";
+            this.sqlDataSource1.Name = "sqlDataSource1";
+            customSqlQuery1.Name = "Query";
+            customSqlQuery1.Sql = "select s1.longitude,s1.latitude,s1.type from sensorinfo s1 left join sensorinfo s" +
+    "2 on (s1.name = s2.name and s1.id < s2.id) where s2.id is null and s1.sensor_id " +
+    "= 1";
+            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            customSqlQuery1});
+            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.chartControl3);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(0, 89);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(287, 483);
+            this.panelControl2.TabIndex = 3;
+            this.panelControl2.Visible = false;
+            // 
+            // chartControl3
+            // 
+            this.chartControl3.DataSource = this.queryBindingSource1;
+            xyDiagram2.AxisX.GridLines.Visible = true;
+            xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram2.AxisY.MinorCount = 4;
+            xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
+            xyDiagram2.EnableAxisXScrolling = true;
+            xyDiagram2.Rotated = true;
+            this.chartControl3.Diagram = xyDiagram2;
+            this.chartControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartControl3.Legend.Name = "Default Legend";
+            this.chartControl3.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            this.chartControl3.Location = new System.Drawing.Point(2, 2);
+            this.chartControl3.Name = "chartControl3";
+            series5.ArgumentDataMember = "name";
+            series5.Name = "Series 1";
+            series5.ToolTipHintDataMember = "type";
+            series5.ValueDataMembersSerializable = "noise";
+            this.chartControl3.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series5};
+            this.chartControl3.SeriesTemplate.ArgumentDataMember = "name";
+            this.chartControl3.SeriesTemplate.ToolTipHintDataMember = "type";
+            this.chartControl3.SeriesTemplate.ValueDataMembersSerializable = "noise";
+            this.chartControl3.Size = new System.Drawing.Size(283, 479);
+            this.chartControl3.TabIndex = 0;
+            // 
+            // queryBindingSource1
+            // 
+            this.queryBindingSource1.DataMember = "Query";
+            this.queryBindingSource1.DataSource = this.sqlDataSource2;
+            // 
+            // sqlDataSource2
+            // 
+            this.sqlDataSource2.ConnectionName = "localhost_rxd_Connection";
+            this.sqlDataSource2.Name = "sqlDataSource2";
+            customSqlQuery2.Name = "Query";
+            customSqlQuery2.Sql = "select s1.name,s1.noise,s1.type from sensorinfo s1 left join sensorinfo s2 on (s1" +
+    ".name = s2.name and s1.id < s2.id) where s2.id is null and s1.sensor_id = 1\r\n";
+            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            customSqlQuery2});
+            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
+            // 
+            // windowsUIButtonPanel1
+            // 
+            windowsUIButtonImageOptions1.EnableTransparency = true;
+            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
+            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
+            windowsUIButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions3.Image")));
+            this.windowsUIButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("卫星图", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("信噪比", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("详细信息", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.windowsUIButtonPanel1.Location = new System.Drawing.Point(0, 0);
+            this.windowsUIButtonPanel1.Name = "windowsUIButtonPanel1";
+            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(287, 89);
+            this.windowsUIButtonPanel1.TabIndex = 1;
+            this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
+            this.windowsUIButtonPanel1.ButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel1_Click);
             // 
             // sidePanel3
             // 
@@ -358,7 +490,7 @@
             this.sidePanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.sidePanel3.Location = new System.Drawing.Point(1, 0);
             this.sidePanel3.Name = "sidePanel3";
-            this.sidePanel3.Size = new System.Drawing.Size(287, 398);
+            this.sidePanel3.Size = new System.Drawing.Size(287, 194);
             this.sidePanel3.TabIndex = 0;
             this.sidePanel3.Text = "sidePanel3";
             // 
@@ -374,13 +506,13 @@
             this.sidePanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidePanel12.Location = new System.Drawing.Point(0, 0);
             this.sidePanel12.Name = "sidePanel12";
-            this.sidePanel12.Size = new System.Drawing.Size(287, 397);
+            this.sidePanel12.Size = new System.Drawing.Size(287, 193);
             this.sidePanel12.TabIndex = 0;
             this.sidePanel12.Text = "sidePanel12";
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(117, 193);
+            this.labelControl5.Location = new System.Drawing.Point(118, 158);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(29, 18);
             this.labelControl5.TabIndex = 13;
@@ -388,7 +520,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(117, 152);
+            this.labelControl6.Location = new System.Drawing.Point(118, 117);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(29, 18);
             this.labelControl6.TabIndex = 12;
@@ -396,7 +528,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(117, 107);
+            this.labelControl7.Location = new System.Drawing.Point(118, 72);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(29, 18);
             this.labelControl7.TabIndex = 11;
@@ -404,7 +536,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(57, 193);
+            this.labelControl4.Location = new System.Drawing.Point(58, 158);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(30, 18);
             this.labelControl4.TabIndex = 10;
@@ -412,7 +544,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(57, 152);
+            this.labelControl3.Location = new System.Drawing.Point(58, 117);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(30, 18);
             this.labelControl3.TabIndex = 9;
@@ -420,7 +552,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(57, 107);
+            this.labelControl2.Location = new System.Drawing.Point(58, 72);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(30, 18);
             this.labelControl2.TabIndex = 8;
@@ -490,7 +622,7 @@
             this.barButtonItem3,
             this.barButtonItem4});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 16;
+            this.barManager1.MaxItemId = 56;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemComboBox1});
             // 
@@ -630,11 +762,6 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // timer2
-            // 
-            this.timer2.Enabled = true;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
             // BasicForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -669,10 +796,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.sidePanel6.ResumeLayout(false);
             this.sidePanel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(polarDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(polarPointSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(polarPointSeriesView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource1)).EndInit();
             this.sidePanel3.ResumeLayout(false);
             this.sidePanel12.ResumeLayout(false);
             this.sidePanel12.PerformLayout();
@@ -713,7 +850,6 @@
         private DevExpress.XtraEditors.SidePanel sidePanel2;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
         private DevExpress.XtraEditors.SidePanel sidePanel11;
-        private DevExpress.XtraCharts.ChartControl chartControl2;
         private DevExpress.XtraEditors.SidePanel sidePanel3;
         private DevExpress.XtraEditors.SidePanel sidePanel12;
         private DevExpress.XtraEditors.LabelControl labelControl5;
@@ -729,10 +865,18 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraCharts.ChartControl chartControl2;
         private rxdDataSetTableAdapters.dataviewTableAdapter dataviewTableAdapter;
         private rxdDataSet rxdDataSet;
         private System.Windows.Forms.BindingSource dataviewBindingSource;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private System.Windows.Forms.BindingSource queryBindingSource;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraCharts.ChartControl chartControl3;
+        private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel1;
+        private System.Windows.Forms.BindingSource queryBindingSource1;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
     }
 }

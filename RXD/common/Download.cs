@@ -76,18 +76,19 @@ namespace RXD.common
             }
             catch (Exception ex)
             {
-                _logger.Trace(ex.Message);
+                _logger.Trace(ex.Message + "----DownloadData方法");
             }
         }
 
-        private void RecMsg(object obj,CancellationToken token)
+        private void RecMsg(object obj, CancellationToken token)
         {
             Dictionary<int, object> dic = obj as Dictionary<int, object>;
             string time = DateTime.Now.ToString("yyyy_M_d_H-0-0");
             string fileName = @"ReceivedTofile" + dic[0] + "-TCPCLIENT-" + time + ".DAT";
+            Console.WriteLine("新增文件名为：" + fileName);
             try
             {
-                using (FileStream fs = new FileStream(fileName, FileMode.Append))
+                using (FileStream fs = new FileStream(fileName, FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
                 {
                     using (BinaryWriter bw = new BinaryWriter(fs, Encoding.Default, true))
                     {
@@ -110,7 +111,7 @@ namespace RXD.common
             }
             catch (Exception ex)
             {
-                _logger.Trace(ex.Message);
+                _logger.Trace(ex.Message + "----RecMsg方法");
             }
         }
 
@@ -123,7 +124,7 @@ namespace RXD.common
                 string sqlCheckName = "select * from file where name = ?";
                 MySqlParameter name = new MySqlParameter(@"name", MySqlDbType.VarChar) { Value = dic[0] };
                 MySqlParameter path = new MySqlParameter(@"path", MySqlDbType.VarChar) { Value = dic[1] };
-                MySqlParameter createtime = new MySqlParameter(@"createtime", MySqlDbType.DateTime) { Value = DateTime.Now.ToString("yyyy-M-d") };
+                MySqlParameter createtime = new MySqlParameter(@"createtime", MySqlDbType.DateTime) { Value = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") };
                 MySqlParameter sensor_id = new MySqlParameter(@"sensor_id", MySqlDbType.VarChar) { Value = dic[2] };
                 DataTable dt = common.MySqlHelper.GetDataSet(sqlCheckName, name).Tables[0];
                 if (dt.Rows.Count != 0)
@@ -133,7 +134,7 @@ namespace RXD.common
             }
             catch (Exception ex)
             {
-                _logger.Trace(ex.Message);
+                _logger.Trace(ex.Message + "----insertFile方法");
             }
         }
 

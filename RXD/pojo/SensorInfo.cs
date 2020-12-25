@@ -10,8 +10,10 @@ namespace RXD.pojo
     {
         private int id;
         private string name;
+        private string type;
         private double longitude;
         private double latitude;
+        private int noise;
         private DateTime times;
         private int sensorid;
 
@@ -19,11 +21,13 @@ namespace RXD.pojo
         {
         }
 
-        public SensorInfo(string name, double longitude, double latitude, DateTime times, int sensorid)
+        public SensorInfo(string name,string type, double longitude, double latitude, int noise, DateTime times, int sensorid)
         {
             this.name = name;
+            this.type = type;
             this.longitude = longitude;
             this.latitude = latitude;
+            this.Noise = noise;
             this.times = times;
             this.sensorid = sensorid;
         }
@@ -34,5 +38,7 @@ namespace RXD.pojo
         public double Latitude { get => latitude; set => latitude = value; }
         public DateTime Times { get => times; set => times = value; }
         public int Sensorid { get => sensorid; set => sensorid = value; }
+        public string Type { get => type; set => type = value; }
+        public int Noise { get => noise; set => noise = value; }
     }
 }
