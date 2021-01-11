@@ -145,7 +145,8 @@ namespace RXD
                 //参数1指定ip地址，参数2指定端口
                 var result = client.BeginConnect(ip, Convert.ToInt32(port), null, null);
                 //TimeSpan.FromSeconds(1) 表示测试连接1秒，即超时时间
-                var success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(1));
+                var success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(2));
+                client.Close();
                 if (success)
                 {
                     alertControl1.Show(this, "提示", "测试连接成功");
@@ -156,8 +157,6 @@ namespace RXD
                     alertControl1.Show(this, "提示", "测试连接失败");
                     simpleButton1.Enabled = false;
                 }
-                client.Close();
-                Console.WriteLine(success);
             }
             catch (Exception ex)
             {

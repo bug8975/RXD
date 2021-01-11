@@ -80,6 +80,11 @@ namespace RXD
             }
         }
 
+        /// <summary>
+        /// 主窗体加载事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BasicForm_Load(object sender, EventArgs e)
         {
             // TODO: 这行代码将数据加载到表“rxdDataSet.dataview”中。您可以根据需要移动或删除它。
@@ -94,6 +99,7 @@ namespace RXD
 
             load_InitData();
         }
+        
         /// <summary>
         /// 项目下拉列表的点击事件
         /// </summary>
@@ -246,6 +252,56 @@ namespace RXD
             }
         }
 
+        /// <summary>
+        /// 信噪比图--传感器点上色
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chartControl3_BoundDataChanged(object sender, EventArgs e)
+        {
+            SeriesPointCollection points = chartControl3.Series[0].Points;
+            for (int i = 0; i < points.Count; i++)
+            {
+                if (points[i].ToolTipHint.Equals("G"))
+                {
+                    points[i].Color = Color.Red;
+                    continue;
+                }
+                if (points[i].ToolTipHint.Equals("C"))
+                {
+                    points[i].Color = Color.Green;
+                    continue;
+                }
+                if (points[i].ToolTipHint.Equals("R"))
+                {
+                    points[i].Color = Color.Yellow;
+                    continue;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 卫星图和信噪比切换显示
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void windowsUIButtonPanel1_Click(object sender, ButtonEventArgs e)
+        {
+            switch (e.Button.Properties.Caption)
+            {
+                case "卫星图":
+                    panelControl1.Visible = true;
+                    panelControl2.Visible = false;
+                    break;
+                case "信噪比":
+                    panelControl1.Visible = false;
+                    panelControl2.Visible = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Interval = 3600 * 1000;
@@ -263,7 +319,7 @@ namespace RXD
         private void load_InitData()
         {
             //TODO:1开启多线程获取数据流
-            Download.GetInstance().DownloadData();
+            ThreadPool.QueueUserWorkItem(o=> { Download.GetInstance().DownloadData(); });
             //加载菜单栏项目下拉列表和点击事件
             string sql = "select * from project";
             DataTable dt = common.MySqlHelper.GetDataSet(sql, null).Tables[0];
@@ -286,45 +342,27 @@ namespace RXD
                     barSubItem1.AddItem(item);
                 }
             }
-            //timerToDo();
         }
 
-        public void dat2navFile(object obj)
+        public void dat2navFile(int sensor_id,DateTime dt)
         {
-            if (obj == null)
-                return;
-            Dictionary<int, object> dic = obj as Dictionary<int, object>;
-            int sensor_id = Convert.ToInt32(dic[0]);
-            DateTime dt = (DateTime)dic[1];
             int result = rtklib_convin(sensor_id, dt.Year, dt.Month, dt.Day, dt.Hour);
-            //auto.Set();
             Console.WriteLine(result);
         }
 
-        public void nav2posFile(object obj)
+        public void nav2posFile(DateTime dt,List<int> idList,int monitorlineid)
         {
-            if (obj == null)
-                return;
-            Dictionary<int, object> dic = obj as Dictionary<int, object>;
-            DateTime dt = (DateTime)dic[0]; //createtime
-            List<int> data = (List<int>)dic[1]; //idList
-            MySqlParameter moniterline_id = new MySqlParameter(@"moniterline_id", MySqlDbType.Int32) { Value = Convert.ToInt32(dic[2]) };
+            MySqlParameter moniterline_id = new MySqlParameter(@"moniterline_id", MySqlDbType.Int32) { Value = monitorlineid };
             string sql = "select cycles from frequency where monitorline_id = ?";
             DataTable dataTable = common.MySqlHelper.GetDataSet(sql, moniterline_id).Tables[0];
-            int result = rtklib_rnx2rtkp(dt.Year, dt.Month, dt.Day, dt.Hour, data[1], data[0], Convert.ToInt32(dataTable.Rows[0].ItemArray[0]));
-            //auto.Set();
+            int result = rtklib_rnx2rtkp(dt.Year, dt.Month, dt.Day, dt.Hour, idList[1], idList[0], Convert.ToInt32(dataTable.Rows[0].ItemArray[0]));
             Console.WriteLine(result);
         }
 
-        private void ReadPosFile(object obj)
+        private void ReadPosFile(string fileName,int sensor_id)
         {
             try
             {
-                if (obj == null)
-                    return;
-                Dictionary<int, object> dic = obj as Dictionary<int, object>;
-                string fileName = dic[0].ToString();
-                int sensor_id = Convert.ToInt32(dic[1]);
                 List<pojo.DataView> SensorList = new List<pojo.DataView>();
                 using (FileStream fs = File.OpenRead(fileName))
                 {
@@ -355,7 +393,7 @@ namespace RXD
                 //TODO: 6.删除POS文件
                 if (File.Exists(fileName))
                 {
-                    //File.Delete(fileName);
+                    File.Delete(fileName);
                     Console.WriteLine("删除{0}文件成功", fileName);
                 }
             }
@@ -365,15 +403,10 @@ namespace RXD
             }
         }
 
-        private void ReadSkyFile(object obj)
+        private void ReadSkyFile(string fileName,int sensor_id)
         {
             try
             {
-                if (obj == null)
-                    return;
-                Dictionary<int, object> dic = obj as Dictionary<int, object>;
-                string fileName = dic[0].ToString();
-                int sensor_id = Convert.ToInt32(dic[1]);
                 List<pojo.SensorInfo> SensorList = new List<pojo.SensorInfo>();
                 using (FileStream fs = File.OpenRead(fileName))
                 {
@@ -400,7 +433,7 @@ namespace RXD
                 //TODO: 6.删除SKY文件
                 if (File.Exists(fileName))
                 {
-                    //File.Delete(fileName);
+                    File.Delete(fileName);
                     Console.WriteLine("删除{0}文件成功", fileName);
                 }
             }
@@ -418,111 +451,117 @@ namespace RXD
         {
             try
             {
-                string sql = "select s.id, f.createtime, f.name, s.monitorline_id from file f left join sensor s on f.sensor_id = s.id where f.states = 0 and s.type = 0";
+                //Thread.Sleep(3000);
+                string sql = "select s.id, f.createtime, f.name, s.monitorline_id, s.isbasic from file f left join sensor s on f.sensor_id = s.id where f.states = 0 and s.type = 0";
                 DataTable dt = common.MySqlHelper.GetDataSet(sql, null).Tables[0];
-                Dictionary<int, object> nav_dic = new Dictionary<int, object>();
-                List<int> list = new List<int>();
-                for (int i = 0; i < dt.Rows.Count; i++)
+                if (dt.Rows.Count == 0)
+                    return;
+                var monitorlineid_list = dt.AsEnumerable().Select(c => c.Field<UInt32>("monitorline_id")).Distinct().ToList();
+                for (int i = 0; i < monitorlineid_list.Count; i++)
                 {
-                    Dictionary<int, object> dat_dic = new Dictionary<int, object>();
-                    int sensorid = Convert.ToInt32(dt.Rows[i].ItemArray[0]);
-                    dat_dic.Add(0, sensorid); //sensor_id
-                    dat_dic.Add(1, dt.Rows[i].ItemArray[1]); //createtime
-                    //TODO: 2.调用算法将DAT转成NAV文件
-                    dat2navFile(dat_dic);
-                    if (list.Contains(sensorid))
-                        continue;
-                    list.Add(sensorid); //sensor_id
-                }
-
-                nav_dic.Add(0, dt.Rows[0].ItemArray[1]); //createtime
-                nav_dic.Add(1, list); //idList
-                nav_dic.Add(2, dt.Rows[0].ItemArray[3]); //monitorline_id
-
-                //TODO: 3.调用算法将NAV转成POS文件
-                //ThreadPool.QueueUserWorkItem(new WaitCallback(nav2posFile), nav_dic);
-                //auto.WaitOne();
-                nav2posFile(nav_dic);
-                Console.WriteLine("生成{0}POS文件成功",dt.Rows[0].ItemArray[2].ToString());
-
-                //TODO: 4.删除NAV和OBS等中间文件 && 更新数据库中文件状态
-                ThreadPool.QueueUserWorkItem(o =>
-                {
-                    for (int i = 0; i < dt.Rows.Count; i++)
+                    int id_basic = 0;
+                    int _monitorlineid = (int)monitorlineid_list[i];
+                    for (int j = 0; j < dt.Rows.Count; j++)
                     {
-                        int id = Convert.ToInt32(dt.Rows[i].ItemArray[0]);
-                        DateTime time = (DateTime)dt.Rows[i].ItemArray[1];
-                        //TODO: 生成卫星位置文件
-                        int result_sky = rtklib_sky(id, time.Year, time.Month, time.Day, time.Hour);
-                        Console.WriteLine("生成SKY文件状态码：" + result_sky);
-                        //TODO: 读取卫星信息文件，写入数据库，并删除文件
-                        string fileName = dt.Rows[i].ItemArray[2].ToString();
-                        string filename3 = fileName + ".sky";
-                        Dictionary<int, object> sky_dic = new Dictionary<int, object>();
-                        sky_dic.Add(0, filename3);
-                        sky_dic.Add(1, Convert.ToInt32(dt.Rows[i].ItemArray[0])); //sensor_id
-                        ReadSkyFile(sky_dic);
+                        int _mid = Convert.ToInt32(dt.Rows[j].ItemArray[3]);
+                        if (_mid != _monitorlineid)
+                            continue;
 
-                        string fileName1 = fileName + ".nav";
-                        string fileName2 = fileName + ".obs";
-                        if (File.Exists(fileName1))
+                        //TODO: 将DAT转成NAV
+                        int sensor_id = Convert.ToInt32(dt.Rows[j].ItemArray[0]);
+                        DateTime createTime = (DateTime)dt.Rows[j].ItemArray[1];
+                        int result_nav = rtklib_convin(sensor_id, createTime.Year, createTime.Month, createTime.Day, createTime.Hour);
+                        if (result_nav != 0)
+                            _logger.Trace("DAT转NAV文件出错,时间：{0}, 文件名：{1}", DateTime.Now, dt.Rows[j].ItemArray[2].ToString());
+
+                        //TODO: 找到基点的id
+                        int _sid = Convert.ToInt32(dt.Rows[j].ItemArray[0]);
+                        int _isbasic = Convert.ToInt32(dt.Rows[j].ItemArray[4]);
+                        if (_isbasic == 1)
+                            id_basic = _sid;
+                    }
+                    for (int k = 0; k < dt.Rows.Count; k++)
+                    {
+                        int _mid = Convert.ToInt32(dt.Rows[k].ItemArray[3]);
+                        if (_mid != _monitorlineid)
+                            continue;
+                        int _isbasic = Convert.ToInt32(dt.Rows[k].ItemArray[4]);
+                        if (_isbasic == 1)
+                            continue;
+
+                        //TODO: 将NAV转成POS
+                        int _sid = Convert.ToInt32(dt.Rows[k].ItemArray[0]);
+                        string filename_pos = dt.Rows[k].ItemArray[2].ToString() + ".pos";
+                        DateTime fileTime = (DateTime)dt.Rows[k].ItemArray[1];
+                        MySqlParameter moniterline_id = new MySqlParameter(@"moniterline_id", MySqlDbType.Int32) { Value = _monitorlineid };
+                        string sql_frequency = "select cycles from frequency where monitorline_id = ?";
+                        DataTable dataTable = common.MySqlHelper.GetDataSet(sql_frequency, moniterline_id).Tables[0];
+                        int _frequency = 60;
+                        if(dataTable.Rows.Count == 0)
                         {
-                            //File.Delete(fileName1);
-                            Console.WriteLine("删除{0}文件成功", fileName1);
-                        }
-                        if (File.Exists(fileName2))
-                        {
-                            //File.Delete(fileName2);
-                            Console.WriteLine("删除{0}文件成功", fileName2);
-                        }
-                        string sql_updatefile = "UPDATE file SET states = 1 WHERE name = ? ";
-                        MySqlParameter mp = new MySqlParameter(@"name", MySqlDbType.VarChar)
-                        {
-                            Value = fileName
-                        };
-                        int result = common.MySqlHelper.ExecuteNonQuery(sql_updatefile, mp);
-                        if (result == 1)
-                        {
-                            Console.WriteLine("更新文件：{0}状态成功", fileName);
+                            _logger.Trace("周期表没有采集周期的相关记录,monitorlineid:{0}",_monitorlineid);
                         }
                         else
                         {
-                            Console.WriteLine("更新文件：{0}状态失败", fileName);
+                            _frequency = Convert.ToInt32(dataTable.Rows[0].ItemArray[0]);
                         }
-                    }
-                });
+                        int result_pos = rtklib_rnx2rtkp(fileTime.Year, fileTime.Month, fileTime.Day, fileTime.Hour, _sid, id_basic, _frequency);
+                        if (result_pos != 0)
+                            _logger.Trace("生成pos文件出错,时间：{0}, 文件名：{1}", DateTime.Now, dt.Rows[0].ItemArray[2].ToString());
 
-                string filename = dt.Rows[1].ItemArray[2].ToString() + ".pos";
-                Dictionary<int, object> pos_dic = new Dictionary<int, object>();
-                pos_dic.Add(0, filename);
-                pos_dic.Add(1, Convert.ToInt32(dt.Rows[1].ItemArray[0])); //sensor_id
-                //TODO: 5.读取POS文件，批量插入dataview表
-                ThreadPool.QueueUserWorkItem(new WaitCallback(ReadPosFile), pos_dic);
+                        //TODO: 读取POS文件，批量插入dataview表
+                        ReadPosFile(filename_pos, _sid);
+                    }
+                }
+
+                //TODO: 删除NAV和OBS等中间文件 && 更新数据库中文件状态
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    int id = Convert.ToInt32(dt.Rows[i].ItemArray[0]);
+                    int sensor_id = Convert.ToInt32(dt.Rows[i].ItemArray[0]);
+                    string fileName = dt.Rows[i].ItemArray[2].ToString();
+                    string fileName_nav = fileName + ".nav";
+                    string fileName_obs = fileName + ".obs";
+                    string filename_sky = fileName + ".sky";
+                    DateTime time = (DateTime)dt.Rows[i].ItemArray[1];
+
+                    //TODO: 生成卫星位置文件
+                    int result_sky = rtklib_sky(id, time.Year, time.Month, time.Day, time.Hour);
+                    if (result_sky != 0)
+                        _logger.Trace("生成sky文件出错,时间：{0}, 文件名：{1}", DateTime.Now, fileName);
+
+                    //TODO: 读取卫星信息文件，写入数据库，并删除文件
+                    ReadSkyFile(filename_sky, sensor_id);
+
+                    if (File.Exists(fileName_nav))
+                    {
+                        File.Delete(fileName_nav);
+                        Console.WriteLine("删除{0}文件成功", fileName_nav);
+                    }
+                    if (File.Exists(fileName_obs))
+                    {
+                        File.Delete(fileName_obs);
+                        Console.WriteLine("删除{0}文件成功", fileName_obs);
+                    }
+
+                    string sql_updatefile = "UPDATE file SET states = 1 WHERE name = ? ";
+                    MySqlParameter mp = new MySqlParameter(@"name", MySqlDbType.VarChar) { Value = fileName };
+                    int result_nav = common.MySqlHelper.ExecuteNonQuery(sql_updatefile, mp);
+                    if (result_nav == 1)
+                    {
+                        Console.WriteLine("更新文件：{0}状态成功", fileName);
+                    }
+                    else
+                    {
+                        Console.WriteLine("更新文件：{0}状态失败", fileName);
+                    }
+                }
             }
             catch (Exception ex)
             {
                 _logger.Trace(ex.Message + "----timerToDo方法");
             }
         }
-
-
         #endregion
-
-        private void windowsUIButtonPanel1_Click(object sender, ButtonEventArgs e)
-        {
-            switch (e.Button.Properties.Caption)
-            {
-                case "卫星图":
-                    panelControl1.Visible = true;
-                    panelControl2.Visible = false;
-                    break;
-                case "信噪比":
-                    panelControl1.Visible = false;
-                    panelControl2.Visible = true;
-                    break;
-                default:
-                    break;
-            }
-        }
     }
 }

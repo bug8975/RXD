@@ -39,39 +39,25 @@ namespace RXD.common
         {
             try
             {
-                ThreadPool.SetMinThreads(1, 1);
-                ThreadPool.SetMaxThreads(5, 5);
                 string sql = "select * from sensor";
                 DataTable dt = common.MySqlHelper.GetDataSet(sql, null).Tables[0];
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    if (dt.Rows[i].ItemArray[3].Equals("1"))
+                    if ((bool)dt.Rows[i].ItemArray[3])
                         continue;
-                    if (dt.Rows[i].ItemArray[6].Equals("1"))
+                    if ((bool)dt.Rows[i].ItemArray[6])
                         continue;
                     Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                     IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(dt.Rows[i].ItemArray[4].ToString()), Convert.ToInt32(dt.Rows[i].ItemArray[5]));
-                    socket.Connect(endPoint);
                     string id = dt.Rows[i].ItemArray[0].ToString();
-                    Dictionary<int, object> downloadInfoDic = new Dictionary<int, object>
-                    {
-                        { 0, id },
-                        { 1, socket }
-                    };
+                    Dictionary<int, object> downloadInfoDic = new Dictionary<int, object> { { 0, id }, { 1, socket } };
+                    socket.Bind(endPoint);
+                    socket.Listen(20);
                     string time = DateTime.Now.ToString("yyyy_M_d_H-0-0");
                     string fileName = @"ReceivedTofile" + id + "-TCPCLIENT-" + time;
-                    Dictionary<int, string> insertParamDic = new Dictionary<int, string>
-                    {
-                        { 0, fileName },
-                        { 1, "" },
-                        { 2, dt.Rows[i].ItemArray[0].ToString() }
-                    };
-                    //ThreadPool.QueueUserWorkItem(new WaitCallback(RecMsg), downloadInfoDic);
-                    //Thread threadRecMsg = new Thread(new ParameterizedThreadStart(RecMsg));
-                    //threadRecMsg.Start(downloadInfoDic);
+                    Dictionary<int, string> insertParamDic = new Dictionary<int, string> { { 0, fileName }, { 1, "" }, { 2, dt.Rows[i].ItemArray[0].ToString() } };
                     ThreadPool.QueueUserWorkItem(o => RecMsg(downloadInfoDic, ctsToken.Token));
                     ThreadPool.QueueUserWorkItem(new WaitCallback(insertFile), insertParamDic);
-                    //ThreadPool.QueueUserWorkItem(p => { try { RecMsg(id, socket); } catch (Exception ex) { Console.WriteLine(ex.Message); } } );
                 }
             }
             catch (Exception ex)
@@ -85,26 +71,33 @@ namespace RXD.common
             Dictionary<int, object> dic = obj as Dictionary<int, object>;
             string time = DateTime.Now.ToString("yyyy_M_d_H-0-0");
             string fileName = @"ReceivedTofile" + dic[0] + "-TCPCLIENT-" + time + ".DAT";
-            Console.WriteLine("新增文件名为：" + fileName);
+            Socket socket = (Socket)dic[1];
+            Socket s = socket.Accept();
             try
             {
                 using (FileStream fs = new FileStream(fileName, FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
                 {
                     using (BinaryWriter bw = new BinaryWriter(fs, Encoding.Default, true))
                     {
-                        while (true) //持续监听服务端发来的消息
+                        while (!token.IsCancellationRequested) //持续监听服务端发来的消息
                         {
-                            if (token.IsCancellationRequested)
+                            try
                             {
+                                byte[] arrRecMsg = new byte[1024 * 2];
+                                int length = s.Receive(arrRecMsg);
+                                byte[] tem = new byte[length];
+                                Array.Copy(arrRecMsg, 0, tem, 0, length);
+                                bw.Write(tem);
+                                bw.Flush();
+                            }
+                            catch
+                            {
+                                bw.Flush();
+                                if (s.Connected)
+                                    s.Shutdown(SocketShutdown.Both);
+                                s.Close();
                                 break;
                             }
-                            byte[] arrRecMsg = new byte[1024 * 200];
-                            Socket s = (Socket)dic[1];
-                            int length = s.Receive(arrRecMsg);
-                            byte[] tem = new byte[length];
-                            Array.Copy(arrRecMsg, 0, tem, 0, length);
-                            bw.Write(arrRecMsg);
-                            bw.Flush();
                         }
                     }
                 }

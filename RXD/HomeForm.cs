@@ -24,7 +24,8 @@ namespace RXD
         Socket socketWatch1 = null; //
         Thread threadWatch2 = null; //负责监听客户端的线程
         Socket socketWatch2 = null; //负责监听客户端的套接字
-        Thread threadInsert = null;
+        List<Socket> socConnections = new List<Socket>();
+        List<Thread> dictThread = new List<Thread>();
 
         public HomeForm()
         {
@@ -51,9 +52,9 @@ namespace RXD
             //将IP地址和端口号绑定到网络节点endpoint上
             IPEndPoint endpoint = new IPEndPoint(ipaddress, int.Parse(txtPORT.Text.Trim()));
             //监听绑定的网络节点
-            socketWatch1.Connect(endpoint);
+            socketWatch1.Bind(endpoint);
             //将套接字的监听队列长度限制为20
-            /*socketWatch.Listen(20);*/
+            socketWatch1.Listen(20);
             //创建一个监听线程
             threadWatch1 = new Thread(RecMsg1);
             //将窗体线程设置为与后台同步
@@ -69,22 +70,29 @@ namespace RXD
         private void RecMsg1()
         {
             string time = DateTime.Now.ToString("yyyy_M_d_H-0-0");
-            string filePath = @"ReceivedTofile1-TCPCLIENT-" + time + ".DAT";
+            string filePath = @"Test-" + time + ".DAT";
             try
             {
-                using (FileStream s = new FileStream(filePath, FileMode.Append))
+                using (FileStream s = new FileStream(filePath, FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
                 {
                     using (BinaryWriter bw = new BinaryWriter(s, Encoding.Default, true))
                     {
                         while (true) //持续监听服务端发来的消息
                         {
-                            //定义一个1024*200的内存缓冲区 用于临时性存储接收到的信息
-                            byte[] arrRecMsg = new byte[1024 * 200];
+                            Socket socConnection = socketWatch1.Accept();
+                            byte[] arrRecMsg = new byte[1024*2];
                             //将客户端套接字接收到的数据存入内存缓冲区, 并获取其长度
-                            int length = socketWatch1.Receive(arrRecMsg);
+                            int length = socConnection.Receive(arrRecMsg);
                             byte[] tem = new byte[length];
                             Array.Copy(arrRecMsg, 0, tem, 0, length);
-                            bw.Write(arrRecMsg);
+                            //StringBuilder builder = new StringBuilder();
+                            //for (int i = 0; i < arrRecMsg.Length; i++)
+                            //{
+                            //    builder.Append(string.Format("{0:X2} ", arrRecMsg[i]));
+                            //}
+                            //string str = builder.ToString().Trim();
+                            //bw.Write(str);
+                            bw.Write(Encoding.Default.GetString(tem));
                             bw.Flush();
                         }
                     }
@@ -96,6 +104,8 @@ namespace RXD
                 Console.WriteLine(ex.Message);
             }
         }
+
+
 
         //关闭socket连接
         private void simpleButton4_Click(object sender, EventArgs e)
@@ -125,81 +135,50 @@ namespace RXD
         [Obsolete]
         private void BindChartControl()
         {
-            string sql = "select * from sensor";
-            DataTable dataTable = MySqlHelper.GetDataSet(sql, null).Tables[0];
+            //string sql = "select * from sensor";
+            //DataTable dataTable = MySqlHelper.GetDataSet(sql, null).Tables[0];
 
             //gridControl表格数据源
             //绑定列
-            gridView1.Columns.Add(new GridColumn() { Name = "id", FieldName = "id", Caption = "No", Visible = false });
-            gridView1.Columns.Add(new GridColumn() { Name = "x", FieldName = "x", Caption = "X(m)", VisibleIndex = 0 });
-            gridView1.Columns.Add(new GridColumn() { Name = "y", FieldName = "y", Caption = "Y(m)", VisibleIndex = 1 });
-            gridView1.Columns.Add(new GridColumn() { Name = "z", FieldName = "z", Caption = "Z(m)", VisibleIndex = 2 });
-            gridView1.Columns.Add(new GridColumn() { Name = "ax", FieldName = "ax", Caption = "AX(m)", VisibleIndex = 3 });
-            gridView1.Columns.Add(new GridColumn() { Name = "ay", FieldName = "ay", Caption = "AY(m)", VisibleIndex = 4 });
-            gridView1.Columns.Add(new GridColumn() { Name = "az", FieldName = "az", Caption = "AZ(m)", VisibleIndex = 5 });
-            gridView1.Columns.Add(new GridColumn() { Name = "time", FieldName = "time", Caption = "时间", VisibleIndex = 6 });
+            //gridView1.Columns.Add(new GridColumn() { Name = "id", FieldName = "id", Caption = "No", Visible = false });
+            //gridView1.Columns.Add(new GridColumn() { Name = "x", FieldName = "x", Caption = "X(m)", VisibleIndex = 0 });
+            //gridView1.Columns.Add(new GridColumn() { Name = "y", FieldName = "y", Caption = "Y(m)", VisibleIndex = 1 });
+            //gridView1.Columns.Add(new GridColumn() { Name = "z", FieldName = "z", Caption = "Z(m)", VisibleIndex = 2 });
+            //gridView1.Columns.Add(new GridColumn() { Name = "ax", FieldName = "ax", Caption = "AX(m)", VisibleIndex = 3 });
+            //gridView1.Columns.Add(new GridColumn() { Name = "ay", FieldName = "ay", Caption = "AY(m)", VisibleIndex = 4 });
+            //gridView1.Columns.Add(new GridColumn() { Name = "az", FieldName = "az", Caption = "AZ(m)", VisibleIndex = 5 });
+            //gridView1.Columns.Add(new GridColumn() { Name = "time", FieldName = "time", Caption = "时间", VisibleIndex = 6 });
             //自动列宽,会出现横向滚动条
-            gridView1.OptionsView.ColumnAutoWidth = false;
+            //gridView1.OptionsView.ColumnAutoWidth = false;
             //自动列宽
-            gridView1.BestFitColumns();
-            gridControl1.DataSource = dataTable;
+            //gridView1.BestFitColumns();
+            //gridControl1.DataSource = dataTable;
 
             //chartControl数据源
             //DataView dv = new DataView(dataTable);
             //chartControl1.DataSource = dv;
-            chartControl1.Series.Clear();
-            for (int i = 0; i < dataTable.Columns.Count; i++)
-            {
-                if (dataTable.Columns[i].ToString().Equals("id"))
-                    continue;
-                if (dataTable.Columns[i].ToString().Equals("time"))
-                    continue;
-                if (dataTable.Columns[i].ToString().Equals("ax"))
-                    continue;
-                if (dataTable.Columns[i].ToString().Equals("ay"))
-                    continue;
-                if (dataTable.Columns[i].ToString().Equals("az"))
-                    continue;
-                Series series1 = new Series(dataTable.Columns[i].ToString(), ViewType.Spline);
-                for (int m = 0; m < dataTable.Rows.Count; m++)
-                {
-                    series1.Points.Add(new SeriesPoint(dataTable.Rows[m].ItemArray[7].ToString(), new double[] { Convert.ToDouble(dataTable.Rows[m][dataTable.Columns[i].ToString()]) }));
-                }
-                chartControl1.Series.Add(series1);
-            }
-            //for (int i = 0; i < dataTable.Columns.Count - 1; i++)
+            //chartControl1.Series.Clear();
+            //for (int i = 0; i < dataTable.Columns.Count; i++)
             //{
+            //    if (dataTable.Columns[i].ToString().Equals("id"))
+            //        continue;
+            //    if (dataTable.Columns[i].ToString().Equals("time"))
+            //        continue;
+            //    if (dataTable.Columns[i].ToString().Equals("ax"))
+            //        continue;
+            //    if (dataTable.Columns[i].ToString().Equals("ay"))
+            //        continue;
+            //    if (dataTable.Columns[i].ToString().Equals("az"))
+            //        continue;
+            //    Series series1 = new Series(dataTable.Columns[i].ToString(), ViewType.Spline);
             //    for (int m = 0; m < dataTable.Rows.Count; m++)
             //    {
-            //        if (dataTable.Columns[i].ToString().Equals("id"))
-            //            continue;
-            //        Series series1 = new Series(dataTable.Columns[i].ToString(), ViewType.Pie);
-            //        series1.Points.Add(new SeriesPoint(dataTable.Columns[i].ToString(), new double[] { Convert.ToDouble(dataTable.Rows[m][dataTable.Columns[i].ToString()]) }));
-            //        chartControl1.Series.Add(series1);
+            //        series1.Points.Add(new SeriesPoint(dataTable.Rows[m].ItemArray[7].ToString(), new double[] { Convert.ToDouble(dataTable.Rows[m][dataTable.Columns[i].ToString()]) }));
             //    }
+            //    chartControl1.Series.Add(series1);
             //}
-            chartControl1.Legend.Visible = true;
+            //chartControl1.Legend.Visible = true;
 
-            /*int num = columnNO.Length;
-            List<Series> series = new List<Series>();
-            for (int i = 0; i < num; i++)
-            {
-                Series singleSeries = new Series(dataTable.Columns[columnNO[i]].Caption, viewType);
-                series.Add(singleSeries);
-            }
-
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                if (dr[0] != null)
-                {
-                    for (int i = 0; i < columnNO.Length; i++)
-                    {
-                        SeriesPoint point = new SeriesPoint(dr[0].ToString());
-                        point.Values = new double[] { Convert.ToDouble(dr[dataTable.Columns[columnNO[i]].Caption]) };
-                        series[i].Points.Add(point);
-                }
-            }
-            chartControl.Series.AddRange(series.ToArray());*/
         }
 
         private void ReadFile()

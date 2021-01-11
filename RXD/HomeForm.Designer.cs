@@ -224,7 +224,7 @@
             // 
             // txtPORT
             // 
-            this.txtPORT.EditValue = "12016";
+            this.txtPORT.EditValue = "11088";
             this.txtPORT.Location = new System.Drawing.Point(66, 56);
             this.txtPORT.Margin = new System.Windows.Forms.Padding(5);
             this.txtPORT.Name = "txtPORT";
@@ -233,7 +233,7 @@
             // 
             // txtIP
             // 
-            this.txtIP.EditValue = "139.224.27.26";
+            this.txtIP.EditValue = "192.168.8.198";
             this.txtIP.Location = new System.Drawing.Point(66, 15);
             this.txtIP.Margin = new System.Windows.Forms.Padding(4);
             this.txtIP.Name = "txtIP";

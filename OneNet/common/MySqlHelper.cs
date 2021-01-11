@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using MySql.Data.MySqlClient;
-using RXD.pojo;
 
-namespace RXD.common
+namespace OneNet.common
 {
     public abstract class MySqlHelper
     {

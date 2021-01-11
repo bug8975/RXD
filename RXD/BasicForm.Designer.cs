@@ -279,6 +279,8 @@
             this.gridView1.OptionsCustomization.AllowColumnMoving = false;
             this.gridView1.OptionsMenu.EnableColumnMenu = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.coltime, DevExpress.Data.ColumnSortOrder.Descending)});
             this.gridView1.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView1_CustomDrawRowIndicator);
             // 
             // colx
@@ -353,9 +355,9 @@
             this.sidePanel11.Controls.Add(this.panelControl2);
             this.sidePanel11.Controls.Add(this.windowsUIButtonPanel1);
             this.sidePanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sidePanel11.Location = new System.Drawing.Point(1, 194);
+            this.sidePanel11.Location = new System.Drawing.Point(1, 204);
             this.sidePanel11.Name = "sidePanel11";
-            this.sidePanel11.Size = new System.Drawing.Size(287, 572);
+            this.sidePanel11.Size = new System.Drawing.Size(287, 562);
             this.sidePanel11.TabIndex = 2;
             this.sidePanel11.Text = "sidePanel11";
             // 
@@ -363,9 +365,9 @@
             // 
             this.panelControl1.Controls.Add(this.chartControl2);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 89);
+            this.panelControl1.Location = new System.Drawing.Point(0, 76);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(287, 483);
+            this.panelControl1.Size = new System.Drawing.Size(287, 486);
             this.panelControl1.TabIndex = 2;
             // 
             // chartControl2
@@ -392,7 +394,7 @@
             this.chartControl2.SeriesTemplate.ToolTipHintDataMember = "type";
             this.chartControl2.SeriesTemplate.ValueDataMembersSerializable = "latitude";
             this.chartControl2.SeriesTemplate.View = polarPointSeriesView2;
-            this.chartControl2.Size = new System.Drawing.Size(283, 479);
+            this.chartControl2.Size = new System.Drawing.Size(283, 482);
             this.chartControl2.TabIndex = 0;
             this.chartControl2.BoundDataChanged += new DevExpress.XtraCharts.BoundDataChangedEventHandler(this.chartControl2_BoundDataChanged);
             // 
@@ -417,9 +419,9 @@
             // 
             this.panelControl2.Controls.Add(this.chartControl3);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 89);
+            this.panelControl2.Location = new System.Drawing.Point(0, 76);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(287, 483);
+            this.panelControl2.Size = new System.Drawing.Size(287, 486);
             this.panelControl2.TabIndex = 3;
             this.panelControl2.Visible = false;
             // 
@@ -447,8 +449,9 @@
             this.chartControl3.SeriesTemplate.ArgumentDataMember = "name";
             this.chartControl3.SeriesTemplate.ToolTipHintDataMember = "type";
             this.chartControl3.SeriesTemplate.ValueDataMembersSerializable = "noise";
-            this.chartControl3.Size = new System.Drawing.Size(283, 479);
+            this.chartControl3.Size = new System.Drawing.Size(283, 482);
             this.chartControl3.TabIndex = 0;
+            this.chartControl3.BoundDataChanged += new DevExpress.XtraCharts.BoundDataChangedEventHandler(this.chartControl3_BoundDataChanged);
             // 
             // queryBindingSource1
             // 
@@ -470,16 +473,18 @@
             // 
             windowsUIButtonImageOptions1.EnableTransparency = true;
             windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
-            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
+            windowsUIButtonImageOptions1.SvgImageSize = new System.Drawing.Size(16, 16);
+            windowsUIButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions2.Image")));
             windowsUIButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions3.Image")));
             this.windowsUIButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("卫星图", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("信噪比", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("详细信息", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.windowsUIButtonPanel1.Font = new System.Drawing.Font("Tahoma", 7F);
             this.windowsUIButtonPanel1.Location = new System.Drawing.Point(0, 0);
             this.windowsUIButtonPanel1.Name = "windowsUIButtonPanel1";
-            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(287, 89);
+            this.windowsUIButtonPanel1.Size = new System.Drawing.Size(287, 76);
             this.windowsUIButtonPanel1.TabIndex = 1;
             this.windowsUIButtonPanel1.Text = "windowsUIButtonPanel1";
             this.windowsUIButtonPanel1.ButtonClick += new DevExpress.XtraBars.Docking2010.ButtonEventHandler(this.windowsUIButtonPanel1_Click);
@@ -490,7 +495,7 @@
             this.sidePanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.sidePanel3.Location = new System.Drawing.Point(1, 0);
             this.sidePanel3.Name = "sidePanel3";
-            this.sidePanel3.Size = new System.Drawing.Size(287, 194);
+            this.sidePanel3.Size = new System.Drawing.Size(287, 204);
             this.sidePanel3.TabIndex = 0;
             this.sidePanel3.Text = "sidePanel3";
             // 
@@ -506,7 +511,7 @@
             this.sidePanel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sidePanel12.Location = new System.Drawing.Point(0, 0);
             this.sidePanel12.Name = "sidePanel12";
-            this.sidePanel12.Size = new System.Drawing.Size(287, 193);
+            this.sidePanel12.Size = new System.Drawing.Size(287, 203);
             this.sidePanel12.TabIndex = 0;
             this.sidePanel12.Text = "sidePanel12";
             // 
