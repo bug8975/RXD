@@ -2080,6 +2080,8 @@ namespace RXD {
             
             private global::System.Data.DataColumn columnstates;
             
+            private global::System.Data.DataColumn columnisbasic;
+            
             private global::System.Data.DataColumn columnmonitorline_id;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2173,6 +2175,14 @@ namespace RXD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn isbasicColumn {
+                get {
+                    return this.columnisbasic;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn monitorline_idColumn {
                 get {
                     return this.columnmonitorline_id;
@@ -2216,7 +2226,7 @@ namespace RXD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sensorRow AddsensorRow(uint id, string name, string capation, bool type, string url, int port, bool states, monitorlineRow parentmonitorlineRowBysensor_ibfk_1) {
+            public sensorRow AddsensorRow(uint id, string name, string capation, bool type, string url, int port, bool states, byte isbasic, monitorlineRow parentmonitorlineRowBysensor_ibfk_1) {
                 sensorRow rowsensorRow = ((sensorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -2226,9 +2236,10 @@ namespace RXD {
                         url,
                         port,
                         states,
+                        isbasic,
                         null};
                 if ((parentmonitorlineRowBysensor_ibfk_1 != null)) {
-                    columnValuesArray[7] = parentmonitorlineRowBysensor_ibfk_1[0];
+                    columnValuesArray[8] = parentmonitorlineRowBysensor_ibfk_1[0];
                 }
                 rowsensorRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsensorRow);
@@ -2266,6 +2277,7 @@ namespace RXD {
                 this.columnurl = base.Columns["url"];
                 this.columnport = base.Columns["port"];
                 this.columnstates = base.Columns["states"];
+                this.columnisbasic = base.Columns["isbasic"];
                 this.columnmonitorline_id = base.Columns["monitorline_id"];
             }
             
@@ -2286,6 +2298,8 @@ namespace RXD {
                 base.Columns.Add(this.columnport);
                 this.columnstates = new global::System.Data.DataColumn("states", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstates);
+                this.columnisbasic = new global::System.Data.DataColumn("isbasic", typeof(byte), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnisbasic);
                 this.columnmonitorline_id = new global::System.Data.DataColumn("monitorline_id", typeof(uint), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmonitorline_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -2433,17 +2447,17 @@ namespace RXD {
             
             private global::System.Data.DataColumn columnname;
             
+            private global::System.Data.DataColumn columntype;
+            
             private global::System.Data.DataColumn columnlongitude;
             
             private global::System.Data.DataColumn columnlatitude;
             
+            private global::System.Data.DataColumn columnnoise;
+            
             private global::System.Data.DataColumn columntimes;
             
             private global::System.Data.DataColumn columnsensor_id;
-            
-            private global::System.Data.DataColumn columntype;
-            
-            private global::System.Data.DataColumn columnnoise;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2496,6 +2510,14 @@ namespace RXD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn typeColumn {
+                get {
+                    return this.columntype;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn longitudeColumn {
                 get {
                     return this.columnlongitude;
@@ -2512,6 +2534,14 @@ namespace RXD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn noiseColumn {
+                get {
+                    return this.columnnoise;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn timesColumn {
                 get {
                     return this.columntimes;
@@ -2523,22 +2553,6 @@ namespace RXD {
             public global::System.Data.DataColumn sensor_idColumn {
                 get {
                     return this.columnsensor_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn typeColumn {
-                get {
-                    return this.columntype;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn noiseColumn {
-                get {
-                    return this.columnnoise;
                 }
             }
             
@@ -2579,19 +2593,19 @@ namespace RXD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sensorinfoRow AddsensorinfoRow(uint id, string name, double longitude, double latitude, System.DateTime times, sensorRow parentsensorRowBysensorinfo_ibfk_1, string type, uint noise) {
+            public sensorinfoRow AddsensorinfoRow(uint id, string name, string type, double longitude, double latitude, int noise, System.DateTime times, sensorRow parentsensorRowBysensorinfo_ibfk_1) {
                 sensorinfoRow rowsensorinfoRow = ((sensorinfoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         name,
+                        type,
                         longitude,
                         latitude,
+                        noise,
                         times,
-                        null,
-                        type,
-                        noise};
+                        null};
                 if ((parentsensorRowBysensorinfo_ibfk_1 != null)) {
-                    columnValuesArray[5] = parentsensorRowBysensorinfo_ibfk_1[0];
+                    columnValuesArray[7] = parentsensorRowBysensorinfo_ibfk_1[0];
                 }
                 rowsensorinfoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsensorinfoRow);
@@ -2624,12 +2638,12 @@ namespace RXD {
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
                 this.columnname = base.Columns["name"];
+                this.columntype = base.Columns["type"];
                 this.columnlongitude = base.Columns["longitude"];
                 this.columnlatitude = base.Columns["latitude"];
+                this.columnnoise = base.Columns["noise"];
                 this.columntimes = base.Columns["times"];
                 this.columnsensor_id = base.Columns["sensor_id"];
-                this.columntype = base.Columns["type"];
-                this.columnnoise = base.Columns["noise"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2639,25 +2653,25 @@ namespace RXD {
                 base.Columns.Add(this.columnid);
                 this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname);
+                this.columntype = new global::System.Data.DataColumn("type", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntype);
                 this.columnlongitude = new global::System.Data.DataColumn("longitude", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlongitude);
                 this.columnlatitude = new global::System.Data.DataColumn("latitude", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnlatitude);
+                this.columnnoise = new global::System.Data.DataColumn("noise", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnoise);
                 this.columntimes = new global::System.Data.DataColumn("times", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntimes);
                 this.columnsensor_id = new global::System.Data.DataColumn("sensor_id", typeof(uint), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsensor_id);
-                this.columntype = new global::System.Data.DataColumn("type", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntype);
-                this.columnnoise = new global::System.Data.DataColumn("noise", typeof(uint), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnoise);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AllowDBNull = false;
                 this.columnid.Unique = true;
                 this.columnname.MaxLength = 255;
-                this.columnsensor_id.AllowDBNull = false;
                 this.columntype.MaxLength = 255;
+                this.columnsensor_id.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3494,6 +3508,22 @@ namespace RXD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte isbasic {
+                get {
+                    try {
+                        return ((byte)(this[this.tablesensor.isbasicColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“sensor”中列“isbasic”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablesensor.isbasicColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public uint monitorline_id {
                 get {
                     return ((uint)(this[this.tablesensor.monitorline_idColumn]));
@@ -3588,6 +3618,18 @@ namespace RXD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsisbasicNull() {
+                return this.IsNull(this.tablesensor.isbasicColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetisbasicNull() {
+                this[this.tablesensor.isbasicColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dataviewRow[] GetdataviewRows() {
                 if ((this.Table.ChildRelations["dataview_ibfk_1"] == null)) {
                     return new dataviewRow[0];
@@ -3663,6 +3705,22 @@ namespace RXD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string type {
+                get {
+                    try {
+                        return ((string)(this[this.tablesensorinfo.typeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“sensorinfo”中列“type”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablesensorinfo.typeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public double longitude {
                 get {
                     try {
@@ -3695,6 +3753,22 @@ namespace RXD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int noise {
+                get {
+                    try {
+                        return ((int)(this[this.tablesensorinfo.noiseColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“sensorinfo”中列“noise”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tablesensorinfo.noiseColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime times {
                 get {
                     try {
@@ -3717,38 +3791,6 @@ namespace RXD {
                 }
                 set {
                     this[this.tablesensorinfo.sensor_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string type {
-                get {
-                    try {
-                        return ((string)(this[this.tablesensorinfo.typeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“sensorinfo”中列“type”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tablesensorinfo.typeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public uint noise {
-                get {
-                    try {
-                        return ((uint)(this[this.tablesensorinfo.noiseColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“sensorinfo”中列“noise”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tablesensorinfo.noiseColumn] = value;
                 }
             }
             
@@ -3777,6 +3819,18 @@ namespace RXD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstypeNull() {
+                return this.IsNull(this.tablesensorinfo.typeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettypeNull() {
+                this[this.tablesensorinfo.typeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IslongitudeNull() {
                 return this.IsNull(this.tablesensorinfo.longitudeColumn);
             }
@@ -3801,30 +3855,6 @@ namespace RXD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IstimesNull() {
-                return this.IsNull(this.tablesensorinfo.timesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SettimesNull() {
-                this[this.tablesensorinfo.timesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IstypeNull() {
-                return this.IsNull(this.tablesensorinfo.typeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SettypeNull() {
-                this[this.tablesensorinfo.typeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsnoiseNull() {
                 return this.IsNull(this.tablesensorinfo.noiseColumn);
             }
@@ -3833,6 +3863,18 @@ namespace RXD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetnoiseNull() {
                 this[this.tablesensorinfo.noiseColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstimesNull() {
+                return this.IsNull(this.tablesensorinfo.timesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettimesNull() {
+                this[this.tablesensorinfo.timesColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6758,11 +6800,12 @@ namespace RXD.rxdDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("url", "url");
             tableMapping.ColumnMappings.Add("port", "port");
             tableMapping.ColumnMappings.Add("states", "states");
+            tableMapping.ColumnMappings.Add("isbasic", "isbasic");
             tableMapping.ColumnMappings.Add("monitorline_id", "monitorline_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `sensor` WHERE ((`id` = @p1) AND ((@p2 = 1 AND `name` IS NULL) OR (`name` = @p3)) AND ((@p4 = 1 AND `capation` IS NULL) OR (`capation` = @p5)) AND ((@p6 = 1 AND `type` IS NULL) OR (`type` = @p7)) AND ((@p8 = 1 AND `url` IS NULL) OR (`url` = @p9)) AND ((@p10 = 1 AND `port` IS NULL) OR (`port` = @p11)) AND ((@p12 = 1 AND `states` IS NULL) OR (`states` = @p13)) AND (`monitorline_id` = @p14))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `sensor` WHERE ((`id` = @p1) AND ((@p2 = 1 AND `name` IS NULL) OR (`name` = @p3)) AND ((@p4 = 1 AND `capation` IS NULL) OR (`capation` = @p5)) AND ((@p6 = 1 AND `type` IS NULL) OR (`type` = @p7)) AND ((@p8 = 1 AND `url` IS NULL) OR (`url` = @p9)) AND ((@p10 = 1 AND `port` IS NULL) OR (`port` = @p11)) AND ((@p12 = 1 AND `states` IS NULL) OR (`states` = @p13)) AND ((@p14 = 1 AND `isbasic` IS NULL) OR (`isbasic` = @p15)) AND (`monitorline_id` = @p16))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -6876,6 +6919,23 @@ namespace RXD.rxdDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p14";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "isbasic";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p15";
+            param.DbType = global::System.Data.DbType.Byte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
+            param.IsNullable = true;
+            param.SourceColumn = "isbasic";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p16";
             param.DbType = global::System.Data.DbType.UInt32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
             param.IsNullable = true;
@@ -6884,8 +6944,8 @@ namespace RXD.rxdDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `sensor` (`name`, `capation`, `type`, `url`, `port`, `states`, `monit" +
-                "orline_id`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `sensor` (`name`, `capation`, `type`, `url`, `port`, `states`, `isbas" +
+                "ic`, `monitorline_id`) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -6937,6 +6997,14 @@ namespace RXD.rxdDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p7";
+            param.DbType = global::System.Data.DbType.Byte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
+            param.IsNullable = true;
+            param.SourceColumn = "isbasic";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p8";
             param.DbType = global::System.Data.DbType.UInt32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
             param.IsNullable = true;
@@ -6945,7 +7013,7 @@ namespace RXD.rxdDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `sensor` SET `name` = @p1, `capation` = @p2, `type` = @p3, `url` = @p4, `port` = @p5, `states` = @p6, `monitorline_id` = @p7 WHERE ((`id` = @p8) AND ((@p9 = 1 AND `name` IS NULL) OR (`name` = @p10)) AND ((@p11 = 1 AND `capation` IS NULL) OR (`capation` = @p12)) AND ((@p13 = 1 AND `type` IS NULL) OR (`type` = @p14)) AND ((@p15 = 1 AND `url` IS NULL) OR (`url` = @p16)) AND ((@p17 = 1 AND `port` IS NULL) OR (`port` = @p18)) AND ((@p19 = 1 AND `states` IS NULL) OR (`states` = @p20)) AND (`monitorline_id` = @p21))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `sensor` SET `name` = @p1, `capation` = @p2, `type` = @p3, `url` = @p4, `port` = @p5, `states` = @p6, `isbasic` = @p7, `monitorline_id` = @p8 WHERE ((`id` = @p9) AND ((@p10 = 1 AND `name` IS NULL) OR (`name` = @p11)) AND ((@p12 = 1 AND `capation` IS NULL) OR (`capation` = @p13)) AND ((@p14 = 1 AND `type` IS NULL) OR (`type` = @p15)) AND ((@p16 = 1 AND `url` IS NULL) OR (`url` = @p17)) AND ((@p18 = 1 AND `port` IS NULL) OR (`port` = @p19)) AND ((@p20 = 1 AND `states` IS NULL) OR (`states` = @p21)) AND ((@p22 = 1 AND `isbasic` IS NULL) OR (`isbasic` = @p23)) AND (`monitorline_id` = @p24))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p1";
@@ -6997,10 +7065,10 @@ namespace RXD.rxdDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p7";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.Byte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
             param.IsNullable = true;
-            param.SourceColumn = "monitorline_id";
+            param.SourceColumn = "isbasic";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -7008,28 +7076,36 @@ namespace RXD.rxdDataSetTableAdapters {
             param.DbType = global::System.Data.DbType.UInt32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
             param.IsNullable = true;
+            param.SourceColumn = "monitorline_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Current;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p9";
+            param.DbType = global::System.Data.DbType.UInt32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.IsNullable = true;
             param.SourceColumn = "id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p9";
+            param.ParameterName = "@p10";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p10";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p11";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p12";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7038,7 +7114,7 @@ namespace RXD.rxdDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p12";
+            param.ParameterName = "@p13";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
@@ -7046,7 +7122,7 @@ namespace RXD.rxdDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p13";
+            param.ParameterName = "@p14";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7055,7 +7131,7 @@ namespace RXD.rxdDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p14";
+            param.ParameterName = "@p15";
             param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
@@ -7063,7 +7139,7 @@ namespace RXD.rxdDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p15";
+            param.ParameterName = "@p16";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7072,21 +7148,12 @@ namespace RXD.rxdDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p16";
+            param.ParameterName = "@p17";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "url";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p17";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "port";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p18";
@@ -7095,9 +7162,18 @@ namespace RXD.rxdDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "port";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p19";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "port";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p20";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
@@ -7106,7 +7182,7 @@ namespace RXD.rxdDataSetTableAdapters {
             param.SourceColumnNullMapping = true;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p20";
+            param.ParameterName = "@p21";
             param.DbType = global::System.Data.DbType.SByte;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
@@ -7114,7 +7190,24 @@ namespace RXD.rxdDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@p21";
+            param.ParameterName = "@p22";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "isbasic";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p23";
+            param.DbType = global::System.Data.DbType.Byte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UByte;
+            param.IsNullable = true;
+            param.SourceColumn = "isbasic";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@p24";
             param.DbType = global::System.Data.DbType.UInt32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
             param.IsNullable = true;
@@ -7136,8 +7229,8 @@ namespace RXD.rxdDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `id`, `name`, `capation`, `type`, `url`, `port`, `states`, `monitorline_id" +
-                "` FROM `sensor`";
+            this._commandCollection[0].CommandText = "SELECT `id`, `name`, `capation`, `type`, `url`, `port`, `states`, `isbasic`, `mon" +
+                "itorline_id` FROM `sensor`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7198,7 +7291,7 @@ namespace RXD.rxdDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(uint p1, string p3, string p5, global::System.Nullable<byte> p7, string p9, global::System.Nullable<int> p11, global::System.Nullable<byte> p13, uint p14) {
+        public virtual int Delete(uint p1, string p3, string p5, global::System.Nullable<byte> p7, string p9, global::System.Nullable<int> p11, global::System.Nullable<byte> p13, global::System.Nullable<byte> p15, uint p16) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((uint)(p1));
             if ((p3 == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -7248,7 +7341,15 @@ namespace RXD.rxdDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[13].Value = ((uint)(p14));
+            if ((p15.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((byte)(p15.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[15].Value = ((uint)(p16));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7269,7 +7370,7 @@ namespace RXD.rxdDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, global::System.Nullable<byte> p3, string p4, global::System.Nullable<int> p5, global::System.Nullable<byte> p6, uint p7) {
+        public virtual int Insert(string p1, string p2, global::System.Nullable<byte> p3, string p4, global::System.Nullable<int> p5, global::System.Nullable<byte> p6, global::System.Nullable<byte> p7, uint p8) {
             if ((p1 == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -7306,7 +7407,13 @@ namespace RXD.rxdDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((uint)(p7));
+            if ((p7.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((byte)(p7.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.InsertCommand.Parameters[7].Value = ((uint)(p8));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7327,7 +7434,24 @@ namespace RXD.rxdDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, string p2, global::System.Nullable<byte> p3, string p4, global::System.Nullable<int> p5, global::System.Nullable<byte> p6, uint p7, uint p8, string p10, string p12, global::System.Nullable<byte> p14, string p16, global::System.Nullable<int> p18, global::System.Nullable<byte> p20, uint p21) {
+        public virtual int Update(
+                    string p1, 
+                    string p2, 
+                    global::System.Nullable<byte> p3, 
+                    string p4, 
+                    global::System.Nullable<int> p5, 
+                    global::System.Nullable<byte> p6, 
+                    global::System.Nullable<byte> p7, 
+                    uint p8, 
+                    uint p9, 
+                    string p11, 
+                    string p13, 
+                    global::System.Nullable<byte> p15, 
+                    string p17, 
+                    global::System.Nullable<int> p19, 
+                    global::System.Nullable<byte> p21, 
+                    global::System.Nullable<byte> p23, 
+                    uint p24) {
             if ((p1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -7364,57 +7488,71 @@ namespace RXD.rxdDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((uint)(p7));
+            if ((p7.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((byte)(p7.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
             this.Adapter.UpdateCommand.Parameters[7].Value = ((uint)(p8));
-            if ((p10 == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((uint)(p9));
+            if ((p11 == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(p10));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(p11));
             }
-            if ((p12 == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(p12));
-            }
-            if ((p14.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((byte)(p14.Value));
+            if ((p13 == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(p13));
             }
-            if ((p16 == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(p16));
-            }
-            if ((p18.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(p18.Value));
+            if ((p15.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((byte)(p15.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((p20.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((byte)(p20.Value));
+            if ((p17 == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(p17));
             }
-            this.Adapter.UpdateCommand.Parameters[20].Value = ((uint)(p21));
+            if ((p19.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(p19.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((p21.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((byte)(p21.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((p23.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((byte)(p23.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((uint)(p24));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7555,12 +7693,12 @@ namespace RXD.rxdDataSetTableAdapters {
             tableMapping.DataSetTable = "sensorinfo";
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("name", "name");
+            tableMapping.ColumnMappings.Add("type", "type");
             tableMapping.ColumnMappings.Add("longitude", "longitude");
             tableMapping.ColumnMappings.Add("latitude", "latitude");
+            tableMapping.ColumnMappings.Add("noise", "noise");
             tableMapping.ColumnMappings.Add("times", "times");
             tableMapping.ColumnMappings.Add("sensor_id", "sensor_id");
-            tableMapping.ColumnMappings.Add("type", "type");
-            tableMapping.ColumnMappings.Add("noise", "noise");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -7653,8 +7791,8 @@ namespace RXD.rxdDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p11";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "noise";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -7723,8 +7861,8 @@ namespace RXD.rxdDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p5";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "noise";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
@@ -7783,8 +7921,8 @@ namespace RXD.rxdDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p5";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "noise";
             param.SourceVersion = global::System.Data.DataRowVersion.Current;
@@ -7892,8 +8030,8 @@ namespace RXD.rxdDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@p18";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "noise";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -7938,8 +8076,8 @@ namespace RXD.rxdDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, name, type, longitude, latitude,noise, times, sensor_id FROM sensorinf" +
-                "o";
+            this._commandCollection[0].CommandText = "SELECT `id`, `name`, `type`, `longitude`, `latitude`, `noise`, `times`, `sensor_i" +
+                "d` FROM `sensorinfo`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8000,7 +8138,7 @@ namespace RXD.rxdDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(uint p1, string p3, string p5, global::System.Nullable<double> p7, global::System.Nullable<double> p9, global::System.Nullable<uint> p11, global::System.Nullable<global::System.DateTime> p13, uint p14) {
+        public virtual int Delete(uint p1, string p3, string p5, global::System.Nullable<double> p7, global::System.Nullable<double> p9, global::System.Nullable<int> p11, global::System.Nullable<global::System.DateTime> p13, uint p14) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((uint)(p1));
             if ((p3 == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -8036,7 +8174,7 @@ namespace RXD.rxdDataSetTableAdapters {
             }
             if ((p11.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((uint)(p11.Value));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(p11.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
@@ -8071,7 +8209,7 @@ namespace RXD.rxdDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string p1, string p2, global::System.Nullable<double> p3, global::System.Nullable<double> p4, global::System.Nullable<uint> p5, global::System.Nullable<global::System.DateTime> p6, uint p7) {
+        public virtual int Insert(string p1, string p2, global::System.Nullable<double> p3, global::System.Nullable<double> p4, global::System.Nullable<int> p5, global::System.Nullable<global::System.DateTime> p6, uint p7) {
             if ((p1 == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -8097,7 +8235,7 @@ namespace RXD.rxdDataSetTableAdapters {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((p5.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((uint)(p5.Value));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(p5.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -8129,7 +8267,7 @@ namespace RXD.rxdDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string p1, string p2, global::System.Nullable<double> p3, global::System.Nullable<double> p4, global::System.Nullable<uint> p5, global::System.Nullable<global::System.DateTime> p6, uint p7, uint p8, string p10, string p12, global::System.Nullable<double> p14, global::System.Nullable<double> p16, global::System.Nullable<uint> p18, global::System.Nullable<global::System.DateTime> p20, uint p21) {
+        public virtual int Update(string p1, string p2, global::System.Nullable<double> p3, global::System.Nullable<double> p4, global::System.Nullable<int> p5, global::System.Nullable<global::System.DateTime> p6, uint p7, uint p8, string p10, string p12, global::System.Nullable<double> p14, global::System.Nullable<double> p16, global::System.Nullable<int> p18, global::System.Nullable<global::System.DateTime> p20, uint p21) {
             if ((p1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -8155,7 +8293,7 @@ namespace RXD.rxdDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             if ((p5.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((uint)(p5.Value));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(p5.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
@@ -8202,7 +8340,7 @@ namespace RXD.rxdDataSetTableAdapters {
             }
             if ((p18.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((uint)(p18.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(p18.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));

@@ -33,7 +33,7 @@ namespace RXD
             sb.Append(txtPassword.Text);
             sb.Append("; database=rxd");
             sb.Append(";persist security info=true;CharSet=utf8;");
-            UpdateConfig("localhost_rxd_Connection", sb.ToString());
+            UpdateConfig("RXD.Properties.Settings.rxdConnectionString", sb.ToString());
 
             StringBuilder sb_con = new StringBuilder(20);
             sb_con.Append("server=localhost;port=3306;user id=");

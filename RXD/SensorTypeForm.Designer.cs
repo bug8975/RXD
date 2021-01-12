@@ -53,10 +53,7 @@
             this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.sidePanel4 = new DevExpress.XtraEditors.SidePanel();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rxdDataSet = new RXD.rxdDataSet();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.projectTableAdapter = new RXD.rxdDataSetTableAdapters.projectTableAdapter();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.sidePanel1.SuspendLayout();
             this.sidePanel3.SuspendLayout();
@@ -72,8 +69,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
             this.sidePanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rxdDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel1
@@ -329,6 +324,7 @@
             this.comboBoxEdit2.Properties.Appearance.Options.UseFont = true;
             this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEdit2.Size = new System.Drawing.Size(253, 34);
             this.comboBoxEdit2.TabIndex = 5;
             // 
@@ -345,8 +341,6 @@
             // 
             // comboBoxEdit1
             // 
-            this.comboBoxEdit1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectBindingSource, "name", true));
-            this.comboBoxEdit1.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.projectBindingSource, "id", true));
             this.comboBoxEdit1.Location = new System.Drawing.Point(125, 12);
             this.comboBoxEdit1.Name = "comboBoxEdit1";
             this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13F);
@@ -355,19 +349,10 @@
             this.comboBoxEdit1.Properties.AppearanceItemDisabled.Options.UseFont = true;
             this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEdit1.Size = new System.Drawing.Size(253, 34);
             this.comboBoxEdit1.TabIndex = 3;
             this.comboBoxEdit1.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit1_SelectedIndexChanged);
-            // 
-            // projectBindingSource
-            // 
-            this.projectBindingSource.DataMember = "project";
-            this.projectBindingSource.DataSource = this.rxdDataSet;
-            // 
-            // rxdDataSet
-            // 
-            this.rxdDataSet.DataSetName = "rxdDataSet";
-            this.rxdDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // labelControl1
             // 
@@ -378,10 +363,6 @@
             this.labelControl1.Size = new System.Drawing.Size(54, 33);
             this.labelControl1.TabIndex = 4;
             this.labelControl1.Text = "工程";
-            // 
-            // projectTableAdapter
-            // 
-            this.projectTableAdapter.ClearBeforeFill = true;
             // 
             // SensorTypeForm
             // 
@@ -410,8 +391,6 @@
             this.sidePanel4.ResumeLayout(false);
             this.sidePanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rxdDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -442,9 +421,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private rxdDataSet rxdDataSet;
-        private System.Windows.Forms.BindingSource projectBindingSource;
-        private rxdDataSetTableAdapters.projectTableAdapter projectTableAdapter;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
     }

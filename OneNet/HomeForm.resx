@@ -118,36 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="monitorBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>184, 17</value>
+    <value>338, 17</value>
   </metadata>
   <metadata name="onenetDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="sensorBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>777, 17</value>
+    <value>171, 17</value>
   </metadata>
   <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1553, 17</value>
+    <value>777, 17</value>
   </metadata>
-  <data name="customSqlQuery1.Sql" xml:space="preserve">
-    <value>select bi.id,bi.sn,m.name as monitorname,s.name sensorname,m.id as monitorid,s.id as sensorid,bi.type from bindinfo bi LEFT JOIN sensor s on bi.sensorid = s.id LEFT JOIN monitor m on s.monitorid = m.id where m.projectid = 1</value>
-  </data>
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ic24iIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ibW9uaXRvcm5hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ic2Vuc29ybmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJtb25pdG9yaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ic2Vuc29yaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0idHlwZSIgVHlwZT0iSW50MzIiIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ibmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJzZW5zb3J0eXBlbmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJjb2RlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9InVuaXQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ibW9uaXRvcmlkIiBUeXBlPSJVSW50MzIiIC8+PEZpZWxkIE5hbWU9InNlbnNvcnR5cGVpZCIgVHlwZT0iVUludDMyIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
   </data>
-  <metadata name="urlBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1194, 17</value>
+  <metadata name="queryBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 59</value>
   </metadata>
-  <metadata name="monitorTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>407, 17</value>
+  <metadata name="sqlDataSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1484, 17</value>
+  </metadata>
+  <metadata name="urlBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1125, 17</value>
+  </metadata>
+  <metadata name="onenetDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>949, 17</value>
+  </metadata>
+  <metadata name="onenetDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>171, 17</value>
+  </metadata>
+  <metadata name="sqlDataSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1484, 17</value>
+  </metadata>
+  <data name="customSqlQuery4.Sql" xml:space="preserve">
+    <value>select bi.id,bi.sn,m.name as monitorname,s.name sensorname,m.id as monitorid,s.id as sensorid,bi.type,bi.L from bindinfo bi LEFT JOIN sensor s on bi.sensorid = s.id LEFT JOIN monitor m on s.monitorid = m.id where m.projectid = 1</value>
+  </data>
+  <data name="sqlDataSource2.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTIiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ic24iIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ibW9uaXRvcm5hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ic2Vuc29ybmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJtb25pdG9yaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ic2Vuc29yaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0idHlwZSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkwiIFR5cGU9IkludDMyIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+  </data>
+  <metadata name="onenetDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>949, 17</value>
   </metadata>
   <metadata name="alertControl1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>623, 17</value>
+    <value>17, 17</value>
   </metadata>
-  <metadata name="sensorTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>989, 17</value>
+  <metadata name="monitorTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>561, 17</value>
   </metadata>
   <metadata name="urlTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1377, 17</value>
+    <value>1308, 17</value>
   </metadata>
 </root>

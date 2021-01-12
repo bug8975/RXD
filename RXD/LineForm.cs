@@ -33,6 +33,8 @@ namespace RXD
                 };
                 comboBoxEdit1.Properties.Items.Add(data);
             }
+            if (comboBoxEdit1.Properties.Items.Count > 0)
+                comboBoxEdit1.SelectedItem = comboBoxEdit1.Properties.Items[0];
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)

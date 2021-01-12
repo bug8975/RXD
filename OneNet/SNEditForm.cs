@@ -19,9 +19,11 @@ namespace OneNet
         Logger _logger = LogManager.GetCurrentClassLogger();
         private int projectid;
         private string sn;
+        private int bindinfoid;
 
         public int Projectid { get => projectid; set => projectid = value; }
         public string Sn { get => sn; set => sn = value; }
+        public int Bindinfoid { get => bindinfoid; set => bindinfoid = value; }
 
         public SNEditForm()
         {
@@ -37,6 +39,7 @@ namespace OneNet
             if (Projectid == 0)
                 return;
 
+            int selectIndex = 0;
             string sql = "select * from monitor where projectid = ?";
             MySqlParameter mp = new MySqlParameter(@"projectid", MySqlDbType.Int32) { Value = Projectid };
             try
@@ -58,10 +61,12 @@ namespace OneNet
                 for (int i = 0; i < 3; i++)
                 {
                     ComboxData comboxData = new ComboxData() { Text = texts[i], Value = i.ToString() };
+                    if (dt.Rows[i].ItemArray[0].ToString().Equals(Bindinfoid))
+                        selectIndex = i;
                     comboBoxEdit3.Properties.Items.Add(comboxData);
                 }
                 if (comboBoxEdit3.Properties.Items.Count > 0)
-                    comboBoxEdit3.SelectedItem = comboBoxEdit3.Properties.Items[0];
+                    comboBoxEdit3.SelectedItem = comboBoxEdit3.Properties.Items[selectIndex];
             }
             catch (Exception ex)
             {
@@ -76,20 +81,22 @@ namespace OneNet
             ComboxData comboxData_type = comboBoxEdit3.SelectedItem as ComboxData;
             int sensorid = Convert.ToInt32(comboxData_sensor.Value);
             int type = Convert.ToInt32(comboxData_type.Value);
-            string sql = "insert into bindinfo (sn,sensorid,type) values (?,?,?)";
+            string sql = "update bindinfo set sn = ?,sensorid = ?,type = ? where id = ?";
             MySqlParameter param_sn = new MySqlParameter(@"sn", MySqlDbType.Int32) { Value = sn };
             MySqlParameter param_sensorid = new MySqlParameter(@"sensorid", MySqlDbType.Int32) { Value = sensorid };
             MySqlParameter param_type = new MySqlParameter(@"type", MySqlDbType.Int32) { Value = type };
-            int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_sn, param_sensorid, param_type);
+            MySqlParameter param_bindinfoid = new MySqlParameter(@"id", MySqlDbType.Int32) { Value = Bindinfoid };
+            int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_sn, param_sensorid, param_type, param_bindinfoid);
             if (cols == 1)
-                alertControl1.Show(this, "提示：", "新增成功");
+                alertControl1.Show(this, "提示：", "保存成功");
             else
-                alertControl1.Show(this, "提示：", "新增失败");
+                alertControl1.Show(this, "提示：", "保存失败");
             this.Close();
         }
 
         private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int selectIndex = 0;
             ComboxData comboxData = comboBoxEdit1.SelectedItem as ComboxData;
             int monitorid = Convert.ToInt32(comboxData.Value);
             MySqlParameter param_monitorid = new MySqlParameter(@"monitorid", MySqlDbType.Int32) { Value = monitorid };
@@ -101,9 +108,11 @@ namespace OneNet
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 ComboxData data = new ComboxData() { Text = dt.Rows[i].ItemArray[1].ToString(), Value = dt.Rows[i].ItemArray[0].ToString() };
+                if (dt.Rows[i].ItemArray[0].ToString().Equals(Bindinfoid))
+                    selectIndex = i;
                 comboBoxEdit2.Properties.Items.Add(data);
             }
-            comboBoxEdit2.SelectedItem = comboBoxEdit2.Properties.Items[0];
+            comboBoxEdit2.SelectedItem = comboBoxEdit2.Properties.Items[selectIndex];
         }
     }
 }

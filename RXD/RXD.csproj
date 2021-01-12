@@ -160,18 +160,6 @@
     <Compile Include="DBForm.Designer.cs">
       <DependentUpon>DBForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HomeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HomeForm.Designer.cs">
-      <DependentUpon>HomeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="LineForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +181,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>rxdDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="URLForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,12 +200,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DBForm.resx">
       <DependentUpon>DBForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HomeForm.resx">
-      <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LineForm.resx">
       <DependentUpon>LineForm.cs</DependentUpon>

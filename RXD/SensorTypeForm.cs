@@ -24,8 +24,6 @@ namespace RXD
 
         private void XtraForm1_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“rxdDataSet.project”中。您可以根据需要移动或删除它。
-            this.projectTableAdapter.Fill(this.rxdDataSet.project);
             comboBoxEdit1.Properties.Items.Clear();
             comboBoxEdit5.Properties.Items.Clear();
             comboBoxEdit8.Properties.Items.Clear();
@@ -64,6 +62,8 @@ namespace RXD
                 };
                 comboBoxEdit1.Properties.Items.Add(data);
             }
+            if(comboBoxEdit1.Properties.Items.Count > 0)
+                comboBoxEdit1.SelectedItem = comboBoxEdit1.Properties.Items[0];
         }
 
         private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
@@ -81,6 +81,8 @@ namespace RXD
                 };
                 comboBoxEdit2.Properties.Items.Add(data);
             }
+            if (comboBoxEdit2.Properties.Items.Count > 0)
+                comboBoxEdit2.SelectedItem = comboBoxEdit2.Properties.Items[0];
         }
 
         /// <summary>
