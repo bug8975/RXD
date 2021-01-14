@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using MySql.Data.MySqlClient;
+using OneNet.common;
 
 namespace OneNet
 {
@@ -36,6 +37,19 @@ namespace OneNet
             if (SensorName == null)
                 return;
             textEdit2.Text = SensorName;
+
+            comboBoxEdit1.Properties.Items.Clear();
+            string sql = "select * from sensor_type";
+            DataTable dt = common.MySqlHelper.GetDataSet(sql).Tables[0];
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string id = dt.Rows[i].ItemArray[0].ToString();
+                string sensor_name = dt.Rows[i].ItemArray[1].ToString();
+                ComboxData data = new ComboxData() { Text = sensor_name, Value = id };
+                comboBoxEdit1.Properties.Items.Add(data);
+            }
+            if (comboBoxEdit1.Properties.Items.Count > 0)
+                comboBoxEdit1.SelectedItem = comboBoxEdit1.Properties.Items[0];
         }
 
         /// <summary>
@@ -45,10 +59,12 @@ namespace OneNet
         /// <param name="e"></param>
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            string sql = "update sensor set name = ? where id = ?";
+            ComboxData data = comboBoxEdit1.SelectedItem as ComboxData;
+            string sql = "update sensor set name = ?,sensortypeid = ? where id = ?";
             MySqlParameter param_name = new MySqlParameter(@"name", MySqlDbType.VarChar) { Value = textEdit2.Text };
+            MySqlParameter param_sensortypeid = new MySqlParameter(@"sensortypeid", MySqlDbType.Int32) { Value = data.Value };
             MySqlParameter param_id = new MySqlParameter(@"projectid", MySqlDbType.Int32) { Value = Sensorid };
-            int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_name, param_id);
+            int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_name, param_sensortypeid, param_id);
             if (cols == 1)
                 alertControl1.Show(this, "提示：", "修改成功");
             else

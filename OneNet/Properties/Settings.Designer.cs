@@ -26,8 +26,8 @@ namespace OneNet.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=ZhaoZhe19810407;persistsecurityinfo=True;d" +
-            "atabase=onenet")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=Fet007007;persistsecurityinfo=True;databas" +
+            "e=onenet")]
         public string onenetConnectionString {
             get {
                 return ((string)(this["onenetConnectionString"]));

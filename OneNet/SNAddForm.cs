@@ -30,12 +30,8 @@ namespace OneNet
 
         private void SNAddForm_Load(object sender, EventArgs e)
         {
-            if (Sn == null)
-                return;
-            textEdit1.Text = Sn;
-
-            if (Projectid == 0)
-                return;
+            if (Sn != null)
+                textEdit1.Text = Sn;
 
             string sql = "select * from monitor where projectid = ?";
             MySqlParameter mp = new MySqlParameter(@"projectid", MySqlDbType.Int32) { Value = Projectid };
@@ -65,7 +61,7 @@ namespace OneNet
             }
             catch (Exception ex)
             {
-                _logger.Trace(ex.Message + "----refresh_MonitorData方法");
+                _logger.Trace(ex.Message + "----SNAddForm_Load方法");
             }
         }
 
@@ -76,11 +72,12 @@ namespace OneNet
             ComboxData comboxData_type = comboBoxEdit3.SelectedItem as ComboxData;
             int sensorid = Convert.ToInt32(comboxData_sensor.Value);
             int type = Convert.ToInt32(comboxData_type.Value);
-            string sql = "insert into bindinfo (sn,sensorid,type) values (?,?,?)";
+            string sql = "insert into bindinfo (sn,sensorid,type,L) values (?,?,?,?)";
             MySqlParameter param_sn = new MySqlParameter(@"sn", MySqlDbType.Int32) { Value = sn };
             MySqlParameter param_sensorid = new MySqlParameter(@"sensorid", MySqlDbType.Int32) { Value = sensorid };
             MySqlParameter param_type = new MySqlParameter(@"type", MySqlDbType.Int32) { Value = type };
-            int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_sn, param_sensorid, param_type);
+            MySqlParameter param_L = new MySqlParameter(@"L", MySqlDbType.Int32) { Value = Convert.ToInt32(textEdit2.Text) };
+            int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_sn, param_sensorid, param_type, param_L);
             if (cols == 1)
                 alertControl1.Show(this, "提示：", "新增成功");
             else

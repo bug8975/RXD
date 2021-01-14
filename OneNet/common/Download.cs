@@ -42,8 +42,9 @@ namespace OneNet.common
         {
             try
             {
+
                 Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 11088);
+                IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, 11108);
                 socket.Bind(endPoint);
                 socket.Listen(20);
                 ThreadPool.QueueUserWorkItem(o => RecMsg(socket, ctsToken.Token));
@@ -59,16 +60,20 @@ namespace OneNet.common
         {
             Socket socket = (Socket)obj;
             Socket s = socket.Accept();
+            byte[] arrRecMsg = new byte[1024];
             while (!token.IsCancellationRequested) //持续监听服务端发来的消息
             {
                 try
                 {
-                    byte[] arrRecMsg = new byte[1024 * 2];
+                    
                     int length = s.Receive(arrRecMsg);
+                    if (length == 0)
+                        break;
                     byte[] tem = new byte[length];
                     Array.Copy(arrRecMsg, 0, tem, 0, length);
                     string recString = Encoding.ASCII.GetString(tem);
                     Console.WriteLine(recString);
+                    _logger.Info(recString);
                     string[] recStrList = Regex.Split(recString, ",", RegexOptions.None);
                     //发送Post请求
                     SendPost(recStrList);

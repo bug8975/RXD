@@ -9,7 +9,7 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "单机版采集软件", "�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneNet", "OneNet\OneNet.csproj", "{55A11A11-5819-44FE-B055-00E072C349AB}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "崩塌计采集软件", "崩塌计采集软件\崩塌计采集软件.vdproj", "{85EED5F7-F103-4D9B-96C8-4A634B37CC72}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "崩塌计采集软件", "崩塌计采集软件\崩塌计采集软件.vdproj", "{52FC5C43-A9F6-4CB9-BD28-12D4E126ABB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +27,8 @@ Global
 		{55A11A11-5819-44FE-B055-00E072C349AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55A11A11-5819-44FE-B055-00E072C349AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55A11A11-5819-44FE-B055-00E072C349AB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{85EED5F7-F103-4D9B-96C8-4A634B37CC72}.Debug|Any CPU.ActiveCfg = Debug
-		{85EED5F7-F103-4D9B-96C8-4A634B37CC72}.Release|Any CPU.ActiveCfg = Release
+		{52FC5C43-A9F6-4CB9-BD28-12D4E126ABB5}.Debug|Any CPU.ActiveCfg = Debug
+		{52FC5C43-A9F6-4CB9-BD28-12D4E126ABB5}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

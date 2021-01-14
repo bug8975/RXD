@@ -39,15 +39,18 @@
             this.comboBoxEdit3 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(146, 204);
+            this.simpleButton1.Location = new System.Drawing.Point(146, 243);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(94, 29);
             this.simpleButton1.TabIndex = 9;
@@ -58,6 +61,9 @@
             // 
             this.textEdit1.Location = new System.Drawing.Point(115, 12);
             this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.BeepOnError = false;
+            this.textEdit1.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.textEdit1.Properties.MaskSettings.Set("mask", "d");
             this.textEdit1.Size = new System.Drawing.Size(125, 24);
             this.textEdit1.TabIndex = 10;
             // 
@@ -125,11 +131,32 @@
             this.labelControl4.TabIndex = 14;
             this.labelControl4.Text = "类型";
             // 
+            // textEdit2
+            // 
+            this.textEdit2.EditValue = "0";
+            this.textEdit2.Location = new System.Drawing.Point(115, 196);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Properties.BeepOnError = false;
+            this.textEdit2.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            this.textEdit2.Properties.MaskSettings.Set("mask", "d");
+            this.textEdit2.Size = new System.Drawing.Size(125, 24);
+            this.textEdit2.TabIndex = 28;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(58, 202);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(22, 18);
+            this.labelControl5.TabIndex = 27;
+            this.labelControl5.Text = "L值";
+            // 
             // SNAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 260);
+            this.ClientSize = new System.Drawing.Size(300, 284);
+            this.Controls.Add(this.textEdit2);
+            this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.comboBoxEdit3);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.comboBoxEdit2);
@@ -147,6 +174,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +191,7 @@
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
     }
 }

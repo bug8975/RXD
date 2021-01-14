@@ -204,7 +204,6 @@
     <EmbeddedResource Include="LineForm.resx">
       <DependentUpon>LineForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Properties\licenses.licx" />
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>

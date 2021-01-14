@@ -35,20 +35,23 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // textEdit2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(85, 81);
+            this.textEdit2.Location = new System.Drawing.Point(85, 69);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Size = new System.Drawing.Size(125, 24);
             this.textEdit2.TabIndex = 8;
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(116, 147);
+            this.simpleButton1.Location = new System.Drawing.Point(116, 169);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(94, 29);
             this.simpleButton1.TabIndex = 9;
@@ -57,7 +60,7 @@
             // 
             // textEdit1
             // 
-            this.textEdit1.Location = new System.Drawing.Point(85, 34);
+            this.textEdit1.Location = new System.Drawing.Point(85, 22);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.ReadOnly = true;
             this.textEdit1.Size = new System.Drawing.Size(125, 24);
@@ -65,25 +68,45 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(28, 84);
+            this.labelControl2.Location = new System.Drawing.Point(28, 72);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(45, 18);
             this.labelControl2.TabIndex = 7;
-            this.labelControl2.Text = "监测线";
+            this.labelControl2.Text = "监测点";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(28, 37);
+            this.labelControl1.Location = new System.Drawing.Point(28, 25);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(30, 18);
+            this.labelControl1.Size = new System.Drawing.Size(45, 18);
             this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "项目";
+            this.labelControl1.Text = "监测线";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(28, 113);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(45, 18);
+            this.labelControl3.TabIndex = 11;
+            this.labelControl3.Text = "传感器";
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Location = new System.Drawing.Point(85, 110);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboBoxEdit1.Size = new System.Drawing.Size(125, 24);
+            this.comboBoxEdit1.TabIndex = 12;
             // 
             // SensorAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(238, 210);
+            this.Controls.Add(this.comboBoxEdit1);
+            this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.textEdit2);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.textEdit1);
@@ -95,6 +118,7 @@
             this.Load += new System.EventHandler(this.SensorForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,5 +132,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
     }
 }

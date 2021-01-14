@@ -61,8 +61,6 @@ namespace OneNet
                 for (int i = 0; i < 3; i++)
                 {
                     ComboxData comboxData = new ComboxData() { Text = texts[i], Value = i.ToString() };
-                    if (dt.Rows[i].ItemArray[0].ToString().Equals(Bindinfoid))
-                        selectIndex = i;
                     comboBoxEdit3.Properties.Items.Add(comboxData);
                 }
                 if (comboBoxEdit3.Properties.Items.Count > 0)
@@ -70,7 +68,7 @@ namespace OneNet
             }
             catch (Exception ex)
             {
-                _logger.Trace(ex.Message + "----refresh_MonitorData方法");
+                _logger.Trace(ex.Message + "----SNEditForm_Load方法");
             }
         }
 
@@ -81,12 +79,13 @@ namespace OneNet
             ComboxData comboxData_type = comboBoxEdit3.SelectedItem as ComboxData;
             int sensorid = Convert.ToInt32(comboxData_sensor.Value);
             int type = Convert.ToInt32(comboxData_type.Value);
-            string sql = "update bindinfo set sn = ?,sensorid = ?,type = ? where id = ?";
+            string sql = "update bindinfo set sn = ?,sensorid = ?,type = ?,L = ? where id = ?";
             MySqlParameter param_sn = new MySqlParameter(@"sn", MySqlDbType.Int32) { Value = sn };
             MySqlParameter param_sensorid = new MySqlParameter(@"sensorid", MySqlDbType.Int32) { Value = sensorid };
             MySqlParameter param_type = new MySqlParameter(@"type", MySqlDbType.Int32) { Value = type };
+            MySqlParameter param_L = new MySqlParameter(@"L", MySqlDbType.Int32) { Value = Convert.ToInt32(textEdit2.Text) };
             MySqlParameter param_bindinfoid = new MySqlParameter(@"id", MySqlDbType.Int32) { Value = Bindinfoid };
-            int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_sn, param_sensorid, param_type, param_bindinfoid);
+            int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_sn, param_sensorid, param_type, param_L, param_bindinfoid);
             if (cols == 1)
                 alertControl1.Show(this, "提示：", "保存成功");
             else

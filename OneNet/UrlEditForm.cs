@@ -18,13 +18,11 @@ namespace OneNet
         private string projectName;
         private int urlid;
         private string ip;
-        private int port;
 
         public int Projectid { get => projectid; set => projectid = value; }
         public string ProjectName { get => projectName; set => projectName = value; }
         public int Urlid { get => urlid; set => urlid = value; }
         public string Ip { get => ip; set => ip = value; }
-        public int Port { get => port; set => port = value; }
 
         public UrlEditForm()
         {
@@ -39,18 +37,14 @@ namespace OneNet
             if (Ip == null)
                 return;
             textEdit2.Text = Ip;
-            if (Port == 0)
-                return;
-            textEdit3.Text = Port.ToString();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            string sql = "update url set ip = ?,port = ? where id = ?";
+            string sql = "update url set ip = ? where id = ?";
             MySqlParameter param_ip = new MySqlParameter(@"name", MySqlDbType.VarChar) { Value = textEdit2.Text };
-            MySqlParameter param_port = new MySqlParameter(@"name", MySqlDbType.VarChar) { Value = textEdit3.Text };
             MySqlParameter param_id = new MySqlParameter(@"projectid", MySqlDbType.Int32) { Value = Urlid };
-            int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_ip, param_port, param_id);
+            int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_ip, param_id);
             if (cols == 1)
                 alertControl1.Show(this, "提示：", "修改成功");
             else

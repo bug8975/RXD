@@ -37,11 +37,10 @@ namespace OneNet
         /// <param name="e"></param>
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            string sql = "insert into url (ip,port,projectid) values (?,?,?)";
+            string sql = "insert into url (ip,projectid) values (?,?)";
             MySqlParameter param_ip = new MySqlParameter(@"ip", MySqlDbType.VarChar) { Value = textEdit2.Text };
-            MySqlParameter param_port = new MySqlParameter(@"port", MySqlDbType.Int32) { Value = Convert.ToInt32(textEdit3.Text) };
             MySqlParameter param_projectid = new MySqlParameter(@"projectid", MySqlDbType.Int32) { Value = Projectid };
-            int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_ip, param_port, param_projectid);
+            int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_ip, param_projectid);
             if (cols == 1)
                 alertControl1.Show(this, "提示：", "新增成功");
             else
