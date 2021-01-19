@@ -40,18 +40,22 @@
             DevExpress.XtraCharts.PolarDiagram polarDiagram1 = new DevExpress.XtraCharts.PolarDiagram();
             DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.PolarPointSeriesView polarPointSeriesView1 = new DevExpress.XtraCharts.PolarPointSeriesView();
-            DevExpress.XtraCharts.PolarPointSeriesView polarPointSeriesView2 = new DevExpress.XtraCharts.PolarPointSeriesView();
+            DevExpress.XtraCharts.RadarPointSeriesView radarPointSeriesView1 = new DevExpress.XtraCharts.RadarPointSeriesView();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasicForm));
             DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasicForm));
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel5 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel7 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel9 = new DevExpress.XtraEditors.SidePanel();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this.dataviewTableAdapter = new RXD.rxdDataSetTableAdapters.dataviewTableAdapter();
+            this.dataviewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rxdDataSet = new RXD.rxdDataSet();
             this.sidePanel8 = new DevExpress.XtraEditors.SidePanel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -63,8 +67,11 @@
             this.sidePanel11 = new DevExpress.XtraEditors.SidePanel();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
+            this.queryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.chartControl3 = new DevExpress.XtraCharts.ChartControl();
+            this.queryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.sidePanel3 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel12 = new DevExpress.XtraEditors.SidePanel();
@@ -94,11 +101,6 @@
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.rxdDataSet = new RXD.rxdDataSet();
-            this.dataviewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataviewTableAdapter = new RXD.rxdDataSetTableAdapters.dataviewTableAdapter();
-            this.sensorinfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sensorinfoTableAdapter = new RXD.rxdDataSetTableAdapters.sensorinfoTableAdapter();
             this.sidePanel1.SuspendLayout();
             this.sidePanel5.SuspendLayout();
             this.sidePanel7.SuspendLayout();
@@ -112,6 +114,8 @@
             ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(lineSeriesView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataviewBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rxdDataSet)).BeginInit();
             this.sidePanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -123,21 +127,20 @@
             ((System.ComponentModel.ISupportInitialize)(polarDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(polarPointSeriesView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(polarPointSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(radarPointSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource1)).BeginInit();
             this.sidePanel3.SuspendLayout();
             this.sidePanel12.SuspendLayout();
             this.sidePanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rxdDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataviewBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sensorinfoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel1
@@ -220,6 +223,20 @@
             this.chartControl1.SeriesTemplate.View = lineSeriesView4;
             this.chartControl1.Size = new System.Drawing.Size(1067, 398);
             this.chartControl1.TabIndex = 0;
+            // 
+            // dataviewTableAdapter
+            // 
+            this.dataviewTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataviewBindingSource
+            // 
+            this.dataviewBindingSource.DataMember = "dataview";
+            this.dataviewBindingSource.DataSource = this.rxdDataSet;
+            // 
+            // rxdDataSet
+            // 
+            this.rxdDataSet.DataSetName = "rxdDataSet";
+            this.rxdDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // sidePanel8
             // 
@@ -354,7 +371,7 @@
             // chartControl2
             // 
             this.chartControl2.DataAdapter = this.dataviewTableAdapter;
-            this.chartControl2.DataSource = this.sensorinfoBindingSource;
+            this.chartControl2.DataSource = this.queryBindingSource;
             polarDiagram1.AxisX.Label.TextDirection = DevExpress.XtraCharts.RadarAxisXLabelTextDirection.Tangent;
             polarDiagram1.RotationDirection = DevExpress.XtraCharts.RadarDiagramRotationDirection.Clockwise;
             this.chartControl2.Diagram = polarDiagram1;
@@ -363,18 +380,39 @@
             this.chartControl2.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartControl2.Location = new System.Drawing.Point(2, 2);
             this.chartControl2.Name = "chartControl2";
+            series4.ArgumentDataMember = "longitude";
             series4.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
             series4.Name = "Series 1";
             series4.ToolTipHintDataMember = "type";
+            series4.ValueDataMembersSerializable = "latitude";
             series4.View = polarPointSeriesView1;
             this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series4};
+            this.chartControl2.SeriesTemplate.ArgumentDataMember = "longitude";
             this.chartControl2.SeriesTemplate.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
+            this.chartControl2.SeriesTemplate.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartControl2.SeriesTemplate.ToolTipHintDataMember = "type";
-            this.chartControl2.SeriesTemplate.View = polarPointSeriesView2;
+            this.chartControl2.SeriesTemplate.ValueDataMembersSerializable = "latitude";
+            this.chartControl2.SeriesTemplate.View = radarPointSeriesView1;
             this.chartControl2.Size = new System.Drawing.Size(283, 482);
             this.chartControl2.TabIndex = 0;
             this.chartControl2.BoundDataChanged += new DevExpress.XtraCharts.BoundDataChangedEventHandler(this.chartControl2_BoundDataChanged);
+            // 
+            // queryBindingSource
+            // 
+            this.queryBindingSource.DataMember = "Query";
+            this.queryBindingSource.DataSource = this.sqlDataSource1;
+            // 
+            // sqlDataSource1
+            // 
+            this.sqlDataSource1.ConnectionName = "localhost_rxd_DEV";
+            this.sqlDataSource1.Name = "sqlDataSource1";
+            customSqlQuery1.Name = "Query";
+            customSqlQuery1.Sql = "SELECT s1.* FROM sensorinfo s1 LEFT JOIN sensorinfo s2 ON (s1.name = s2.name AND " +
+    "s1.id < s2.id) WHERE s2.id is NULL AND s1.sensor_id = 2";
+            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            customSqlQuery1});
+            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // panelControl2
             // 
@@ -389,7 +427,7 @@
             // chartControl3
             // 
             this.chartControl3.DataAdapter = this.dataviewTableAdapter;
-            this.chartControl3.DataSource = this.sensorinfoBindingSource;
+            this.chartControl3.DataSource = this.queryBindingSource1;
             xyDiagram2.AxisX.GridLines.Visible = true;
             xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram2.AxisY.MinorCount = 4;
@@ -402,19 +440,31 @@
             this.chartControl3.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartControl3.Location = new System.Drawing.Point(2, 2);
             this.chartControl3.Name = "chartControl3";
+            series5.ArgumentDataMember = "name";
             series5.Name = "Series 1";
             series5.ToolTipHintDataMember = "type";
+            series5.ValueDataMembersSerializable = "noise";
             this.chartControl3.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series5};
+            this.chartControl3.SeriesTemplate.ArgumentDataMember = "name";
             this.chartControl3.SeriesTemplate.ToolTipHintDataMember = "type";
+            this.chartControl3.SeriesTemplate.ValueDataMembersSerializable = "noise";
             this.chartControl3.Size = new System.Drawing.Size(283, 482);
             this.chartControl3.TabIndex = 0;
             this.chartControl3.BoundDataChanged += new DevExpress.XtraCharts.BoundDataChangedEventHandler(this.chartControl3_BoundDataChanged);
             // 
+            // queryBindingSource1
+            // 
+            this.queryBindingSource1.DataMember = "Query";
+            this.queryBindingSource1.DataSource = this.sqlDataSource1;
+            // 
             // windowsUIButtonPanel1
             // 
             windowsUIButtonImageOptions1.EnableTransparency = true;
+            windowsUIButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions1.Image")));
             windowsUIButtonImageOptions1.SvgImageSize = new System.Drawing.Size(16, 16);
+            windowsUIButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions2.Image")));
+            windowsUIButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("windowsUIButtonImageOptions3.Image")));
             this.windowsUIButtonPanel1.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("卫星图", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUIButton("信噪比", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
@@ -647,6 +697,7 @@
             this.barButtonItem2.ItemAppearance.Normal.Options.UseFont = true;
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem2.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // MenuSkin
@@ -706,29 +757,6 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // rxdDataSet
-            // 
-            this.rxdDataSet.DataSetName = "rxdDataSet";
-            this.rxdDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataviewBindingSource
-            // 
-            this.dataviewBindingSource.DataMember = "dataview";
-            this.dataviewBindingSource.DataSource = this.rxdDataSet;
-            // 
-            // dataviewTableAdapter
-            // 
-            this.dataviewTableAdapter.ClearBeforeFill = true;
-            // 
-            // sensorinfoBindingSource
-            // 
-            this.sensorinfoBindingSource.DataMember = "sensorinfo";
-            this.sensorinfoBindingSource.DataSource = this.rxdDataSet;
-            // 
-            // sensorinfoTableAdapter
-            // 
-            this.sensorinfoTableAdapter.ClearBeforeFill = true;
-            // 
             // BasicForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -756,6 +784,8 @@
             ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(lineSeriesView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataviewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rxdDataSet)).EndInit();
             this.sidePanel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -766,13 +796,15 @@
             ((System.ComponentModel.ISupportInitialize)(polarDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(polarPointSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(polarPointSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(radarPointSeriesView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource1)).EndInit();
             this.sidePanel3.ResumeLayout(false);
             this.sidePanel12.ResumeLayout(false);
             this.sidePanel12.PerformLayout();
@@ -780,9 +812,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rxdDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataviewBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sensorinfoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -840,7 +869,8 @@
         private rxdDataSetTableAdapters.dataviewTableAdapter dataviewTableAdapter;
         private rxdDataSet rxdDataSet;
         private System.Windows.Forms.BindingSource dataviewBindingSource;
-        private System.Windows.Forms.BindingSource sensorinfoBindingSource;
-        private rxdDataSetTableAdapters.sensorinfoTableAdapter sensorinfoTableAdapter;
+        private System.Windows.Forms.BindingSource queryBindingSource;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
+        private System.Windows.Forms.BindingSource queryBindingSource1;
     }
 }

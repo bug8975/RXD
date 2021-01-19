@@ -131,7 +131,8 @@ namespace OneNet
             //加载侧边栏数据
             try
             {
-                ThreadPool.QueueUserWorkItem(o => { Download.GetInstance().DownloadData(); });
+                //ThreadPool.QueueUserWorkItem(o => { Download.GetInstance().DownloadData(); });
+                ThreadPool.QueueUserWorkItem(o => { new Server(); });
 
                 string sql = "select * from project";
                 DataTable dt = common.MySqlHelper.GetDataSet(sql, null).Tables[0];

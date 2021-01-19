@@ -85,6 +85,14 @@ namespace RXD.common
                             {
                                 byte[] arrRecMsg = new byte[1024 * 2];
                                 int length = s.Receive(arrRecMsg);
+                                if(length == 0)
+                                {
+                                    bw.Flush();
+                                    if (s.Connected)
+                                        s.Shutdown(SocketShutdown.Both);
+                                    s.Close();
+                                    break;
+                                }
                                 byte[] tem = new byte[length];
                                 Array.Copy(arrRecMsg, 0, tem, 0, length);
                                 bw.Write(tem);

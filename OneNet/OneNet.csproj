@@ -116,7 +116,9 @@
     <Compile Include="common\ComboxData.cs" />
     <Compile Include="common\ConnectionPool.cs" />
     <Compile Include="common\Download.cs" />
+    <Compile Include="common\HeartBeat.cs" />
     <Compile Include="common\MySqlHelper.cs" />
+    <Compile Include="common\Server.cs" />
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
