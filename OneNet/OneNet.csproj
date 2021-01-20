@@ -212,7 +212,7 @@
       <DependentUpon>SensorEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <Content Include="NLog.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="SNAddForm.resx">
       <DependentUpon>SNAddForm.cs</DependentUpon>

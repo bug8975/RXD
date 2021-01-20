@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery11 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery12 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery2 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.midPanel = new DevExpress.XtraEditors.SidePanel();
             this.monitorPanel = new DevExpress.XtraEditors.SidePanel();
@@ -407,12 +407,12 @@
             // 
             this.sqlDataSource1.ConnectionName = "localhost_onenet_DEV";
             this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery11.Name = "Query";
-            customSqlQuery11.Sql = "select s.id,s.name,st.name as sensortypename,st.code,st.unit,s.monitorid,s.sensor" +
+            customSqlQuery1.Name = "Query";
+            customSqlQuery1.Sql = "select s.id,s.name,st.name as sensortypename,st.code,st.unit,s.monitorid,s.sensor" +
     "typeid from sensor s LEFT JOIN sensor_type st on s.sensortypeid = st.id WHERE mo" +
     "nitorid = 1";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery11});
+            customSqlQuery1});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // gridView2
@@ -576,10 +576,10 @@
             // 
             this.sqlDataSource2.ConnectionName = "localhost_onenet_DEV";
             this.sqlDataSource2.Name = "sqlDataSource2";
-            customSqlQuery12.Name = "Query";
-            customSqlQuery12.Sql = resources.GetString("customSqlQuery12.Sql");
+            customSqlQuery2.Name = "Query";
+            customSqlQuery2.Sql = resources.GetString("customSqlQuery2.Sql");
             this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery12});
+            customSqlQuery2});
             this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
             // 
             // gridView4
@@ -978,7 +978,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 30000;
+            this.timer1.Interval = 300000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // HomeForm

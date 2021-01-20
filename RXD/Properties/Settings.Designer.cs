@@ -26,8 +26,8 @@ namespace RXD.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=ZhaoZhe19810407;persistsecurityinfo=True;d" +
-            "atabase=rxd")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;password=Fet007007;persistsecurityinfo=True;databas" +
+            "e=rxd")]
         public string rxdConnectionString {
             get {
                 return ((string)(this["rxdConnectionString"]));

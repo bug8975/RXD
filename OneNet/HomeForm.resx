@@ -123,9 +123,6 @@
   <metadata name="onenetDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>171, 17</value>
   </metadata>
-  <metadata name="onenetDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>171, 17</value>
-  </metadata>
   <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>777, 17</value>
   </metadata>
@@ -135,7 +132,7 @@
   <metadata name="sqlDataSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1308, 17</value>
   </metadata>
-  <data name="customSqlQuery12.Sql" xml:space="preserve">
+  <data name="customSqlQuery2.Sql" xml:space="preserve">
     <value>select bi.id,bi.sn,m.name as monitorname,s.name sensorname,m.id as monitorid,s.id as sensorid,bi.type,bi.L from bindinfo bi LEFT JOIN sensor s on bi.sensorid = s.id LEFT JOIN monitor m on s.monitorid = m.id where m.projectid = 1</value>
   </data>
   <data name="sqlDataSource2.ResultSchemaSerializable" xml:space="preserve">

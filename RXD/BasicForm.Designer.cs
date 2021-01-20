@@ -388,11 +388,9 @@
             series4.View = polarPointSeriesView1;
             this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series4};
-            this.chartControl2.SeriesTemplate.ArgumentDataMember = "longitude";
             this.chartControl2.SeriesTemplate.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
             this.chartControl2.SeriesTemplate.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartControl2.SeriesTemplate.ToolTipHintDataMember = "type";
-            this.chartControl2.SeriesTemplate.ValueDataMembersSerializable = "latitude";
             this.chartControl2.SeriesTemplate.View = radarPointSeriesView1;
             this.chartControl2.Size = new System.Drawing.Size(283, 482);
             this.chartControl2.TabIndex = 0;
@@ -409,7 +407,7 @@
             this.sqlDataSource1.Name = "sqlDataSource1";
             customSqlQuery1.Name = "Query";
             customSqlQuery1.Sql = "SELECT s1.* FROM sensorinfo s1 LEFT JOIN sensorinfo s2 ON (s1.name = s2.name AND " +
-    "s1.id < s2.id) WHERE s2.id is NULL AND s1.sensor_id = 2";
+    "s1.id < s2.id) WHERE s2.id is NULL AND s1.sensor_id = 1";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             customSqlQuery1});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
@@ -770,6 +768,7 @@
             this.IsMdiContainer = true;
             this.Name = "BasicForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BasicForm_FormClosing);
             this.Load += new System.EventHandler(this.BasicForm_Load);
             this.sidePanel1.ResumeLayout(false);
             this.sidePanel5.ResumeLayout(false);

@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RXD", "RXD\RXD.csproj", "{AC0ED4B6-DAF9-4E74-894D-B1FF20594190}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "单机版采集软件", "单机版采集软件\单机版采集软件.vdproj", "{A297046A-FD91-462E-A6A3-EAF72BD87383}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneNet", "OneNet\OneNet.csproj", "{55A11A11-5819-44FE-B055-00E072C349AB}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "崩塌计采集软件", "崩塌计采集软件\崩塌计采集软件.vdproj", "{52FC5C43-A9F6-4CB9-BD28-12D4E126ABB5}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GPS采集软件", "GPS采集软件\GPS采集软件.vdproj", "{C541DAA8-4599-4629-A626-A248D6BAADA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,14 +21,14 @@ Global
 		{AC0ED4B6-DAF9-4E74-894D-B1FF20594190}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC0ED4B6-DAF9-4E74-894D-B1FF20594190}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC0ED4B6-DAF9-4E74-894D-B1FF20594190}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A297046A-FD91-462E-A6A3-EAF72BD87383}.Debug|Any CPU.ActiveCfg = Debug
-		{A297046A-FD91-462E-A6A3-EAF72BD87383}.Release|Any CPU.ActiveCfg = Release
 		{55A11A11-5819-44FE-B055-00E072C349AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{55A11A11-5819-44FE-B055-00E072C349AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55A11A11-5819-44FE-B055-00E072C349AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55A11A11-5819-44FE-B055-00E072C349AB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52FC5C43-A9F6-4CB9-BD28-12D4E126ABB5}.Debug|Any CPU.ActiveCfg = Debug
 		{52FC5C43-A9F6-4CB9-BD28-12D4E126ABB5}.Release|Any CPU.ActiveCfg = Release
+		{C541DAA8-4599-4629-A626-A248D6BAADA3}.Debug|Any CPU.ActiveCfg = Debug
+		{C541DAA8-4599-4629-A626-A248D6BAADA3}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
