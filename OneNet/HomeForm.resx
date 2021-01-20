@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="sqlDataSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1308, 17</value>
-  </metadata>
-  <data name="customSqlQuery3.Sql" xml:space="preserve">
-    <value>select bi.id,bi.sn,m.name as monitorname,s.name sensorname,m.id as monitorid,s.id as sensorid,bi.type,bi.L from bindinfo bi LEFT JOIN sensor s on bi.sensorid = s.id LEFT JOIN monitor m on s.monitorid = m.id where m.projectid = 1</value>
-  </data>
-  <data name="sqlDataSource2.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTIiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ic24iIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ibW9uaXRvcm5hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ic2Vuc29ybmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJtb25pdG9yaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ic2Vuc29yaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0idHlwZSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkwiIFR5cGU9IkludDMyIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
-  </data>
   <metadata name="monitorBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>338, 17</value>
   </metadata>
@@ -141,6 +132,15 @@
   <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
     <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ibmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJzZW5zb3J0eXBlbmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJjb2RlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9InVuaXQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ibW9uaXRvcmlkIiBUeXBlPSJVSW50MzIiIC8+PEZpZWxkIE5hbWU9InNlbnNvcnR5cGVpZCIgVHlwZT0iVUludDMyIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
   </data>
+  <metadata name="sqlDataSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1308, 17</value>
+  </metadata>
+  <data name="customSqlQuery12.Sql" xml:space="preserve">
+    <value>select bi.id,bi.sn,m.name as monitorname,s.name sensorname,m.id as monitorid,s.id as sensorid,bi.type,bi.L from bindinfo bi LEFT JOIN sensor s on bi.sensorid = s.id LEFT JOIN monitor m on s.monitorid = m.id where m.projectid = 1</value>
+  </data>
+  <data name="sqlDataSource2.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTIiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ic24iIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ibW9uaXRvcm5hbWUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0ic2Vuc29ybmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJtb25pdG9yaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ic2Vuc29yaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0idHlwZSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkwiIFR5cGU9IkludDMyIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+  </data>
   <metadata name="urlBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>949, 17</value>
   </metadata>
@@ -152,5 +152,8 @@
   </metadata>
   <metadata name="urlTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1132, 17</value>
+  </metadata>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1480, 17</value>
   </metadata>
 </root>

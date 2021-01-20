@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery4 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery3 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery11 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery12 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.midPanel = new DevExpress.XtraEditors.SidePanel();
             this.monitorPanel = new DevExpress.XtraEditors.SidePanel();
@@ -41,6 +41,7 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcollecttime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colprojectid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.addLinkHiper = new DevExpress.XtraGrid.Columns.GridColumn();
             this.monitorAdd = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
@@ -70,6 +71,7 @@
             this.sensorDelLink = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             this.snPanel = new DevExpress.XtraEditors.SidePanel();
             this.gridControl4 = new DevExpress.XtraGrid.GridControl();
+            this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -87,6 +89,7 @@
             this.snDelLink = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             this.ipPanel = new DevExpress.XtraEditors.SidePanel();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
+            this.urlBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colip = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -108,9 +111,8 @@
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.monitorTableAdapter = new OneNet.onenetDataSetTableAdapters.monitorTableAdapter();
-            this.urlBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.urlTableAdapter = new OneNet.onenetDataSetTableAdapters.urlTableAdapter();
-            this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.midPanel.SuspendLayout();
@@ -140,6 +142,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.snDelLink)).BeginInit();
             this.ipPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urlBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ipAddLink)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ipEditLink)).BeginInit();
@@ -147,7 +150,6 @@
             this.navBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             this.titlePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.urlBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -219,6 +221,7 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colid,
             this.colname,
+            this.colcollecttime,
             this.colprojectid,
             this.addLinkHiper,
             this.editLinkHiper,
@@ -248,6 +251,19 @@
             this.colname.Visible = true;
             this.colname.VisibleIndex = 0;
             this.colname.Width = 94;
+            // 
+            // colcollecttime
+            // 
+            this.colcollecttime.AppearanceCell.Options.UseTextOptions = true;
+            this.colcollecttime.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colcollecttime.Caption = "时间";
+            this.colcollecttime.FieldName = "collecttime";
+            this.colcollecttime.MinWidth = 25;
+            this.colcollecttime.Name = "colcollecttime";
+            this.colcollecttime.OptionsColumn.AllowEdit = false;
+            this.colcollecttime.Visible = true;
+            this.colcollecttime.VisibleIndex = 1;
+            this.colcollecttime.Width = 94;
             // 
             // colprojectid
             // 
@@ -284,7 +300,7 @@
             this.editLinkHiper.MinWidth = 25;
             this.editLinkHiper.Name = "editLinkHiper";
             this.editLinkHiper.Visible = true;
-            this.editLinkHiper.VisibleIndex = 1;
+            this.editLinkHiper.VisibleIndex = 2;
             this.editLinkHiper.Width = 94;
             // 
             // monitorEdit
@@ -303,7 +319,7 @@
             this.delLinkHiper.MinWidth = 25;
             this.delLinkHiper.Name = "delLinkHiper";
             this.delLinkHiper.Visible = true;
-            this.delLinkHiper.VisibleIndex = 2;
+            this.delLinkHiper.VisibleIndex = 3;
             this.delLinkHiper.Width = 94;
             // 
             // monitorDel
@@ -391,12 +407,12 @@
             // 
             this.sqlDataSource1.ConnectionName = "localhost_onenet_DEV";
             this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery4.Name = "Query";
-            customSqlQuery4.Sql = "select s.id,s.name,st.name as sensortypename,st.code,st.unit,s.monitorid,s.sensor" +
+            customSqlQuery11.Name = "Query";
+            customSqlQuery11.Sql = "select s.id,s.name,st.name as sensortypename,st.code,st.unit,s.monitorid,s.sensor" +
     "typeid from sensor s LEFT JOIN sensor_type st on s.sensortypeid = st.id WHERE mo" +
     "nitorid = 1";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery4});
+            customSqlQuery11});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // gridView2
@@ -555,6 +571,16 @@
             this.gridControl4.TabIndex = 2;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
+            // 
+            // sqlDataSource2
+            // 
+            this.sqlDataSource2.ConnectionName = "localhost_onenet_DEV";
+            this.sqlDataSource2.Name = "sqlDataSource2";
+            customSqlQuery12.Name = "Query";
+            customSqlQuery12.Sql = resources.GetString("customSqlQuery12.Sql");
+            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            customSqlQuery12});
+            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
             // 
             // gridView4
             // 
@@ -750,6 +776,11 @@
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
             // 
+            // urlBindingSource
+            // 
+            this.urlBindingSource.DataMember = "url";
+            this.urlBindingSource.DataSource = this.onenetDataSet;
+            // 
             // gridView3
             // 
             this.gridView3.Appearance.HeaderPanel.Options.UseTextOptions = true;
@@ -940,24 +971,15 @@
             // 
             this.monitorTableAdapter.ClearBeforeFill = true;
             // 
-            // urlBindingSource
-            // 
-            this.urlBindingSource.DataMember = "url";
-            this.urlBindingSource.DataSource = this.onenetDataSet;
-            // 
             // urlTableAdapter
             // 
             this.urlTableAdapter.ClearBeforeFill = true;
             // 
-            // sqlDataSource2
+            // timer1
             // 
-            this.sqlDataSource2.ConnectionName = "localhost_onenet_DEV";
-            this.sqlDataSource2.Name = "sqlDataSource2";
-            customSqlQuery3.Name = "Query";
-            customSqlQuery3.Sql = resources.GetString("customSqlQuery3.Sql");
-            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery3});
-            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 30000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // HomeForm
             // 
@@ -968,6 +990,7 @@
             this.IsMdiContainer = true;
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HomeForm_FormClosing);
             this.Load += new System.EventHandler(this.HomeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -999,6 +1022,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.snDelLink)).EndInit();
             this.ipPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urlBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ipAddLink)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ipEditLink)).EndInit();
@@ -1006,7 +1030,6 @@
             this.navBarPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             this.titlePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.urlBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1089,9 +1112,11 @@
         private onenetDataSet onenetDataSet;
         private System.Windows.Forms.BindingSource monitorBindingSource;
         private onenetDataSetTableAdapters.monitorTableAdapter monitorTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colcollecttime;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private System.Windows.Forms.BindingSource urlBindingSource;
         private onenetDataSetTableAdapters.urlTableAdapter urlTableAdapter;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
+        private System.Windows.Forms.Timer timer1;
     }
 }

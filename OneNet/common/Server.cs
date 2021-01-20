@@ -94,12 +94,24 @@ namespace OneNet.common
         {
             if (recList == null || recList.Length == 0)
                 return;
-            string sn = recList[2];
+            string sn = recList[2];         //SN号
+            string time = recList[3];       //时间
+            string dev_state = recList[4];  //震动状态：0-无振动，1-振动，2-崩塌
+            string dev_bat = recList[11];   //电压
+            double.TryParse(dev_bat, out double dev_batDouble);
+            dev_batDouble /= 3650;
             string sql = "select m.name as monitorname,s.name sensorname,bi.type,bi.L,st.code,m.projectid from bindinfo bi LEFT JOIN sensor s on bi.sensorid = s.id LEFT JOIN monitor m on s.monitorid = m.id LEFT JOIN sensor_type st ON s.sensortypeid = st.id where sn = ?";
             MySqlParameter mp = new MySqlParameter(@"sn", MySqlDbType.VarChar) { Value = sn };
             DataTable dt = common.MySqlHelper.GetDataSet(sql, mp).Tables[0];
             int projectid = 1;
             List<SendMsg> list = new List<SendMsg>();
+            Dictionary<string, object> dic = new Dictionary<string, object>();
+            //TODO:通过数据库获取推送URL
+            string sql_url = "select ip from url where projectid = ?";
+            MySqlParameter param_projectid = new MySqlParameter(@"projectid", MySqlDbType.Int32) { Value = projectid };
+            DataTable dt_url = common.MySqlHelper.GetDataSet(sql_url, param_projectid).Tables[0];
+            if (dt_url.Rows.Count == 0)
+                return;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 string monitorline = dt.Rows[i].ItemArray[0].ToString();
@@ -109,7 +121,7 @@ namespace OneNet.common
                 string code = dt.Rows[i].ItemArray[4].ToString();
                 projectid = Convert.ToInt32(dt.Rows[i].ItemArray[5]);
                 DateTime DateStart = new DateTime(1970, 1, 1, 8, 0, 0);
-                DateTime Now = Convert.ToDateTime(recList[3]);
+                DateTime Now = Convert.ToDateTime(time);
                 string timeStr = (Now - DateStart).TotalMilliseconds.ToString();
                 double x = 0d;
                 double y = 0d;
@@ -139,15 +151,44 @@ namespace OneNet.common
                 }
                 SendMsg msg = new SendMsg(monitorline, sensorname, x, y, z, code, timeStr);
                 list.Add(msg);
+
+                //TODO:更新监测线推送数据的时间
+                ThreadPool.QueueUserWorkItem(p =>
+                {
+                    string sql_updataMonitor = "updata monitor set collecttime = ? where name = ?";
+                    MySqlParameter param_collecttime = new MySqlParameter(@"collecttime", MySqlDbType.DateTime) { Value = Now };
+                    MySqlParameter param_name = new MySqlParameter(@"name", MySqlDbType.VarChar) { Value = monitorline };
+                    int cols = common.MySqlHelper.ExecuteNonQuery(sql_updataMonitor, param_collecttime, param_name);
+                    if (cols != 1)
+                        _logger.Trace("更新monitor表中collecttime字段失败 " + Now);
+                });
+
+                //TODO:推送电池电量，震动状态信息
+                ThreadPool.QueueUserWorkItem(p =>
+                {
+                    dic.Add("monitorLineName", monitorline);
+                    dic.Add("ICCID", "");
+                    dic.Add("GPS_LNG", dev_state);
+                    dic.Add("GPS_LAT", 0);
+                    dic.Add("DEV_BAT", dev_batDouble);
+                    dic.Add("CSQ", 0);
+                    string url_info = @dt_url.Rows[0].ItemArray[0].ToString() + "/app/monitorinforeport.htm";
+                    string strJson_info = JsonConvert.SerializeObject(dic);
+                    PostTools(strJson_info, url_info);
+                });
             }
-            //TODO:通过数据库获取推送URL
-            string url = "";
-            string sql_url = "select ip from url where projectid = ?";
-            MySqlParameter param_projectid = new MySqlParameter(@"projectid", MySqlDbType.Int32) { Value = projectid };
-            DataTable dt_url = common.MySqlHelper.GetDataSet(sql_url, param_projectid).Tables[0];
-            if (dt_url.Rows.Count > 0)
-                url = @dt_url.Rows[0].ItemArray[0].ToString() + "/app/monitorData.htm";
-            string strJson = JsonConvert.SerializeObject(list);
+
+            //TODO:推送监测数据
+            ThreadPool.QueueUserWorkItem(p =>
+            {
+                string url_data = @dt_url.Rows[0].ItemArray[0].ToString() + "/app/monitorData.htm";
+                string strJson_data = JsonConvert.SerializeObject(list);
+                PostTools(strJson_data, url_data);
+            });
+        }
+
+        private void PostTools(string strJson,string url)
+        {
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
             request.ContentType = "application/json";
             request.Method = "POST";
@@ -159,8 +200,6 @@ namespace OneNet.common
                 reqStream.Write(data, 0, data.Length);
             }
         }
-
-
 
     }
 
