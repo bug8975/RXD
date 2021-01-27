@@ -167,9 +167,10 @@ namespace OneNet.common
                     });
 
                     Dictionary<string, object> dic = new Dictionary<string, object>();
+                    double.TryParse(dev_state, out double lng);
                     dic.Add("monitorLineName", monitorline);
                     dic.Add("ICCID", "");
-                    dic.Add("GPS_LNG", double.TryParse(dev_state, out double lng));
+                    dic.Add("GPS_LNG", lng);
                     dic.Add("GPS_LAT", 0d);
                     dic.Add("DEV_BAT", Convert.ToInt32(dev_batDouble));
                     dic.Add("CSQ", 0);
