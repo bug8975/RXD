@@ -167,20 +167,19 @@ namespace OneNet.common
                     });
 
                     Dictionary<string, object> dic = new Dictionary<string, object>();
-                    double.TryParse(dev_state, out double lng);
-                    dic.Add("monitorLineName", monitorline);
-                    dic.Add("ICCID", "");
-                    dic.Add("GPS_LNG", lng);
-                    dic.Add("GPS_LAT", 0d);
-                    dic.Add("DEV_BAT", Convert.ToInt32(dev_batDouble));
-                    dic.Add("CSQ", 0);
+                    double.TryParse(dev_state, out double states_double);
+                    int states = Convert.ToInt32(states_double);
+                    dic.Add("sensorName", sensorname);
+                    dic.Add("states",states);
+                    dic.Add("modifyTime", timeStr);
+                    dic.Add("dev_bat", dev_batDouble);
                     list_info.Add(dic);
                 }
 
                 //TODO:推送电池电量，震动状态信息
                 ThreadPool.QueueUserWorkItem(p =>
                 {
-                    string url_info = @dt_url.Rows[0].ItemArray[0].ToString() + "/app/monitorinforeport.htm";
+                    string url_info = @dt_url.Rows[0].ItemArray[0].ToString() + "/app/deviceShakeState.htm";
                     string strJson_info = JsonConvert.SerializeObject(list_info);
                     PostTools(strJson_info, url_info);
                 });

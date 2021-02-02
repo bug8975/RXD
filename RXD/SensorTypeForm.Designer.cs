@@ -32,7 +32,17 @@
             this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel3 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel7 = new DevExpress.XtraEditors.SidePanel();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.sidePanel6 = new DevExpress.XtraEditors.SidePanel();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.sidePanel5 = new DevExpress.XtraEditors.SidePanel();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.sidePanel4 = new DevExpress.XtraEditors.SidePanel();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.sidePanel2 = new DevExpress.XtraEditors.SidePanel();
             this.comboBoxEdit8 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEdit5 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
@@ -45,30 +55,24 @@
             this.comboBoxEdit4 = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxEdit7 = new DevExpress.XtraEditors.TextEdit();
             this.comboBoxEdit6 = new DevExpress.XtraEditors.TextEdit();
-            this.sidePanel6 = new DevExpress.XtraEditors.SidePanel();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.sidePanel5 = new DevExpress.XtraEditors.SidePanel();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.sidePanel4 = new DevExpress.XtraEditors.SidePanel();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.comboBoxEdit9 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.sidePanel1.SuspendLayout();
             this.sidePanel3.SuspendLayout();
             this.sidePanel7.SuspendLayout();
+            this.sidePanel6.SuspendLayout();
+            this.sidePanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
+            this.sidePanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            this.sidePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit8.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit5.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit7.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit6.Properties)).BeginInit();
-            this.sidePanel6.SuspendLayout();
-            this.sidePanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
-            this.sidePanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit9.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // sidePanel1
@@ -83,6 +87,7 @@
             // 
             // sidePanel3
             // 
+            this.sidePanel3.Controls.Add(this.sidePanel2);
             this.sidePanel3.Controls.Add(this.sidePanel7);
             this.sidePanel3.Controls.Add(this.sidePanel6);
             this.sidePanel3.Controls.Add(this.sidePanel5);
@@ -96,166 +101,14 @@
             // 
             // sidePanel7
             // 
-            this.sidePanel7.Controls.Add(this.simpleButton3);
-            this.sidePanel7.Controls.Add(this.comboBoxEdit8);
-            this.sidePanel7.Controls.Add(this.comboBoxEdit5);
-            this.sidePanel7.Controls.Add(this.labelControl8);
-            this.sidePanel7.Controls.Add(this.labelControl7);
-            this.sidePanel7.Controls.Add(this.labelControl6);
-            this.sidePanel7.Controls.Add(this.labelControl5);
-            this.sidePanel7.Controls.Add(this.labelControl4);
-            this.sidePanel7.Controls.Add(this.labelControl3);
-            this.sidePanel7.Controls.Add(this.comboBoxEdit3);
-            this.sidePanel7.Controls.Add(this.comboBoxEdit4);
-            this.sidePanel7.Controls.Add(this.comboBoxEdit7);
-            this.sidePanel7.Controls.Add(this.comboBoxEdit6);
-            this.sidePanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidePanel7.Controls.Add(this.labelControl9);
+            this.sidePanel7.Controls.Add(this.comboBoxEdit9);
+            this.sidePanel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.sidePanel7.Location = new System.Drawing.Point(0, 132);
             this.sidePanel7.Name = "sidePanel7";
-            this.sidePanel7.Size = new System.Drawing.Size(647, 300);
+            this.sidePanel7.Size = new System.Drawing.Size(647, 70);
             this.sidePanel7.TabIndex = 3;
             this.sidePanel7.Text = "sidePanel7";
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
-            this.simpleButton3.Appearance.Options.UseBackColor = true;
-            this.simpleButton3.Location = new System.Drawing.Point(42, 248);
-            this.simpleButton3.Margin = new System.Windows.Forms.Padding(6);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(80, 39);
-            this.simpleButton3.TabIndex = 25;
-            this.simpleButton3.Text = "测试连接";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
-            // 
-            // comboBoxEdit8
-            // 
-            this.comboBoxEdit8.Location = new System.Drawing.Point(461, 183);
-            this.comboBoxEdit8.Name = "comboBoxEdit8";
-            this.comboBoxEdit8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.comboBoxEdit8.Properties.Appearance.Options.UseFont = true;
-            this.comboBoxEdit8.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit8.Properties.ItemAutoHeight = true;
-            this.comboBoxEdit8.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit8.Size = new System.Drawing.Size(125, 36);
-            this.comboBoxEdit8.TabIndex = 23;
-            // 
-            // comboBoxEdit5
-            // 
-            this.comboBoxEdit5.Location = new System.Drawing.Point(163, 183);
-            this.comboBoxEdit5.Name = "comboBoxEdit5";
-            this.comboBoxEdit5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.comboBoxEdit5.Properties.Appearance.Options.UseFont = true;
-            this.comboBoxEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit5.Properties.ItemAutoHeight = true;
-            this.comboBoxEdit5.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit5.Size = new System.Drawing.Size(125, 36);
-            this.comboBoxEdit5.TabIndex = 20;
-            this.comboBoxEdit5.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit5_SelectedIndexChanged);
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(340, 186);
-            this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(50, 30);
-            this.labelControl8.TabIndex = 17;
-            this.labelControl8.Text = "状态";
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(340, 113);
-            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(50, 30);
-            this.labelControl7.TabIndex = 16;
-            this.labelControl7.Text = "端口";
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(340, 40);
-            this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(44, 30);
-            this.labelControl6.TabIndex = 15;
-            this.labelControl6.Text = "URL";
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(42, 186);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(50, 30);
-            this.labelControl5.TabIndex = 14;
-            this.labelControl5.Text = "类型";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(42, 113);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(50, 30);
-            this.labelControl4.TabIndex = 13;
-            this.labelControl4.Text = "名称";
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Location = new System.Drawing.Point(42, 40);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(50, 30);
-            this.labelControl3.TabIndex = 12;
-            this.labelControl3.Text = "型号";
-            // 
-            // comboBoxEdit3
-            // 
-            this.comboBoxEdit3.Location = new System.Drawing.Point(163, 37);
-            this.comboBoxEdit3.Name = "comboBoxEdit3";
-            this.comboBoxEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.comboBoxEdit3.Properties.Appearance.Options.UseFont = true;
-            this.comboBoxEdit3.Size = new System.Drawing.Size(125, 36);
-            this.comboBoxEdit3.TabIndex = 18;
-            // 
-            // comboBoxEdit4
-            // 
-            this.comboBoxEdit4.Location = new System.Drawing.Point(163, 110);
-            this.comboBoxEdit4.Name = "comboBoxEdit4";
-            this.comboBoxEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.comboBoxEdit4.Properties.Appearance.Options.UseFont = true;
-            this.comboBoxEdit4.Size = new System.Drawing.Size(125, 36);
-            this.comboBoxEdit4.TabIndex = 19;
-            // 
-            // comboBoxEdit7
-            // 
-            this.comboBoxEdit7.Location = new System.Drawing.Point(461, 110);
-            this.comboBoxEdit7.Name = "comboBoxEdit7";
-            this.comboBoxEdit7.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.comboBoxEdit7.Properties.Appearance.Options.UseFont = true;
-            this.comboBoxEdit7.Size = new System.Drawing.Size(125, 36);
-            this.comboBoxEdit7.TabIndex = 22;
-            // 
-            // comboBoxEdit6
-            // 
-            this.comboBoxEdit6.Location = new System.Drawing.Point(461, 37);
-            this.comboBoxEdit6.Name = "comboBoxEdit6";
-            this.comboBoxEdit6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.comboBoxEdit6.Properties.Appearance.Options.UseFont = true;
-            this.comboBoxEdit6.Size = new System.Drawing.Size(125, 36);
-            this.comboBoxEdit6.TabIndex = 21;
             // 
             // sidePanel6
             // 
@@ -364,6 +217,177 @@
             this.labelControl1.TabIndex = 4;
             this.labelControl1.Text = "工程";
             // 
+            // sidePanel2
+            // 
+            this.sidePanel2.Controls.Add(this.comboBoxEdit8);
+            this.sidePanel2.Controls.Add(this.comboBoxEdit5);
+            this.sidePanel2.Controls.Add(this.labelControl8);
+            this.sidePanel2.Controls.Add(this.labelControl7);
+            this.sidePanel2.Controls.Add(this.labelControl6);
+            this.sidePanel2.Controls.Add(this.labelControl5);
+            this.sidePanel2.Controls.Add(this.labelControl4);
+            this.sidePanel2.Controls.Add(this.labelControl3);
+            this.sidePanel2.Controls.Add(this.comboBoxEdit3);
+            this.sidePanel2.Controls.Add(this.comboBoxEdit4);
+            this.sidePanel2.Controls.Add(this.comboBoxEdit7);
+            this.sidePanel2.Controls.Add(this.comboBoxEdit6);
+            this.sidePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidePanel2.Location = new System.Drawing.Point(0, 202);
+            this.sidePanel2.Name = "sidePanel2";
+            this.sidePanel2.Size = new System.Drawing.Size(647, 230);
+            this.sidePanel2.TabIndex = 4;
+            this.sidePanel2.Text = "sidePanel2";
+            // 
+            // comboBoxEdit8
+            // 
+            this.comboBoxEdit8.Location = new System.Drawing.Point(470, 170);
+            this.comboBoxEdit8.Name = "comboBoxEdit8";
+            this.comboBoxEdit8.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.comboBoxEdit8.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit8.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit8.Properties.ItemAutoHeight = true;
+            this.comboBoxEdit8.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboBoxEdit8.Size = new System.Drawing.Size(125, 36);
+            this.comboBoxEdit8.TabIndex = 35;
+            // 
+            // comboBoxEdit5
+            // 
+            this.comboBoxEdit5.Location = new System.Drawing.Point(172, 170);
+            this.comboBoxEdit5.Name = "comboBoxEdit5";
+            this.comboBoxEdit5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.comboBoxEdit5.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit5.Properties.ItemAutoHeight = true;
+            this.comboBoxEdit5.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboBoxEdit5.Size = new System.Drawing.Size(125, 36);
+            this.comboBoxEdit5.TabIndex = 32;
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Location = new System.Drawing.Point(349, 173);
+            this.labelControl8.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(50, 30);
+            this.labelControl8.TabIndex = 29;
+            this.labelControl8.Text = "状态";
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.labelControl7.Appearance.Options.UseFont = true;
+            this.labelControl7.Location = new System.Drawing.Point(349, 100);
+            this.labelControl7.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(50, 30);
+            this.labelControl7.TabIndex = 28;
+            this.labelControl7.Text = "端口";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.labelControl6.Appearance.Options.UseFont = true;
+            this.labelControl6.Location = new System.Drawing.Point(349, 27);
+            this.labelControl6.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(44, 30);
+            this.labelControl6.TabIndex = 27;
+            this.labelControl6.Text = "URL";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.labelControl5.Appearance.Options.UseFont = true;
+            this.labelControl5.Location = new System.Drawing.Point(51, 173);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(50, 30);
+            this.labelControl5.TabIndex = 26;
+            this.labelControl5.Text = "类型";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.labelControl4.Appearance.Options.UseFont = true;
+            this.labelControl4.Location = new System.Drawing.Point(51, 100);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(50, 30);
+            this.labelControl4.TabIndex = 25;
+            this.labelControl4.Text = "名称";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Location = new System.Drawing.Point(51, 27);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 40, 3, 3);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(50, 30);
+            this.labelControl3.TabIndex = 24;
+            this.labelControl3.Text = "型号";
+            // 
+            // comboBoxEdit3
+            // 
+            this.comboBoxEdit3.Location = new System.Drawing.Point(172, 24);
+            this.comboBoxEdit3.Name = "comboBoxEdit3";
+            this.comboBoxEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.comboBoxEdit3.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit3.Size = new System.Drawing.Size(125, 36);
+            this.comboBoxEdit3.TabIndex = 30;
+            // 
+            // comboBoxEdit4
+            // 
+            this.comboBoxEdit4.Location = new System.Drawing.Point(172, 97);
+            this.comboBoxEdit4.Name = "comboBoxEdit4";
+            this.comboBoxEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.comboBoxEdit4.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit4.Size = new System.Drawing.Size(125, 36);
+            this.comboBoxEdit4.TabIndex = 31;
+            // 
+            // comboBoxEdit7
+            // 
+            this.comboBoxEdit7.Location = new System.Drawing.Point(470, 97);
+            this.comboBoxEdit7.Name = "comboBoxEdit7";
+            this.comboBoxEdit7.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.comboBoxEdit7.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit7.Size = new System.Drawing.Size(125, 36);
+            this.comboBoxEdit7.TabIndex = 34;
+            // 
+            // comboBoxEdit6
+            // 
+            this.comboBoxEdit6.Location = new System.Drawing.Point(470, 24);
+            this.comboBoxEdit6.Name = "comboBoxEdit6";
+            this.comboBoxEdit6.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.comboBoxEdit6.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit6.Size = new System.Drawing.Size(125, 36);
+            this.comboBoxEdit6.TabIndex = 33;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Location = new System.Drawing.Point(42, 23);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(54, 33);
+            this.labelControl9.TabIndex = 8;
+            this.labelControl9.Text = "测线";
+            // 
+            // comboBoxEdit9
+            // 
+            this.comboBoxEdit9.Location = new System.Drawing.Point(125, 20);
+            this.comboBoxEdit9.Name = "comboBoxEdit9";
+            this.comboBoxEdit9.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13F);
+            this.comboBoxEdit9.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit9.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit9.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboBoxEdit9.Size = new System.Drawing.Size(253, 34);
+            this.comboBoxEdit9.TabIndex = 7;
+            // 
             // SensorTypeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -378,12 +402,6 @@
             this.sidePanel3.ResumeLayout(false);
             this.sidePanel7.ResumeLayout(false);
             this.sidePanel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit8.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit6.Properties)).EndInit();
             this.sidePanel6.ResumeLayout(false);
             this.sidePanel5.ResumeLayout(false);
             this.sidePanel5.PerformLayout();
@@ -391,6 +409,15 @@
             this.sidePanel4.ResumeLayout(false);
             this.sidePanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            this.sidePanel2.ResumeLayout(false);
+            this.sidePanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit8.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit9.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -400,6 +427,17 @@
         private DevExpress.XtraEditors.SidePanel sidePanel1;
         private DevExpress.XtraEditors.SidePanel sidePanel3;
         private DevExpress.XtraEditors.SidePanel sidePanel7;
+        private DevExpress.XtraEditors.SidePanel sidePanel6;
+        private DevExpress.XtraEditors.SidePanel sidePanel5;
+        private DevExpress.XtraEditors.SidePanel sidePanel4;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
+        private DevExpress.XtraEditors.SidePanel sidePanel2;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit8;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit5;
         private DevExpress.XtraEditors.LabelControl labelControl8;
@@ -412,16 +450,7 @@
         private DevExpress.XtraEditors.TextEdit comboBoxEdit4;
         private DevExpress.XtraEditors.TextEdit comboBoxEdit7;
         private DevExpress.XtraEditors.TextEdit comboBoxEdit6;
-        private DevExpress.XtraEditors.SidePanel sidePanel6;
-        private DevExpress.XtraEditors.SidePanel sidePanel5;
-        private DevExpress.XtraEditors.SidePanel sidePanel4;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit9;
     }
 }

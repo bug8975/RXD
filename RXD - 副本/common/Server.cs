@@ -10,7 +10,7 @@ using System.Data;
 using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
-using RXD.pojo;
+using OneNet.pojo;
 
 namespace RXD.common
 {
@@ -43,13 +43,16 @@ namespace RXD.common
             DataTable dt = common.MySqlHelper.GetDataSet(sql, null).Tables[0];
             for (int i = 0; i < dt.Rows.Count; i++)
             {
+                bool type = (bool)dt.Rows[i].ItemArray[3];
+                bool states = (bool)dt.Rows[i].ItemArray[6];
+                int port = Convert.ToInt32(dt.Rows[i].ItemArray[5]);
                 string id = dt.Rows[i].ItemArray[0].ToString();
-                int port = Convert.ToInt32(dt.Rows[i].ItemArray[2]);
-                bool states = (bool)dt.Rows[i].ItemArray[3];
 
                 string time = DateTime.Now.ToString("yyyy_M_d_H-0-0");
                 string fileName = @"ReceivedTofile" + id + "-TCPCLIENT-" + time;
 
+                if (type)
+                    continue;
                 if (states)
                     continue;
 
@@ -126,39 +129,74 @@ namespace RXD.common
             listener.Stop();
         }
 
-        public void SendPost(List<SendMsg> list,string urlstr)
+        private void SendPost(string[] recList)
         {
-            if (list == null || list.Count == 0)
-            {
-                _logger.Trace("url:{"+urlstr+"},推送数据为空");
+            if (recList == null || recList.Length == 0)
                 return;
-            }
-            urlstr = urlstr.Trim();
-            if (urlstr == "" || urlstr.Length == 0)
+            string sn = recList[2];
+            string sql = "select m.name as monitorname,s.name sensorname,bi.type,bi.L,st.code,m.projectid from bindinfo bi LEFT JOIN sensor s on bi.sensorid = s.id LEFT JOIN monitor m on s.monitorid = m.id LEFT JOIN sensor_type st ON s.sensortypeid = st.id where sn = ?";
+            MySqlParameter mp = new MySqlParameter(@"sn", MySqlDbType.VarChar) { Value = sn };
+            DataTable dt = common.MySqlHelper.GetDataSet(sql, mp).Tables[0];
+            int projectid = 1;
+            List<SendMsg> list = new List<SendMsg>();
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                _logger.Trace("推送地址为空");
-                return;
+                string monitorline = dt.Rows[i].ItemArray[0].ToString();
+                string sensorname = dt.Rows[i].ItemArray[1].ToString();
+                int type = Convert.ToInt32(dt.Rows[i].ItemArray[2]);
+                int L = Convert.ToInt32(dt.Rows[i].ItemArray[3]);
+                string code = dt.Rows[i].ItemArray[4].ToString();
+                projectid = Convert.ToInt32(dt.Rows[i].ItemArray[5]);
+                DateTime DateStart = new DateTime(1970, 1, 1, 8, 0, 0);
+                DateTime Now = Convert.ToDateTime(recList[3]);
+                string timeStr = (Now - DateStart).TotalMilliseconds.ToString();
+                double x = 0d;
+                double y = 0d;
+                double z = 0d;
+                switch (type)
+                {
+                    case 0:
+                        double.TryParse(recList[5], out x);
+                        double.TryParse(recList[6], out y);
+                        double.TryParse(recList[7], out z);
+                        break;
+                    case 1:
+                        double.TryParse(recList[8], out x);
+                        double.TryParse(recList[9], out y);
+                        double.TryParse(recList[10], out z);
+                        break;
+                    case 2:
+                        double.TryParse(recList[8], out x);
+                        double.TryParse(recList[9], out y);
+                        double.TryParse(recList[10], out z);
+                        x = L * Math.Sin(Math.PI / 180 * x);
+                        y = L * Math.Sin(Math.PI / 180 * y);
+                        z = L * Math.Sin(Math.PI / 180 * z);
+                        break;
+                    default:
+                        break;
+                }
+                SendMsg msg = new SendMsg(monitorline, sensorname, x, y, z, code, timeStr);
+                list.Add(msg);
             }
-            //string pattern = @"^http://((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?):(8080)?(8888)?$";
-            //if(!Regex.IsMatch(urlstr, pattern))
-            //{
-            //    _logger.Trace("IP地址格式不正确：" + urlstr);
-            //    return;
-            //}
             //TODO:通过数据库获取推送URL
-            string url = urlstr + "/app/monitorData.htm";
+            string url = "";
+            string sql_url = "select ip from url where projectid = ?";
+            MySqlParameter param_projectid = new MySqlParameter(@"projectid", MySqlDbType.Int32) { Value = projectid };
+            DataTable dt_url = common.MySqlHelper.GetDataSet(sql_url, param_projectid).Tables[0];
+            if (dt_url.Rows.Count > 0)
+                url = @dt_url.Rows[0].ItemArray[0].ToString() + "/app/monitorData.htm";
             string strJson = JsonConvert.SerializeObject(list);
-            Console.WriteLine(strJson);
-            //HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
-            //request.ContentType = "application/json";
-            //request.Method = "POST";
-            ////request.Timeout = 1000;
-            //byte[] data = Encoding.UTF8.GetBytes(strJson);
-            //request.ContentLength = data.Length;
-            //using (Stream reqStream = request.GetRequestStream())
-            //{
-            //    reqStream.Write(data, 0, data.Length);
-            //}
+            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
+            request.ContentType = "application/json";
+            request.Method = "POST";
+            //request.Timeout = 1000;
+            byte[] data = Encoding.UTF8.GetBytes(strJson);
+            request.ContentLength = data.Length;
+            using (Stream reqStream = request.GetRequestStream())
+            {
+                reqStream.Write(data, 0, data.Length);
+            }
         }
 
 

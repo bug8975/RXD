@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RXD.pojo
+namespace OneNet.pojo
 {
     class SendMsg
     {
@@ -16,10 +16,6 @@ namespace RXD.pojo
         public string sensorType;
         public string collectingTime;
 
-        public SendMsg()
-        {
-        }
-
         public SendMsg(string monitorLineName, string sensorName, double deviceData, double sinkingData, double sinkingAccumulation, string sensorType, string collectingTime)
         {
             this.monitorLineName = monitorLineName;
@@ -30,6 +26,5 @@ namespace RXD.pojo
             this.sensorType = sensorType;
             this.collectingTime = collectingTime;
         }
-
     }
 }

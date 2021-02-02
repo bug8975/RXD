@@ -27,7 +27,6 @@ namespace RXD
             if (test_DBConnect())
             {
                 Application.Run(new BasicForm());
-                //Application.Run(new XtraForm2());
             }
             else
             {
