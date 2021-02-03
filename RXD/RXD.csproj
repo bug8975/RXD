@@ -154,6 +154,7 @@
     <Compile Include="BasicForm.Designer.cs">
       <DependentUpon>BasicForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="common\ComboxData.cs" />
     <Compile Include="common\ConnectionPool.cs" />
     <Compile Include="common\Download.cs" />
     <Compile Include="common\MySqlHelper.cs" />
@@ -164,6 +165,30 @@
     </Compile>
     <Compile Include="DBForm.Designer.cs">
       <DependentUpon>DBForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\platform\PlatformAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\platform\PlatformAddForm.Designer.cs">
+      <DependentUpon>PlatformAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\platform\PlatformEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\platform\PlatformEditForm.Designer.cs">
+      <DependentUpon>PlatformEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\project\ProjectAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\project\ProjectAddForm.Designer.cs">
+      <DependentUpon>ProjectAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\project\ProjectEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\project\ProjectEditForm.Designer.cs">
+      <DependentUpon>ProjectEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LineForm.cs">
       <SubType>Form</SubType>
@@ -212,6 +237,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DBForm.resx">
       <DependentUpon>DBForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\platform\PlatformAddForm.resx">
+      <DependentUpon>PlatformAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\platform\PlatformEditForm.resx">
+      <DependentUpon>PlatformEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\project\ProjectAddForm.resx">
+      <DependentUpon>ProjectAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\project\ProjectEditForm.resx">
+      <DependentUpon>ProjectEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LineForm.resx">
       <DependentUpon>LineForm.cs</DependentUpon>
@@ -282,6 +319,10 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dialog\monitor\" />
+    <Folder Include="Dialog\sensor\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

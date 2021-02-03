@@ -49,7 +49,7 @@
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
-            this.sidePanel1 = new DevExpress.XtraEditors.SidePanel();
+            this.DataPanel = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel5 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel7 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel9 = new DevExpress.XtraEditors.SidePanel();
@@ -101,7 +101,76 @@
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.queryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.sidePanel1.SuspendLayout();
+            this.platformPanel = new DevExpress.XtraEditors.SidePanel();
+            this.sidePanel15 = new DevExpress.XtraEditors.SidePanel();
+            this.sidePanel17 = new DevExpress.XtraEditors.SidePanel();
+            this.sidePanel19 = new DevExpress.XtraEditors.SidePanel();
+            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
+            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colname1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colurl = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colplatform_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colEdit2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.projectEdit = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.colDelete2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.projectDel = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.sidePanel18 = new DevExpress.XtraEditors.SidePanel();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.sidePanel16 = new DevExpress.XtraEditors.SidePanel();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.platformBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.editLinkHiper = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.platformEdit = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.delLinkHiper = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.platformDelete = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.sidePanel14 = new DevExpress.XtraEditors.SidePanel();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.sidePanel13 = new DevExpress.XtraEditors.SidePanel();
+            this.monitorlineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.platformTableAdapter = new RXD.rxdDataSetTableAdapters.platformTableAdapter();
+            this.monitorlineTableAdapter = new RXD.rxdDataSetTableAdapters.monitorlineTableAdapter();
+            this.projectTableAdapter = new RXD.rxdDataSetTableAdapters.projectTableAdapter();
+            this.monitorPanel = new DevExpress.XtraEditors.SidePanel();
+            this.sidePanel10 = new DevExpress.XtraEditors.SidePanel();
+            this.sidePanel20 = new DevExpress.XtraEditors.SidePanel();
+            this.sidePanel21 = new DevExpress.XtraEditors.SidePanel();
+            this.gridControl5 = new DevExpress.XtraGrid.GridControl();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemHyperLinkEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.sidePanel22 = new DevExpress.XtraEditors.SidePanel();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.sidePanel23 = new DevExpress.XtraEditors.SidePanel();
+            this.gridControl4 = new DevExpress.XtraGrid.GridControl();
+            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemHyperLinkEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemHyperLinkEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.sidePanel24 = new DevExpress.XtraEditors.SidePanel();
+            this.comboBoxEdit3 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.sidePanel25 = new DevExpress.XtraEditors.SidePanel();
+            this.comboBoxEdit4 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colname2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colheartbeatTime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfrequency = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colproject_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DataPanel.SuspendLayout();
             this.sidePanel5.SuspendLayout();
             this.sidePanel7.SuspendLayout();
             this.sidePanel9.SuspendLayout();
@@ -141,6 +210,43 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource1)).BeginInit();
+            this.platformPanel.SuspendLayout();
+            this.sidePanel15.SuspendLayout();
+            this.sidePanel17.SuspendLayout();
+            this.sidePanel19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDel)).BeginInit();
+            this.sidePanel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            this.sidePanel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.platformBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.platformEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.platformDelete)).BeginInit();
+            this.sidePanel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.monitorlineBindingSource)).BeginInit();
+            this.monitorPanel.SuspendLayout();
+            this.sidePanel10.SuspendLayout();
+            this.sidePanel20.SuspendLayout();
+            this.sidePanel21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).BeginInit();
+            this.sidePanel22.SuspendLayout();
+            this.sidePanel23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit4)).BeginInit();
+            this.sidePanel24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // sqlDataSource1
@@ -154,17 +260,17 @@
             customSqlQuery1});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
-            // sidePanel1
+            // DataPanel
             // 
-            this.sidePanel1.Controls.Add(this.sidePanel5);
-            this.sidePanel1.Controls.Add(this.sidePanel4);
-            this.sidePanel1.Controls.Add(this.sidePanel2);
-            this.sidePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sidePanel1.Location = new System.Drawing.Point(0, 35);
-            this.sidePanel1.Name = "sidePanel1";
-            this.sidePanel1.Size = new System.Drawing.Size(1558, 811);
-            this.sidePanel1.TabIndex = 0;
-            this.sidePanel1.Text = "sidePanel1";
+            this.DataPanel.Controls.Add(this.sidePanel5);
+            this.DataPanel.Controls.Add(this.sidePanel4);
+            this.DataPanel.Controls.Add(this.sidePanel2);
+            this.DataPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DataPanel.Location = new System.Drawing.Point(0, 35);
+            this.DataPanel.Name = "DataPanel";
+            this.DataPanel.Size = new System.Drawing.Size(1558, 811);
+            this.DataPanel.TabIndex = 0;
+            this.DataPanel.Text = "sidePanel1";
             // 
             // sidePanel5
             // 
@@ -759,12 +865,727 @@
             this.queryBindingSource1.DataMember = "Query";
             this.queryBindingSource1.DataSource = this.sqlDataSource1;
             // 
+            // platformPanel
+            // 
+            this.platformPanel.Controls.Add(this.sidePanel15);
+            this.platformPanel.Controls.Add(this.sidePanel14);
+            this.platformPanel.Controls.Add(this.sidePanel13);
+            this.platformPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.platformPanel.Location = new System.Drawing.Point(0, 35);
+            this.platformPanel.Name = "platformPanel";
+            this.platformPanel.Size = new System.Drawing.Size(1558, 811);
+            this.platformPanel.TabIndex = 6;
+            this.platformPanel.Text = "sidePanel10";
+            // 
+            // sidePanel15
+            // 
+            this.sidePanel15.Controls.Add(this.sidePanel17);
+            this.sidePanel15.Controls.Add(this.sidePanel16);
+            this.sidePanel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidePanel15.Location = new System.Drawing.Point(203, 79);
+            this.sidePanel15.Name = "sidePanel15";
+            this.sidePanel15.Size = new System.Drawing.Size(1355, 732);
+            this.sidePanel15.TabIndex = 7;
+            this.sidePanel15.Text = "sidePanel15";
+            // 
+            // sidePanel17
+            // 
+            this.sidePanel17.Controls.Add(this.sidePanel19);
+            this.sidePanel17.Controls.Add(this.sidePanel18);
+            this.sidePanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidePanel17.Location = new System.Drawing.Point(0, 274);
+            this.sidePanel17.Name = "sidePanel17";
+            this.sidePanel17.Size = new System.Drawing.Size(1355, 458);
+            this.sidePanel17.TabIndex = 1;
+            this.sidePanel17.Text = "sidePanel17";
+            // 
+            // sidePanel19
+            // 
+            this.sidePanel19.Controls.Add(this.gridControl3);
+            this.sidePanel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidePanel19.Location = new System.Drawing.Point(0, 118);
+            this.sidePanel19.Name = "sidePanel19";
+            this.sidePanel19.Size = new System.Drawing.Size(1355, 340);
+            this.sidePanel19.TabIndex = 7;
+            this.sidePanel19.Text = "sidePanel19";
+            // 
+            // gridControl3
+            // 
+            this.gridControl3.DataSource = this.projectBindingSource;
+            this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl3.Location = new System.Drawing.Point(0, 0);
+            this.gridControl3.MainView = this.gridView3;
+            this.gridControl3.MenuManager = this.barManager1;
+            this.gridControl3.Name = "gridControl3";
+            this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.projectEdit,
+            this.projectDel});
+            this.gridControl3.Size = new System.Drawing.Size(1355, 340);
+            this.gridControl3.TabIndex = 1;
+            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView3});
+            // 
+            // projectBindingSource
+            // 
+            this.projectBindingSource.DataMember = "project";
+            this.projectBindingSource.DataSource = this.rxdDataSet;
+            // 
+            // gridView3
+            // 
+            this.gridView3.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView3.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid1,
+            this.colname1,
+            this.colurl,
+            this.colplatform_id,
+            this.colEdit2,
+            this.colDelete2});
+            this.gridView3.GridControl = this.gridControl3;
+            this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsView.ShowGroupPanel = false;
+            // 
+            // colid1
+            // 
+            this.colid1.AppearanceCell.Options.UseTextOptions = true;
+            this.colid1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colid1.FieldName = "id";
+            this.colid1.MinWidth = 25;
+            this.colid1.Name = "colid1";
+            this.colid1.OptionsColumn.AllowEdit = false;
+            this.colid1.Width = 94;
+            // 
+            // colname1
+            // 
+            this.colname1.AppearanceCell.Options.UseTextOptions = true;
+            this.colname1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colname1.Caption = "项目名称";
+            this.colname1.FieldName = "name";
+            this.colname1.MinWidth = 25;
+            this.colname1.Name = "colname1";
+            this.colname1.OptionsColumn.AllowEdit = false;
+            this.colname1.Visible = true;
+            this.colname1.VisibleIndex = 0;
+            this.colname1.Width = 94;
+            // 
+            // colurl
+            // 
+            this.colurl.AppearanceCell.Options.UseTextOptions = true;
+            this.colurl.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colurl.Caption = "项目地址";
+            this.colurl.FieldName = "url";
+            this.colurl.MinWidth = 25;
+            this.colurl.Name = "colurl";
+            this.colurl.OptionsColumn.AllowEdit = false;
+            this.colurl.Visible = true;
+            this.colurl.VisibleIndex = 1;
+            this.colurl.Width = 94;
+            // 
+            // colplatform_id
+            // 
+            this.colplatform_id.AppearanceCell.Options.UseTextOptions = true;
+            this.colplatform_id.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colplatform_id.FieldName = "platform_id";
+            this.colplatform_id.MinWidth = 25;
+            this.colplatform_id.Name = "colplatform_id";
+            this.colplatform_id.OptionsColumn.AllowEdit = false;
+            this.colplatform_id.Width = 94;
+            // 
+            // colEdit2
+            // 
+            this.colEdit2.AppearanceCell.Options.UseTextOptions = true;
+            this.colEdit2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colEdit2.Caption = "编辑";
+            this.colEdit2.ColumnEdit = this.projectEdit;
+            this.colEdit2.MinWidth = 25;
+            this.colEdit2.Name = "colEdit2";
+            this.colEdit2.Visible = true;
+            this.colEdit2.VisibleIndex = 2;
+            this.colEdit2.Width = 94;
+            // 
+            // projectEdit
+            // 
+            this.projectEdit.AutoHeight = false;
+            this.projectEdit.Name = "projectEdit";
+            this.projectEdit.NullText = "编辑";
+            this.projectEdit.Click += new System.EventHandler(this.projectEdit_Click);
+            // 
+            // colDelete2
+            // 
+            this.colDelete2.AppearanceCell.Options.UseTextOptions = true;
+            this.colDelete2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDelete2.Caption = "删除";
+            this.colDelete2.ColumnEdit = this.projectDel;
+            this.colDelete2.MinWidth = 25;
+            this.colDelete2.Name = "colDelete2";
+            this.colDelete2.Visible = true;
+            this.colDelete2.VisibleIndex = 3;
+            this.colDelete2.Width = 94;
+            // 
+            // projectDel
+            // 
+            this.projectDel.AutoHeight = false;
+            this.projectDel.Name = "projectDel";
+            this.projectDel.NullText = "删除";
+            this.projectDel.Click += new System.EventHandler(this.projectDel_Click);
+            // 
+            // sidePanel18
+            // 
+            this.sidePanel18.Controls.Add(this.simpleButton3);
+            this.sidePanel18.Controls.Add(this.comboBoxEdit1);
+            this.sidePanel18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidePanel18.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel18.Name = "sidePanel18";
+            this.sidePanel18.Size = new System.Drawing.Size(1355, 118);
+            this.sidePanel18.TabIndex = 7;
+            this.sidePanel18.Text = "sidePanel18";
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Location = new System.Drawing.Point(240, 68);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(94, 29);
+            this.simpleButton3.TabIndex = 2;
+            this.simpleButton3.Text = "新增";
+            this.simpleButton3.Click += new System.EventHandler(this.projectAdd_Click);
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Location = new System.Drawing.Point(35, 69);
+            this.comboBoxEdit1.MenuManager = this.barManager1;
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboBoxEdit1.Size = new System.Drawing.Size(161, 28);
+            this.comboBoxEdit1.TabIndex = 1;
+            this.comboBoxEdit1.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit1_SelectedIndexChanged);
+            // 
+            // sidePanel16
+            // 
+            this.sidePanel16.Controls.Add(this.gridControl2);
+            this.sidePanel16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidePanel16.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel16.Name = "sidePanel16";
+            this.sidePanel16.Size = new System.Drawing.Size(1355, 274);
+            this.sidePanel16.TabIndex = 1;
+            this.sidePanel16.Text = "sidePanel16";
+            // 
+            // gridControl2
+            // 
+            this.gridControl2.DataSource = this.platformBindingSource;
+            this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl2.Location = new System.Drawing.Point(0, 0);
+            this.gridControl2.MainView = this.gridView2;
+            this.gridControl2.MenuManager = this.barManager1;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.platformEdit,
+            this.platformDelete});
+            this.gridControl2.Size = new System.Drawing.Size(1355, 273);
+            this.gridControl2.TabIndex = 0;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // platformBindingSource
+            // 
+            this.platformBindingSource.DataMember = "platform";
+            this.platformBindingSource.DataSource = this.rxdDataSet;
+            // 
+            // gridView2
+            // 
+            this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid,
+            this.colname,
+            this.editLinkHiper,
+            this.delLinkHiper});
+            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // colid
+            // 
+            this.colid.FieldName = "id";
+            this.colid.MinWidth = 25;
+            this.colid.Name = "colid";
+            this.colid.OptionsColumn.AllowEdit = false;
+            this.colid.Width = 94;
+            // 
+            // colname
+            // 
+            this.colname.AppearanceCell.Options.UseTextOptions = true;
+            this.colname.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colname.Caption = "工程名称";
+            this.colname.FieldName = "name";
+            this.colname.MinWidth = 25;
+            this.colname.Name = "colname";
+            this.colname.OptionsColumn.AllowEdit = false;
+            this.colname.Visible = true;
+            this.colname.VisibleIndex = 0;
+            this.colname.Width = 94;
+            // 
+            // editLinkHiper
+            // 
+            this.editLinkHiper.AppearanceCell.Options.UseTextOptions = true;
+            this.editLinkHiper.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.editLinkHiper.Caption = "编辑";
+            this.editLinkHiper.ColumnEdit = this.platformEdit;
+            this.editLinkHiper.MinWidth = 25;
+            this.editLinkHiper.Name = "editLinkHiper";
+            this.editLinkHiper.Visible = true;
+            this.editLinkHiper.VisibleIndex = 1;
+            this.editLinkHiper.Width = 94;
+            // 
+            // platformEdit
+            // 
+            this.platformEdit.AutoHeight = false;
+            this.platformEdit.Name = "platformEdit";
+            this.platformEdit.NullText = "编辑";
+            this.platformEdit.Click += new System.EventHandler(this.PlatformEdit_Click);
+            // 
+            // delLinkHiper
+            // 
+            this.delLinkHiper.AppearanceCell.Options.UseTextOptions = true;
+            this.delLinkHiper.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.delLinkHiper.Caption = "删除";
+            this.delLinkHiper.ColumnEdit = this.platformDelete;
+            this.delLinkHiper.MinWidth = 25;
+            this.delLinkHiper.Name = "delLinkHiper";
+            this.delLinkHiper.Visible = true;
+            this.delLinkHiper.VisibleIndex = 2;
+            this.delLinkHiper.Width = 94;
+            // 
+            // platformDelete
+            // 
+            this.platformDelete.AutoHeight = false;
+            this.platformDelete.Name = "platformDelete";
+            this.platformDelete.NullText = "删除";
+            this.platformDelete.Click += new System.EventHandler(this.PlatformDel_Click);
+            // 
+            // sidePanel14
+            // 
+            this.sidePanel14.Controls.Add(this.simpleButton2);
+            this.sidePanel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidePanel14.Location = new System.Drawing.Point(203, 0);
+            this.sidePanel14.Name = "sidePanel14";
+            this.sidePanel14.Size = new System.Drawing.Size(1355, 79);
+            this.sidePanel14.TabIndex = 7;
+            this.sidePanel14.Text = "sidePanel14";
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(35, 30);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(94, 29);
+            this.simpleButton2.TabIndex = 1;
+            this.simpleButton2.Text = "新增";
+            this.simpleButton2.Click += new System.EventHandler(this.PlatformAdd_Click);
+            // 
+            // sidePanel13
+            // 
+            this.sidePanel13.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidePanel13.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel13.Name = "sidePanel13";
+            this.sidePanel13.Size = new System.Drawing.Size(203, 811);
+            this.sidePanel13.TabIndex = 7;
+            this.sidePanel13.Text = "sidePanel13";
+            // 
+            // monitorlineBindingSource
+            // 
+            this.monitorlineBindingSource.DataMember = "monitorline";
+            this.monitorlineBindingSource.DataSource = this.rxdDataSet;
+            // 
+            // platformTableAdapter
+            // 
+            this.platformTableAdapter.ClearBeforeFill = true;
+            // 
+            // monitorlineTableAdapter
+            // 
+            this.monitorlineTableAdapter.ClearBeforeFill = true;
+            // 
+            // projectTableAdapter
+            // 
+            this.projectTableAdapter.ClearBeforeFill = true;
+            // 
+            // monitorPanel
+            // 
+            this.monitorPanel.Controls.Add(this.sidePanel10);
+            this.monitorPanel.Controls.Add(this.sidePanel24);
+            this.monitorPanel.Controls.Add(this.sidePanel25);
+            this.monitorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.monitorPanel.Location = new System.Drawing.Point(0, 35);
+            this.monitorPanel.Name = "monitorPanel";
+            this.monitorPanel.Size = new System.Drawing.Size(1558, 811);
+            this.monitorPanel.TabIndex = 12;
+            this.monitorPanel.Text = "sidePanel10";
+            // 
+            // sidePanel10
+            // 
+            this.sidePanel10.Controls.Add(this.sidePanel20);
+            this.sidePanel10.Controls.Add(this.sidePanel23);
+            this.sidePanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidePanel10.Location = new System.Drawing.Point(203, 79);
+            this.sidePanel10.Name = "sidePanel10";
+            this.sidePanel10.Size = new System.Drawing.Size(1355, 732);
+            this.sidePanel10.TabIndex = 7;
+            this.sidePanel10.Text = "sidePanel10";
+            // 
+            // sidePanel20
+            // 
+            this.sidePanel20.Controls.Add(this.sidePanel21);
+            this.sidePanel20.Controls.Add(this.sidePanel22);
+            this.sidePanel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidePanel20.Location = new System.Drawing.Point(0, 274);
+            this.sidePanel20.Name = "sidePanel20";
+            this.sidePanel20.Size = new System.Drawing.Size(1355, 458);
+            this.sidePanel20.TabIndex = 1;
+            this.sidePanel20.Text = "sidePanel20";
+            // 
+            // sidePanel21
+            // 
+            this.sidePanel21.Controls.Add(this.gridControl5);
+            this.sidePanel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sidePanel21.Location = new System.Drawing.Point(0, 118);
+            this.sidePanel21.Name = "sidePanel21";
+            this.sidePanel21.Size = new System.Drawing.Size(1355, 340);
+            this.sidePanel21.TabIndex = 7;
+            this.sidePanel21.Text = "sidePanel21";
+            // 
+            // gridControl5
+            // 
+            this.gridControl5.DataSource = this.projectBindingSource;
+            this.gridControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl5.Location = new System.Drawing.Point(0, 0);
+            this.gridControl5.MainView = this.gridView4;
+            this.gridControl5.MenuManager = this.barManager1;
+            this.gridControl5.Name = "gridControl5";
+            this.gridControl5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemHyperLinkEdit1,
+            this.repositoryItemHyperLinkEdit2});
+            this.gridControl5.Size = new System.Drawing.Size(1355, 340);
+            this.gridControl5.TabIndex = 1;
+            this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView4});
+            // 
+            // gridView4
+            // 
+            this.gridView4.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView4.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6});
+            this.gridView4.GridControl = this.gridControl5;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn1.FieldName = "id";
+            this.gridColumn1.MinWidth = 25;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Width = 94;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn2.Caption = "项目名称";
+            this.gridColumn2.FieldName = "name";
+            this.gridColumn2.MinWidth = 25;
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 94;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn3.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn3.Caption = "项目地址";
+            this.gridColumn3.FieldName = "url";
+            this.gridColumn3.MinWidth = 25;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 1;
+            this.gridColumn3.Width = 94;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn4.FieldName = "platform_id";
+            this.gridColumn4.MinWidth = 25;
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
+            this.gridColumn4.Width = 94;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn5.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn5.Caption = "编辑";
+            this.gridColumn5.ColumnEdit = this.repositoryItemHyperLinkEdit1;
+            this.gridColumn5.MinWidth = 25;
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 2;
+            this.gridColumn5.Width = 94;
+            // 
+            // repositoryItemHyperLinkEdit1
+            // 
+            this.repositoryItemHyperLinkEdit1.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
+            this.repositoryItemHyperLinkEdit1.NullText = "编辑";
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn6.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn6.Caption = "删除";
+            this.gridColumn6.ColumnEdit = this.repositoryItemHyperLinkEdit2;
+            this.gridColumn6.MinWidth = 25;
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 3;
+            this.gridColumn6.Width = 94;
+            // 
+            // repositoryItemHyperLinkEdit2
+            // 
+            this.repositoryItemHyperLinkEdit2.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit2.Name = "repositoryItemHyperLinkEdit2";
+            this.repositoryItemHyperLinkEdit2.NullText = "删除";
+            // 
+            // sidePanel22
+            // 
+            this.sidePanel22.Controls.Add(this.comboBoxEdit4);
+            this.sidePanel22.Controls.Add(this.simpleButton5);
+            this.sidePanel22.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidePanel22.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel22.Name = "sidePanel22";
+            this.sidePanel22.Size = new System.Drawing.Size(1355, 118);
+            this.sidePanel22.TabIndex = 7;
+            this.sidePanel22.Text = "sidePanel22";
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Location = new System.Drawing.Point(392, 24);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(94, 29);
+            this.simpleButton4.TabIndex = 2;
+            this.simpleButton4.Text = "新增";
+            // 
+            // sidePanel23
+            // 
+            this.sidePanel23.Controls.Add(this.gridControl4);
+            this.sidePanel23.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidePanel23.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel23.Name = "sidePanel23";
+            this.sidePanel23.Size = new System.Drawing.Size(1355, 274);
+            this.sidePanel23.TabIndex = 1;
+            this.sidePanel23.Text = "sidePanel23";
+            // 
+            // gridControl4
+            // 
+            this.gridControl4.DataSource = this.monitorlineBindingSource;
+            this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl4.Location = new System.Drawing.Point(0, 0);
+            this.gridControl4.MainView = this.gridView5;
+            this.gridControl4.MenuManager = this.barManager1;
+            this.gridControl4.Name = "gridControl4";
+            this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemHyperLinkEdit3,
+            this.repositoryItemHyperLinkEdit4});
+            this.gridControl4.Size = new System.Drawing.Size(1355, 273);
+            this.gridControl4.TabIndex = 0;
+            this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView5});
+            // 
+            // gridView5
+            // 
+            this.gridView5.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView5.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid2,
+            this.colname2,
+            this.colheartbeatTime,
+            this.colfrequency,
+            this.colproject_id,
+            this.gridColumn9,
+            this.gridColumn10});
+            this.gridView5.GridControl = this.gridControl4;
+            this.gridView5.Name = "gridView5";
+            this.gridView5.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn9.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn9.Caption = "编辑";
+            this.gridColumn9.ColumnEdit = this.repositoryItemHyperLinkEdit3;
+            this.gridColumn9.MinWidth = 25;
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 5;
+            this.gridColumn9.Width = 94;
+            // 
+            // repositoryItemHyperLinkEdit3
+            // 
+            this.repositoryItemHyperLinkEdit3.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit3.Name = "repositoryItemHyperLinkEdit3";
+            this.repositoryItemHyperLinkEdit3.NullText = "编辑";
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn10.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn10.Caption = "删除";
+            this.gridColumn10.ColumnEdit = this.repositoryItemHyperLinkEdit4;
+            this.gridColumn10.MinWidth = 25;
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 6;
+            this.gridColumn10.Width = 94;
+            // 
+            // repositoryItemHyperLinkEdit4
+            // 
+            this.repositoryItemHyperLinkEdit4.AutoHeight = false;
+            this.repositoryItemHyperLinkEdit4.Name = "repositoryItemHyperLinkEdit4";
+            this.repositoryItemHyperLinkEdit4.NullText = "删除";
+            // 
+            // sidePanel24
+            // 
+            this.sidePanel24.Controls.Add(this.comboBoxEdit3);
+            this.sidePanel24.Controls.Add(this.simpleButton4);
+            this.sidePanel24.Controls.Add(this.comboBoxEdit2);
+            this.sidePanel24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sidePanel24.Location = new System.Drawing.Point(203, 0);
+            this.sidePanel24.Name = "sidePanel24";
+            this.sidePanel24.Size = new System.Drawing.Size(1355, 79);
+            this.sidePanel24.TabIndex = 7;
+            this.sidePanel24.Text = "sidePanel24";
+            // 
+            // comboBoxEdit3
+            // 
+            this.comboBoxEdit3.Location = new System.Drawing.Point(207, 25);
+            this.comboBoxEdit3.MenuManager = this.barManager1;
+            this.comboBoxEdit3.Name = "comboBoxEdit3";
+            this.comboBoxEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.comboBoxEdit3.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit3.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboBoxEdit3.Size = new System.Drawing.Size(161, 28);
+            this.comboBoxEdit3.TabIndex = 2;
+            // 
+            // comboBoxEdit2
+            // 
+            this.comboBoxEdit2.Location = new System.Drawing.Point(25, 25);
+            this.comboBoxEdit2.MenuManager = this.barManager1;
+            this.comboBoxEdit2.Name = "comboBoxEdit2";
+            this.comboBoxEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.comboBoxEdit2.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboBoxEdit2.Size = new System.Drawing.Size(161, 28);
+            this.comboBoxEdit2.TabIndex = 1;
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Location = new System.Drawing.Point(207, 68);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(94, 29);
+            this.simpleButton5.TabIndex = 1;
+            this.simpleButton5.Text = "新增";
+            // 
+            // sidePanel25
+            // 
+            this.sidePanel25.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidePanel25.Location = new System.Drawing.Point(0, 0);
+            this.sidePanel25.Name = "sidePanel25";
+            this.sidePanel25.Size = new System.Drawing.Size(203, 811);
+            this.sidePanel25.TabIndex = 7;
+            this.sidePanel25.Text = "sidePanel25";
+            // 
+            // comboBoxEdit4
+            // 
+            this.comboBoxEdit4.Location = new System.Drawing.Point(25, 69);
+            this.comboBoxEdit4.MenuManager = this.barManager1;
+            this.comboBoxEdit4.Name = "comboBoxEdit4";
+            this.comboBoxEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.comboBoxEdit4.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit4.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboBoxEdit4.Size = new System.Drawing.Size(161, 28);
+            this.comboBoxEdit4.TabIndex = 3;
+            // 
+            // colid2
+            // 
+            this.colid2.FieldName = "id";
+            this.colid2.MinWidth = 25;
+            this.colid2.Name = "colid2";
+            this.colid2.Visible = true;
+            this.colid2.VisibleIndex = 1;
+            this.colid2.Width = 94;
+            // 
+            // colname2
+            // 
+            this.colname2.FieldName = "name";
+            this.colname2.MinWidth = 25;
+            this.colname2.Name = "colname2";
+            this.colname2.Visible = true;
+            this.colname2.VisibleIndex = 0;
+            this.colname2.Width = 94;
+            // 
+            // colheartbeatTime
+            // 
+            this.colheartbeatTime.FieldName = "heartbeatTime";
+            this.colheartbeatTime.MinWidth = 25;
+            this.colheartbeatTime.Name = "colheartbeatTime";
+            this.colheartbeatTime.Visible = true;
+            this.colheartbeatTime.VisibleIndex = 2;
+            this.colheartbeatTime.Width = 94;
+            // 
+            // colfrequency
+            // 
+            this.colfrequency.FieldName = "frequency";
+            this.colfrequency.MinWidth = 25;
+            this.colfrequency.Name = "colfrequency";
+            this.colfrequency.Visible = true;
+            this.colfrequency.VisibleIndex = 3;
+            this.colfrequency.Width = 94;
+            // 
+            // colproject_id
+            // 
+            this.colproject_id.FieldName = "project_id";
+            this.colproject_id.MinWidth = 25;
+            this.colproject_id.Name = "colproject_id";
+            this.colproject_id.Visible = true;
+            this.colproject_id.VisibleIndex = 4;
+            this.colproject_id.Width = 94;
+            // 
             // BasicForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1558, 846);
-            this.Controls.Add(this.sidePanel1);
+            this.Controls.Add(this.monitorPanel);
+            this.Controls.Add(this.platformPanel);
+            this.Controls.Add(this.DataPanel);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -774,7 +1595,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BasicForm_FormClosing);
             this.Load += new System.EventHandler(this.BasicForm_Load);
-            this.sidePanel1.ResumeLayout(false);
+            this.DataPanel.ResumeLayout(false);
             this.sidePanel5.ResumeLayout(false);
             this.sidePanel7.ResumeLayout(false);
             this.sidePanel9.ResumeLayout(false);
@@ -815,6 +1636,43 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource1)).EndInit();
+            this.platformPanel.ResumeLayout(false);
+            this.sidePanel15.ResumeLayout(false);
+            this.sidePanel17.ResumeLayout(false);
+            this.sidePanel19.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDel)).EndInit();
+            this.sidePanel18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            this.sidePanel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.platformBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.platformEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.platformDelete)).EndInit();
+            this.sidePanel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.monitorlineBindingSource)).EndInit();
+            this.monitorPanel.ResumeLayout(false);
+            this.sidePanel10.ResumeLayout(false);
+            this.sidePanel20.ResumeLayout(false);
+            this.sidePanel21.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).EndInit();
+            this.sidePanel22.ResumeLayout(false);
+            this.sidePanel23.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit4)).EndInit();
+            this.sidePanel24.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -822,7 +1680,7 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SidePanel sidePanel1;
+        private DevExpress.XtraEditors.SidePanel DataPanel;
         private DevExpress.XtraEditors.SidePanel sidePanel5;
         private DevExpress.XtraEditors.SidePanel sidePanel7;
         private DevExpress.XtraEditors.SidePanel sidePanel9;
@@ -875,5 +1733,74 @@
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.BindingSource queryBindingSource1;
+        private DevExpress.XtraEditors.SidePanel platformPanel;
+        private DevExpress.XtraEditors.SidePanel sidePanel15;
+        private DevExpress.XtraEditors.SidePanel sidePanel17;
+        private DevExpress.XtraEditors.SidePanel sidePanel19;
+        private DevExpress.XtraGrid.GridControl gridControl3;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraEditors.SidePanel sidePanel18;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.SidePanel sidePanel16;
+        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraEditors.SidePanel sidePanel14;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SidePanel sidePanel13;
+        private System.Windows.Forms.BindingSource platformBindingSource;
+        private rxdDataSetTableAdapters.platformTableAdapter platformTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colid;
+        private DevExpress.XtraGrid.Columns.GridColumn colname;
+        private System.Windows.Forms.BindingSource monitorlineBindingSource;
+        private rxdDataSetTableAdapters.monitorlineTableAdapter monitorlineTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colEdit2;
+        private DevExpress.XtraGrid.Columns.GridColumn colDelete2;
+        private DevExpress.XtraGrid.Columns.GridColumn editLinkHiper;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit platformEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn delLinkHiper;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit platformDelete;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit projectEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit projectDel;
+        private System.Windows.Forms.BindingSource projectBindingSource;
+        private rxdDataSetTableAdapters.projectTableAdapter projectTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colid1;
+        private DevExpress.XtraGrid.Columns.GridColumn colname1;
+        private DevExpress.XtraGrid.Columns.GridColumn colurl;
+        private DevExpress.XtraGrid.Columns.GridColumn colplatform_id;
+        private DevExpress.XtraEditors.SidePanel monitorPanel;
+        private DevExpress.XtraEditors.SidePanel sidePanel10;
+        private DevExpress.XtraEditors.SidePanel sidePanel20;
+        private DevExpress.XtraEditors.SidePanel sidePanel21;
+        private DevExpress.XtraGrid.GridControl gridControl5;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit2;
+        private DevExpress.XtraEditors.SidePanel sidePanel22;
+        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.SidePanel sidePanel23;
+        private DevExpress.XtraGrid.GridControl gridControl4;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit4;
+        private DevExpress.XtraEditors.SidePanel sidePanel24;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit3;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.SidePanel sidePanel25;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit4;
+        private DevExpress.XtraGrid.Columns.GridColumn colid2;
+        private DevExpress.XtraGrid.Columns.GridColumn colname2;
+        private DevExpress.XtraGrid.Columns.GridColumn colheartbeatTime;
+        private DevExpress.XtraGrid.Columns.GridColumn colfrequency;
+        private DevExpress.XtraGrid.Columns.GridColumn colproject_id;
     }
 }

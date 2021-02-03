@@ -55,12 +55,9 @@ namespace RXD
         /// <param name="e"></param>
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            URLForm url = new URLForm();
-            if (url.ShowDialog() == DialogResult.OK)
-            {
-                url.MdiParent = this;
-                url.ShowDialog();
-            }
+            platformPanel.Visible = true;
+            DataPanel.Visible = false;
+            refresh_PlatformData();
         }
 
         /// <summary>
@@ -85,6 +82,12 @@ namespace RXD
         /// <param name="e"></param>
         private void BasicForm_Load(object sender, EventArgs e)
         {
+            // TODO: 这行代码将数据加载到表“rxdDataSet.project”中。您可以根据需要移动或删除它。
+            this.projectTableAdapter.Fill(this.rxdDataSet.project);
+            // TODO: 这行代码将数据加载到表“rxdDataSet.monitorline”中。您可以根据需要移动或删除它。
+            this.monitorlineTableAdapter.Fill(this.rxdDataSet.monitorline);
+            // TODO: 这行代码将数据加载到表“rxdDataSet.platform”中。您可以根据需要移动或删除它。
+            this.platformTableAdapter.Fill(this.rxdDataSet.platform);
             // TODO: 这行代码将数据加载到表“rxdDataSet.dataview”中。您可以根据需要移动或删除它。
             this.dataviewTableAdapter.Fill(this.rxdDataSet.dataview);
             SkinHelper.InitSkinPopupMenu(MenuSkin);
@@ -106,6 +109,8 @@ namespace RXD
         private void itemFaviate_ItemClick(object sender, ItemClickEventArgs e)
         {
             //加载侧边栏数据
+            platformPanel.Visible = false;
+            DataPanel.Visible = true;
             try
             {
                 string sql_project = "select * from project where platform_id = ?";
@@ -371,6 +376,9 @@ namespace RXD
                     barSubItem1.AddItem(item);
                 }
             }
+            //刷新工程和项目下拉框数据源
+            refresh_PlatformData();
+            refresh_ProjectData();
         }
 
         public void dat2navFile(int sensor_id, DateTime dt)
@@ -515,6 +523,54 @@ namespace RXD
             data[4] = sensor_id;
             return data;
         }
+        
+        private void refresh_PlatformData()
+        {
+            string sql = "select * from platform";
+            try
+            {
+                DataTable dt = common.MySqlHelper.GetDataSet(sql, null).Tables[0];
+                gridControl2.DataSource = null;
+                gridControl2.DataSource = dt;
+
+                comboBoxEdit1.Properties.Items.Clear();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    string id = dt.Rows[i].ItemArray[0].ToString();
+                    string name = dt.Rows[i].ItemArray[1].ToString();
+                    ComboxData comboxData = new ComboxData() { Text = name, Value = id };
+                    comboBoxEdit1.Properties.Items.Add(comboxData);
+                }
+                if (comboBoxEdit1.Properties.Items.Count > 0)
+                    comboBoxEdit1.SelectedItem = comboBoxEdit1.Properties.Items[0];
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex.Message + "--refresh_PlatformData");
+            }
+        }
+        
+        private void refresh_ProjectData()
+        {
+            if (comboBoxEdit1.SelectedItem == null)
+                return;
+            ComboxData comboxData = comboBoxEdit1.SelectedItem as ComboxData;
+            int platformid = Convert.ToInt32(comboxData.Value);
+
+            string sql = "SELECT * FROM project p WHERE p.platform_id = ?";
+            MySqlParameter mp = new MySqlParameter(@"platform_id", MySqlDbType.Int32) { Value = platformid };
+            try
+            {
+                DataSet ds = common.MySqlHelper.GetDataSet(sql, mp);
+                gridControl3.DataSource = null;
+                gridControl3.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                _logger.Trace(ex.Message + "----refresh_ProjectData方法");
+            }
+        }
+
         #endregion
 
 
@@ -671,6 +727,116 @@ namespace RXD
             {
                 System.Environment.Exit(0);
             }
+        }
+
+        private void PlatformAdd_Click(object sender, EventArgs e)
+        {
+            PlatformAddForm pAdd = new PlatformAddForm();
+            if (pAdd.ShowDialog() == DialogResult.OK)
+            {
+                pAdd.MdiParent = this;
+                pAdd.ShowDialog();
+            }
+            refresh_PlatformData();
+        }
+
+        private void PlatformEdit_Click(object sender, EventArgs e)
+        {
+            var index = gridView2.GetFocusedDataSourceRowIndex();//获取数据行的索引值，从0开始
+            var platformName = gridView2.GetRowCellValue(index, "name");//获取选中行的那个单元格的值
+            var platformid = gridView2.GetRowCellValue(index, "id");
+            PlatformEditForm pEdit = new PlatformEditForm();
+            pEdit.Platformid = Convert.ToInt32(platformid);
+            pEdit.PlatformName = platformName.ToString();
+            if (pEdit.ShowDialog() == DialogResult.OK)
+            {
+                pEdit.MdiParent = this;
+                pEdit.ShowDialog();
+            }
+            refresh_PlatformData();
+        }
+
+        private void PlatformDel_Click(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show("确定删除所选数据？", "删除提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                var index = gridView2.GetFocusedDataSourceRowIndex();//获取数据行的索引值，从0开始
+                var id = gridView2.GetRowCellValue(index, "id");
+                string sql = "delete from platform where id = ?";
+                MySqlParameter param_id = new MySqlParameter(@"id", MySqlDbType.Int32) { Value = Convert.ToInt32(id) };
+                int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_id);
+                if (cols == 1)
+                    alertControl1.Show(this, "提示：", "删除成功");
+                else
+                    alertControl1.Show(this, "提示：", "删除失败");
+                refresh_PlatformData();
+            }
+        }
+
+        private void projectAdd_Click(object sender, EventArgs e)
+        {
+            ProjectAddForm pAdd = new ProjectAddForm();
+            ComboxData comboxData = comboBoxEdit1.SelectedItem as ComboxData;
+            if (comboxData == null)
+            {
+                XtraMessageBox.Show("请选择工程");
+                return;
+            }
+            pAdd.Platformid = Convert.ToInt32(comboxData.Value);
+            pAdd.PlatformName = comboxData.Text;
+            if(pAdd.ShowDialog()== DialogResult.OK)
+            {
+                pAdd.MdiParent = this;
+                pAdd.ShowDialog();
+            }
+            refresh_ProjectData();
+        }
+        
+        private void projectEdit_Click(object sender, EventArgs e)
+        {
+            ProjectEditForm pEdit = new ProjectEditForm();
+            ComboxData comboxData = comboBoxEdit1.SelectedItem as ComboxData;
+            if (comboxData == null)
+            {
+                XtraMessageBox.Show("请选择工程");
+                return;
+            }
+            var index = gridView3.GetFocusedDataSourceRowIndex();
+            var id = gridView3.GetRowCellValue(index, "id");
+            var name = gridView3.GetRowCellValue(index, "name");
+            var url = gridView3.GetRowCellValue(index, "url");
+            pEdit.PlatformName = comboxData.Text;
+            pEdit.Projectid = Convert.ToInt32(id);
+            pEdit.ProjectName = name.ToString();
+            pEdit.Url = url.ToString();
+            if (pEdit.ShowDialog() == DialogResult.OK)
+            {
+                pEdit.MdiParent = this;
+                pEdit.ShowDialog();
+            }
+            refresh_ProjectData();
+        }
+
+        private void projectDel_Click(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show("确定删除所选数据？", "删除提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                var index = gridView3.GetFocusedDataSourceRowIndex();//获取数据行的索引值，从0开始
+                var id = gridView3.GetRowCellValue(index, "id");
+                string sql = "delete from project where id = ?";
+                MySqlParameter param_id = new MySqlParameter(@"id", MySqlDbType.Int32) { Value = Convert.ToInt32(id) };
+                int cols = common.MySqlHelper.ExecuteNonQuery(sql, param_id);
+                if (cols == 1)
+                    alertControl1.Show(this, "提示：", "删除成功");
+                else
+                    alertControl1.Show(this, "提示：", "删除失败");
+                refresh_ProjectData();
+            }
+        }
+
+        private void comboBoxEdit1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            refresh_ProjectData();
         }
     }
 }
