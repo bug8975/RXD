@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasicForm));
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
@@ -43,12 +41,14 @@
             DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.PolarPointSeriesView polarPointSeriesView1 = new DevExpress.XtraCharts.PolarPointSeriesView();
             DevExpress.XtraCharts.RadarPointSeriesView radarPointSeriesView1 = new DevExpress.XtraCharts.RadarPointSeriesView();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BasicForm));
             DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery2 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             this.DataPanel = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel5 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel7 = new DevExpress.XtraEditors.SidePanel();
@@ -69,6 +69,7 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.chartControl2 = new DevExpress.XtraCharts.ChartControl();
             this.queryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.chartControl3 = new DevExpress.XtraCharts.ChartControl();
             this.windowsUIButtonPanel1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
@@ -100,13 +101,13 @@
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.queryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.platformPanel = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel15 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel17 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel19 = new DevExpress.XtraEditors.SidePanel();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
             this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rxdDataSet1 = new RXD.rxdDataSet();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colname1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -132,44 +133,55 @@
             this.sidePanel14 = new DevExpress.XtraEditors.SidePanel();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.sidePanel13 = new DevExpress.XtraEditors.SidePanel();
-            this.monitorlineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.platformTableAdapter = new RXD.rxdDataSetTableAdapters.platformTableAdapter();
-            this.monitorlineTableAdapter = new RXD.rxdDataSetTableAdapters.monitorlineTableAdapter();
-            this.projectTableAdapter = new RXD.rxdDataSetTableAdapters.projectTableAdapter();
             this.monitorPanel = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel10 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel20 = new DevExpress.XtraEditors.SidePanel();
             this.sidePanel21 = new DevExpress.XtraEditors.SidePanel();
             this.gridControl5 = new DevExpress.XtraGrid.GridControl();
-            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.sensorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colport = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colisbasic = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colstates = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.sensorEdit = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemHyperLinkEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.sensorDel = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
             this.sidePanel22 = new DevExpress.XtraEditors.SidePanel();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.comboBoxEdit4 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.sidePanel23 = new DevExpress.XtraEditors.SidePanel();
             this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemHyperLinkEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
-            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemHyperLinkEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
-            this.sidePanel24 = new DevExpress.XtraEditors.SidePanel();
-            this.comboBoxEdit3 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.sidePanel25 = new DevExpress.XtraEditors.SidePanel();
-            this.comboBoxEdit4 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colstid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colproject_id = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colname2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colheartbeatTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfrequency = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colproject_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcaption = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colunit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.monitorEdit = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.monitorDel = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.sidePanel24 = new DevExpress.XtraEditors.SidePanel();
+            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.comboBoxEdit3 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.sidePanel25 = new DevExpress.XtraEditors.SidePanel();
+            this.queryBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.platformTableAdapter = new RXD.rxdDataSetTableAdapters.platformTableAdapter();
+            this.projectTableAdapter = new RXD.rxdDataSetTableAdapters.projectTableAdapter();
+            this.sensorTableAdapter = new RXD.rxdDataSetTableAdapters.sensorTableAdapter();
             this.DataPanel.SuspendLayout();
             this.sidePanel5.SuspendLayout();
             this.sidePanel7.SuspendLayout();
@@ -209,13 +221,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource1)).BeginInit();
             this.platformPanel.SuspendLayout();
             this.sidePanel15.SuspendLayout();
             this.sidePanel17.SuspendLayout();
             this.sidePanel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rxdDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectDel)).BeginInit();
@@ -228,37 +240,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.platformEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.platformDelete)).BeginInit();
             this.sidePanel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.monitorlineBindingSource)).BeginInit();
             this.monitorPanel.SuspendLayout();
             this.sidePanel10.SuspendLayout();
             this.sidePanel20.SuspendLayout();
             this.sidePanel21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sensorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sensorEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sensorDel)).BeginInit();
             this.sidePanel22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).BeginInit();
             this.sidePanel23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monitorEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monitorDel)).BeginInit();
             this.sidePanel24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // sqlDataSource1
-            // 
-            this.sqlDataSource1.ConnectionName = "localhost_rxd_DEV";
-            this.sqlDataSource1.Name = "sqlDataSource1";
-            customSqlQuery1.Name = "Query";
-            customSqlQuery1.Sql = "SELECT s1.* FROM sensorinfo s1 LEFT JOIN sensorinfo s2 ON (s1.name = s2.name AND " +
-    "s1.id < s2.id) WHERE s2.id is NULL AND s1.sensor_id = 1";
-            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery1});
-            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // DataPanel
             // 
@@ -314,6 +316,9 @@
             xyDiagram1.AxisX.DateTimeScaleOptions.MeasureUnit = DevExpress.XtraCharts.DateTimeMeasureUnit.Hour;
             xyDiagram1.AxisX.Visibility = DevExpress.Utils.DefaultBoolean.True;
             xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisX.WholeRange.AutoSideMargins = false;
+            xyDiagram1.AxisX.WholeRange.EndSideMargin = 0D;
+            xyDiagram1.AxisX.WholeRange.StartSideMargin = 0D;
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             this.chartControl1.Diagram = xyDiagram1;
             this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -505,11 +510,9 @@
             series4.View = polarPointSeriesView1;
             this.chartControl2.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series4};
-            this.chartControl2.SeriesTemplate.ArgumentDataMember = "longitude";
             this.chartControl2.SeriesTemplate.ArgumentScaleType = DevExpress.XtraCharts.ScaleType.Numerical;
             this.chartControl2.SeriesTemplate.LabelsVisibility = DevExpress.Utils.DefaultBoolean.False;
             this.chartControl2.SeriesTemplate.ToolTipHintDataMember = "type";
-            this.chartControl2.SeriesTemplate.ValueDataMembersSerializable = "latitude";
             this.chartControl2.SeriesTemplate.View = radarPointSeriesView1;
             this.chartControl2.Size = new System.Drawing.Size(283, 482);
             this.chartControl2.TabIndex = 0;
@@ -519,6 +522,17 @@
             // 
             this.queryBindingSource.DataMember = "Query";
             this.queryBindingSource.DataSource = this.sqlDataSource1;
+            // 
+            // sqlDataSource1
+            // 
+            this.sqlDataSource1.ConnectionName = "localhost_rxd_DEV";
+            this.sqlDataSource1.Name = "sqlDataSource1";
+            customSqlQuery1.Name = "Query";
+            customSqlQuery1.Sql = "SELECT s1.* FROM sensorinfo s1 LEFT JOIN sensorinfo s2 ON (s1.name = s2.name AND " +
+    "s1.id < s2.id) WHERE s2.id is NULL";
+            this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            customSqlQuery1});
+            this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
             // 
             // panelControl2
             // 
@@ -613,6 +627,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(94, 29);
             this.simpleButton1.TabIndex = 14;
             this.simpleButton1.Text = "test";
+            this.simpleButton1.Visible = false;
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // labelControl5
@@ -755,12 +770,13 @@
             // 
             // barButtonItem1
             // 
-            this.barButtonItem1.Caption = "工程";
+            this.barButtonItem1.Caption = "工程/项目";
             this.barButtonItem1.Id = 4;
             this.barButtonItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
             this.barButtonItem1.ItemAppearance.Disabled.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.barButtonItem1.ItemAppearance.Disabled.Options.UseFont = true;
             this.barButtonItem1.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barButtonItem1.ItemAppearance.Normal.Options.UseBackColor = true;
             this.barButtonItem1.ItemAppearance.Normal.Options.UseFont = true;
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
@@ -768,7 +784,7 @@
             // 
             // barButtonItem4
             // 
-            this.barButtonItem4.Caption = "项目";
+            this.barButtonItem4.Caption = "测线/测点";
             this.barButtonItem4.Id = 15;
             this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
             this.barButtonItem4.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -787,6 +803,7 @@
             this.barButtonItem3.ItemAppearance.Normal.Options.UseFont = true;
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem3.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
             // barButtonItem2
@@ -815,6 +832,7 @@
             this.MenuSkin.ItemInMenuAppearance.Normal.Options.UseFont = true;
             this.MenuSkin.Name = "MenuSkin";
             this.MenuSkin.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.MenuSkin.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // barDockControlTop
             // 
@@ -859,11 +877,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // queryBindingSource1
-            // 
-            this.queryBindingSource1.DataMember = "Query";
-            this.queryBindingSource1.DataSource = this.sqlDataSource1;
             // 
             // platformPanel
             // 
@@ -928,7 +941,12 @@
             // projectBindingSource
             // 
             this.projectBindingSource.DataMember = "project";
-            this.projectBindingSource.DataSource = this.rxdDataSet;
+            this.projectBindingSource.DataSource = this.rxdDataSet1;
+            // 
+            // rxdDataSet1
+            // 
+            this.rxdDataSet1.DataSetName = "rxdDataSet";
+            this.rxdDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView3
             // 
@@ -1092,7 +1110,7 @@
             // platformBindingSource
             // 
             this.platformBindingSource.DataMember = "platform";
-            this.platformBindingSource.DataSource = this.rxdDataSet;
+            this.platformBindingSource.DataSource = this.rxdDataSet1;
             // 
             // gridView2
             // 
@@ -1194,23 +1212,6 @@
             this.sidePanel13.TabIndex = 7;
             this.sidePanel13.Text = "sidePanel13";
             // 
-            // monitorlineBindingSource
-            // 
-            this.monitorlineBindingSource.DataMember = "monitorline";
-            this.monitorlineBindingSource.DataSource = this.rxdDataSet;
-            // 
-            // platformTableAdapter
-            // 
-            this.platformTableAdapter.ClearBeforeFill = true;
-            // 
-            // monitorlineTableAdapter
-            // 
-            this.monitorlineTableAdapter.ClearBeforeFill = true;
-            // 
-            // projectTableAdapter
-            // 
-            this.projectTableAdapter.ClearBeforeFill = true;
-            // 
             // monitorPanel
             // 
             this.monitorPanel.Controls.Add(this.sidePanel10);
@@ -1257,34 +1258,41 @@
             // 
             // gridControl5
             // 
-            this.gridControl5.DataSource = this.projectBindingSource;
+            this.gridControl5.DataSource = this.sensorBindingSource;
             this.gridControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl5.Location = new System.Drawing.Point(0, 0);
-            this.gridControl5.MainView = this.gridView4;
+            this.gridControl5.MainView = this.gridView5;
             this.gridControl5.MenuManager = this.barManager1;
             this.gridControl5.Name = "gridControl5";
             this.gridControl5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemHyperLinkEdit1,
-            this.repositoryItemHyperLinkEdit2});
+            this.sensorEdit,
+            this.sensorDel});
             this.gridControl5.Size = new System.Drawing.Size(1355, 340);
             this.gridControl5.TabIndex = 1;
             this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView4});
+            this.gridView5});
             // 
-            // gridView4
+            // sensorBindingSource
             // 
-            this.gridView4.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            this.gridView4.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.sensorBindingSource.DataMember = "sensor";
+            this.sensorBindingSource.DataSource = this.rxdDataSet1;
+            // 
+            // gridView5
+            // 
+            this.gridView5.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView5.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
-            this.gridColumn3,
-            this.gridColumn4,
+            this.colport,
+            this.colisbasic,
+            this.colstates,
             this.gridColumn5,
             this.gridColumn6});
-            this.gridView4.GridControl = this.gridControl5;
-            this.gridView4.Name = "gridView4";
-            this.gridView4.OptionsView.ShowGroupPanel = false;
+            this.gridView5.GridControl = this.gridControl5;
+            this.gridView5.Name = "gridView5";
+            this.gridView5.OptionsView.ShowGroupPanel = false;
+            this.gridView5.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.gridView5_CustomColumnDisplayText);
             // 
             // gridColumn1
             // 
@@ -1300,7 +1308,7 @@
             // 
             this.gridColumn2.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn2.Caption = "项目名称";
+            this.gridColumn2.Caption = "测点名称";
             this.gridColumn2.FieldName = "name";
             this.gridColumn2.MinWidth = 25;
             this.gridColumn2.Name = "gridColumn2";
@@ -1309,67 +1317,87 @@
             this.gridColumn2.VisibleIndex = 0;
             this.gridColumn2.Width = 94;
             // 
-            // gridColumn3
+            // colport
             // 
-            this.gridColumn3.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn3.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn3.Caption = "项目地址";
-            this.gridColumn3.FieldName = "url";
-            this.gridColumn3.MinWidth = 25;
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.OptionsColumn.AllowEdit = false;
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 1;
-            this.gridColumn3.Width = 94;
+            this.colport.AppearanceCell.Options.UseTextOptions = true;
+            this.colport.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colport.Caption = "端口号";
+            this.colport.FieldName = "port";
+            this.colport.MinWidth = 25;
+            this.colport.Name = "colport";
+            this.colport.OptionsColumn.AllowEdit = false;
+            this.colport.Visible = true;
+            this.colport.VisibleIndex = 1;
+            this.colport.Width = 94;
             // 
-            // gridColumn4
+            // colisbasic
             // 
-            this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn4.FieldName = "platform_id";
-            this.gridColumn4.MinWidth = 25;
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.OptionsColumn.AllowEdit = false;
-            this.gridColumn4.Width = 94;
+            this.colisbasic.AppearanceCell.Options.UseTextOptions = true;
+            this.colisbasic.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colisbasic.Caption = "基站/移动站";
+            this.colisbasic.FieldName = "isbasic";
+            this.colisbasic.MinWidth = 25;
+            this.colisbasic.Name = "colisbasic";
+            this.colisbasic.OptionsColumn.AllowEdit = false;
+            this.colisbasic.Visible = true;
+            this.colisbasic.VisibleIndex = 2;
+            this.colisbasic.Width = 94;
+            // 
+            // colstates
+            // 
+            this.colstates.AppearanceCell.Options.UseTextOptions = true;
+            this.colstates.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colstates.Caption = "状态";
+            this.colstates.FieldName = "states";
+            this.colstates.MinWidth = 25;
+            this.colstates.Name = "colstates";
+            this.colstates.OptionsColumn.AllowEdit = false;
+            this.colstates.Visible = true;
+            this.colstates.VisibleIndex = 3;
+            this.colstates.Width = 94;
             // 
             // gridColumn5
             // 
             this.gridColumn5.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn5.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn5.Caption = "编辑";
-            this.gridColumn5.ColumnEdit = this.repositoryItemHyperLinkEdit1;
+            this.gridColumn5.ColumnEdit = this.sensorEdit;
             this.gridColumn5.MinWidth = 25;
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 2;
+            this.gridColumn5.VisibleIndex = 4;
             this.gridColumn5.Width = 94;
             // 
-            // repositoryItemHyperLinkEdit1
+            // sensorEdit
             // 
-            this.repositoryItemHyperLinkEdit1.AutoHeight = false;
-            this.repositoryItemHyperLinkEdit1.Name = "repositoryItemHyperLinkEdit1";
-            this.repositoryItemHyperLinkEdit1.NullText = "编辑";
+            this.sensorEdit.AutoHeight = false;
+            this.sensorEdit.Name = "sensorEdit";
+            this.sensorEdit.NullText = "编辑";
+            this.sensorEdit.Click += new System.EventHandler(this.sensorEdit_Click);
             // 
             // gridColumn6
             // 
             this.gridColumn6.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn6.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn6.Caption = "删除";
-            this.gridColumn6.ColumnEdit = this.repositoryItemHyperLinkEdit2;
+            this.gridColumn6.ColumnEdit = this.sensorDel;
             this.gridColumn6.MinWidth = 25;
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 3;
+            this.gridColumn6.VisibleIndex = 5;
             this.gridColumn6.Width = 94;
             // 
-            // repositoryItemHyperLinkEdit2
+            // sensorDel
             // 
-            this.repositoryItemHyperLinkEdit2.AutoHeight = false;
-            this.repositoryItemHyperLinkEdit2.Name = "repositoryItemHyperLinkEdit2";
-            this.repositoryItemHyperLinkEdit2.NullText = "删除";
+            this.sensorDel.AutoHeight = false;
+            this.sensorDel.Name = "sensorDel";
+            this.sensorDel.NullText = "删除";
+            this.sensorDel.Click += new System.EventHandler(this.sensorDel_Click);
             // 
             // sidePanel22
             // 
+            this.sidePanel22.Controls.Add(this.simpleButton7);
+            this.sidePanel22.Controls.Add(this.labelControl10);
             this.sidePanel22.Controls.Add(this.comboBoxEdit4);
             this.sidePanel22.Controls.Add(this.simpleButton5);
             this.sidePanel22.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1379,13 +1407,47 @@
             this.sidePanel22.TabIndex = 7;
             this.sidePanel22.Text = "sidePanel22";
             // 
-            // simpleButton4
+            // simpleButton7
             // 
-            this.simpleButton4.Location = new System.Drawing.Point(392, 24);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(94, 29);
-            this.simpleButton4.TabIndex = 2;
-            this.simpleButton4.Text = "新增";
+            this.simpleButton7.Location = new System.Drawing.Point(263, 65);
+            this.simpleButton7.Name = "simpleButton7";
+            this.simpleButton7.Size = new System.Drawing.Size(94, 29);
+            this.simpleButton7.TabIndex = 6;
+            this.simpleButton7.Text = "查询";
+            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("宋体", 12F);
+            this.labelControl10.Appearance.Options.UseFont = true;
+            this.labelControl10.Location = new System.Drawing.Point(25, 72);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(40, 20);
+            this.labelControl10.TabIndex = 5;
+            this.labelControl10.Text = "测线";
+            // 
+            // comboBoxEdit4
+            // 
+            this.comboBoxEdit4.Location = new System.Drawing.Point(79, 66);
+            this.comboBoxEdit4.MenuManager = this.barManager1;
+            this.comboBoxEdit4.Name = "comboBoxEdit4";
+            this.comboBoxEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.comboBoxEdit4.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit4.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboBoxEdit4.Size = new System.Drawing.Size(161, 28);
+            this.comboBoxEdit4.TabIndex = 3;
+            this.comboBoxEdit4.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit4_SelectedIndexChanged);
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Location = new System.Drawing.Point(379, 65);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(94, 29);
+            this.simpleButton5.TabIndex = 1;
+            this.simpleButton5.Text = "新增";
+            this.simpleButton5.Click += new System.EventHandler(this.sensorAdd_Click);
             // 
             // sidePanel23
             // 
@@ -1399,74 +1461,190 @@
             // 
             // gridControl4
             // 
-            this.gridControl4.DataSource = this.monitorlineBindingSource;
+            this.gridControl4.DataMember = "Query";
+            this.gridControl4.DataSource = this.sqlDataSource2;
             this.gridControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl4.Location = new System.Drawing.Point(0, 0);
-            this.gridControl4.MainView = this.gridView5;
+            this.gridControl4.MainView = this.gridView4;
             this.gridControl4.MenuManager = this.barManager1;
             this.gridControl4.Name = "gridControl4";
             this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemHyperLinkEdit3,
-            this.repositoryItemHyperLinkEdit4});
+            this.monitorEdit,
+            this.monitorDel});
             this.gridControl4.Size = new System.Drawing.Size(1355, 273);
             this.gridControl4.TabIndex = 0;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView5});
+            this.gridView4});
             // 
-            // gridView5
+            // sqlDataSource2
             // 
-            this.gridView5.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            this.gridView5.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.sqlDataSource2.ConnectionName = "localhost_rxd_DEV";
+            this.sqlDataSource2.Name = "sqlDataSource2";
+            customSqlQuery2.Name = "Query";
+            customSqlQuery2.Sql = "SELECT ml.id,ml.name,ml.heartbeatTime,ml.frequency,ml.project_id,st.id as stid,st" +
+    ".caption,st.unit FROM monitorline ml LEFT JOIN sensortype st ON ml.sensortype_id" +
+    " = st.id";
+            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            customSqlQuery2});
+            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
+            // 
+            // gridView4
+            // 
+            this.gridView4.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView4.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colid2,
+            this.colstid,
+            this.colproject_id,
             this.colname2,
             this.colheartbeatTime,
             this.colfrequency,
-            this.colproject_id,
+            this.colcaption,
+            this.colunit,
             this.gridColumn9,
             this.gridColumn10});
-            this.gridView5.GridControl = this.gridControl4;
-            this.gridView5.Name = "gridView5";
-            this.gridView5.OptionsView.ShowGroupPanel = false;
+            this.gridView4.GridControl = this.gridControl4;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsView.ShowGroupPanel = false;
+            // 
+            // colid2
+            // 
+            this.colid2.AppearanceCell.Options.UseTextOptions = true;
+            this.colid2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colid2.FieldName = "id";
+            this.colid2.MinWidth = 25;
+            this.colid2.Name = "colid2";
+            this.colid2.OptionsColumn.AllowEdit = false;
+            this.colid2.Width = 94;
+            // 
+            // colstid
+            // 
+            this.colstid.AppearanceCell.Options.UseTextOptions = true;
+            this.colstid.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colstid.FieldName = "stid";
+            this.colstid.MinWidth = 25;
+            this.colstid.Name = "colstid";
+            this.colstid.OptionsColumn.AllowEdit = false;
+            this.colstid.Width = 94;
+            // 
+            // colproject_id
+            // 
+            this.colproject_id.AppearanceCell.Options.UseTextOptions = true;
+            this.colproject_id.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colproject_id.FieldName = "project_id";
+            this.colproject_id.MinWidth = 25;
+            this.colproject_id.Name = "colproject_id";
+            this.colproject_id.OptionsColumn.AllowEdit = false;
+            this.colproject_id.Width = 94;
+            // 
+            // colname2
+            // 
+            this.colname2.AppearanceCell.Options.UseTextOptions = true;
+            this.colname2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colname2.Caption = "监测线名称";
+            this.colname2.FieldName = "name";
+            this.colname2.MinWidth = 25;
+            this.colname2.Name = "colname2";
+            this.colname2.OptionsColumn.AllowEdit = false;
+            this.colname2.Visible = true;
+            this.colname2.VisibleIndex = 0;
+            this.colname2.Width = 94;
+            // 
+            // colheartbeatTime
+            // 
+            this.colheartbeatTime.AppearanceCell.Options.UseTextOptions = true;
+            this.colheartbeatTime.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colheartbeatTime.Caption = "心跳时间";
+            this.colheartbeatTime.FieldName = "heartbeatTime";
+            this.colheartbeatTime.MinWidth = 25;
+            this.colheartbeatTime.Name = "colheartbeatTime";
+            this.colheartbeatTime.OptionsColumn.AllowEdit = false;
+            this.colheartbeatTime.Visible = true;
+            this.colheartbeatTime.VisibleIndex = 1;
+            this.colheartbeatTime.Width = 94;
+            // 
+            // colfrequency
+            // 
+            this.colfrequency.AppearanceCell.Options.UseTextOptions = true;
+            this.colfrequency.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colfrequency.Caption = "采集频率";
+            this.colfrequency.FieldName = "frequency";
+            this.colfrequency.MinWidth = 25;
+            this.colfrequency.Name = "colfrequency";
+            this.colfrequency.OptionsColumn.AllowEdit = false;
+            this.colfrequency.Visible = true;
+            this.colfrequency.VisibleIndex = 2;
+            this.colfrequency.Width = 94;
+            // 
+            // colcaption
+            // 
+            this.colcaption.AppearanceCell.Options.UseTextOptions = true;
+            this.colcaption.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colcaption.Caption = "传感器名称";
+            this.colcaption.FieldName = "caption";
+            this.colcaption.MinWidth = 25;
+            this.colcaption.Name = "colcaption";
+            this.colcaption.OptionsColumn.AllowEdit = false;
+            this.colcaption.Visible = true;
+            this.colcaption.VisibleIndex = 3;
+            this.colcaption.Width = 94;
+            // 
+            // colunit
+            // 
+            this.colunit.AppearanceCell.Options.UseTextOptions = true;
+            this.colunit.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colunit.Caption = "单位";
+            this.colunit.FieldName = "unit";
+            this.colunit.MinWidth = 25;
+            this.colunit.Name = "colunit";
+            this.colunit.OptionsColumn.AllowEdit = false;
+            this.colunit.Visible = true;
+            this.colunit.VisibleIndex = 4;
+            this.colunit.Width = 94;
             // 
             // gridColumn9
             // 
             this.gridColumn9.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn9.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn9.Caption = "编辑";
-            this.gridColumn9.ColumnEdit = this.repositoryItemHyperLinkEdit3;
+            this.gridColumn9.ColumnEdit = this.monitorEdit;
             this.gridColumn9.MinWidth = 25;
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 5;
             this.gridColumn9.Width = 94;
             // 
-            // repositoryItemHyperLinkEdit3
+            // monitorEdit
             // 
-            this.repositoryItemHyperLinkEdit3.AutoHeight = false;
-            this.repositoryItemHyperLinkEdit3.Name = "repositoryItemHyperLinkEdit3";
-            this.repositoryItemHyperLinkEdit3.NullText = "编辑";
+            this.monitorEdit.AutoHeight = false;
+            this.monitorEdit.Name = "monitorEdit";
+            this.monitorEdit.NullText = "编辑";
+            this.monitorEdit.Click += new System.EventHandler(this.monitorEdit_Click);
             // 
             // gridColumn10
             // 
             this.gridColumn10.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn10.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn10.Caption = "删除";
-            this.gridColumn10.ColumnEdit = this.repositoryItemHyperLinkEdit4;
+            this.gridColumn10.ColumnEdit = this.monitorDel;
             this.gridColumn10.MinWidth = 25;
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 6;
             this.gridColumn10.Width = 94;
             // 
-            // repositoryItemHyperLinkEdit4
+            // monitorDel
             // 
-            this.repositoryItemHyperLinkEdit4.AutoHeight = false;
-            this.repositoryItemHyperLinkEdit4.Name = "repositoryItemHyperLinkEdit4";
-            this.repositoryItemHyperLinkEdit4.NullText = "删除";
+            this.monitorDel.AutoHeight = false;
+            this.monitorDel.Name = "monitorDel";
+            this.monitorDel.NullText = "删除";
+            this.monitorDel.Click += new System.EventHandler(this.monitorDel_Click);
             // 
             // sidePanel24
             // 
+            this.sidePanel24.Controls.Add(this.simpleButton6);
+            this.sidePanel24.Controls.Add(this.labelControl9);
+            this.sidePanel24.Controls.Add(this.labelControl8);
             this.sidePanel24.Controls.Add(this.comboBoxEdit3);
             this.sidePanel24.Controls.Add(this.simpleButton4);
             this.sidePanel24.Controls.Add(this.comboBoxEdit2);
@@ -1477,9 +1655,38 @@
             this.sidePanel24.TabIndex = 7;
             this.sidePanel24.Text = "sidePanel24";
             // 
+            // simpleButton6
+            // 
+            this.simpleButton6.Location = new System.Drawing.Point(513, 30);
+            this.simpleButton6.Name = "simpleButton6";
+            this.simpleButton6.Size = new System.Drawing.Size(94, 29);
+            this.simpleButton6.TabIndex = 5;
+            this.simpleButton6.Text = "查询";
+            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("宋体", 12F);
+            this.labelControl9.Appearance.Options.UseFont = true;
+            this.labelControl9.Location = new System.Drawing.Point(280, 36);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(40, 20);
+            this.labelControl9.TabIndex = 4;
+            this.labelControl9.Text = "项目";
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("宋体", 12F);
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Location = new System.Drawing.Point(25, 36);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(40, 20);
+            this.labelControl8.TabIndex = 3;
+            this.labelControl8.Text = "工程";
+            // 
             // comboBoxEdit3
             // 
-            this.comboBoxEdit3.Location = new System.Drawing.Point(207, 25);
+            this.comboBoxEdit3.Location = new System.Drawing.Point(326, 32);
             this.comboBoxEdit3.MenuManager = this.barManager1;
             this.comboBoxEdit3.Name = "comboBoxEdit3";
             this.comboBoxEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -1489,10 +1696,20 @@
             this.comboBoxEdit3.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEdit3.Size = new System.Drawing.Size(161, 28);
             this.comboBoxEdit3.TabIndex = 2;
+            this.comboBoxEdit3.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit3_SelectedIndexChanged);
+            // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Location = new System.Drawing.Point(630, 30);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.Size = new System.Drawing.Size(94, 29);
+            this.simpleButton4.TabIndex = 2;
+            this.simpleButton4.Text = "新增";
+            this.simpleButton4.Click += new System.EventHandler(this.monitorAdd_Click);
             // 
             // comboBoxEdit2
             // 
-            this.comboBoxEdit2.Location = new System.Drawing.Point(25, 25);
+            this.comboBoxEdit2.Location = new System.Drawing.Point(79, 33);
             this.comboBoxEdit2.MenuManager = this.barManager1;
             this.comboBoxEdit2.Name = "comboBoxEdit2";
             this.comboBoxEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -1502,14 +1719,7 @@
             this.comboBoxEdit2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.comboBoxEdit2.Size = new System.Drawing.Size(161, 28);
             this.comboBoxEdit2.TabIndex = 1;
-            // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Location = new System.Drawing.Point(207, 68);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(94, 29);
-            this.simpleButton5.TabIndex = 1;
-            this.simpleButton5.Text = "新增";
+            this.comboBoxEdit2.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit2_SelectedIndexChanged);
             // 
             // sidePanel25
             // 
@@ -1520,63 +1730,22 @@
             this.sidePanel25.TabIndex = 7;
             this.sidePanel25.Text = "sidePanel25";
             // 
-            // comboBoxEdit4
+            // queryBindingSource1
             // 
-            this.comboBoxEdit4.Location = new System.Drawing.Point(25, 69);
-            this.comboBoxEdit4.MenuManager = this.barManager1;
-            this.comboBoxEdit4.Name = "comboBoxEdit4";
-            this.comboBoxEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.comboBoxEdit4.Properties.Appearance.Options.UseFont = true;
-            this.comboBoxEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit4.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit4.Size = new System.Drawing.Size(161, 28);
-            this.comboBoxEdit4.TabIndex = 3;
+            this.queryBindingSource1.DataMember = "Query";
+            this.queryBindingSource1.DataSource = this.sqlDataSource1;
             // 
-            // colid2
+            // platformTableAdapter
             // 
-            this.colid2.FieldName = "id";
-            this.colid2.MinWidth = 25;
-            this.colid2.Name = "colid2";
-            this.colid2.Visible = true;
-            this.colid2.VisibleIndex = 1;
-            this.colid2.Width = 94;
+            this.platformTableAdapter.ClearBeforeFill = true;
             // 
-            // colname2
+            // projectTableAdapter
             // 
-            this.colname2.FieldName = "name";
-            this.colname2.MinWidth = 25;
-            this.colname2.Name = "colname2";
-            this.colname2.Visible = true;
-            this.colname2.VisibleIndex = 0;
-            this.colname2.Width = 94;
+            this.projectTableAdapter.ClearBeforeFill = true;
             // 
-            // colheartbeatTime
+            // sensorTableAdapter
             // 
-            this.colheartbeatTime.FieldName = "heartbeatTime";
-            this.colheartbeatTime.MinWidth = 25;
-            this.colheartbeatTime.Name = "colheartbeatTime";
-            this.colheartbeatTime.Visible = true;
-            this.colheartbeatTime.VisibleIndex = 2;
-            this.colheartbeatTime.Width = 94;
-            // 
-            // colfrequency
-            // 
-            this.colfrequency.FieldName = "frequency";
-            this.colfrequency.MinWidth = 25;
-            this.colfrequency.Name = "colfrequency";
-            this.colfrequency.Visible = true;
-            this.colfrequency.VisibleIndex = 3;
-            this.colfrequency.Width = 94;
-            // 
-            // colproject_id
-            // 
-            this.colproject_id.FieldName = "project_id";
-            this.colproject_id.MinWidth = 25;
-            this.colproject_id.Name = "colproject_id";
-            this.colproject_id.Visible = true;
-            this.colproject_id.VisibleIndex = 4;
-            this.colproject_id.Width = 94;
+            this.sensorTableAdapter.ClearBeforeFill = true;
             // 
             // BasicForm
             // 
@@ -1635,13 +1804,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource1)).EndInit();
             this.platformPanel.ResumeLayout(false);
             this.sidePanel15.ResumeLayout(false);
             this.sidePanel17.ResumeLayout(false);
             this.sidePanel19.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rxdDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectDel)).EndInit();
@@ -1654,25 +1823,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.platformEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.platformDelete)).EndInit();
             this.sidePanel14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.monitorlineBindingSource)).EndInit();
             this.monitorPanel.ResumeLayout(false);
             this.sidePanel10.ResumeLayout(false);
             this.sidePanel20.ResumeLayout(false);
             this.sidePanel21.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sensorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sensorEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sensorDel)).EndInit();
             this.sidePanel22.ResumeLayout(false);
+            this.sidePanel22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).EndInit();
             this.sidePanel23.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monitorEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monitorDel)).EndInit();
             this.sidePanel24.ResumeLayout(false);
+            this.sidePanel24.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.queryBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1726,13 +1898,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraCharts.ChartControl chartControl3;
         private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel1;
-        private rxdDataSetTableAdapters.dataviewTableAdapter dataviewTableAdapter;
-        private rxdDataSet rxdDataSet;
-        private System.Windows.Forms.BindingSource dataviewBindingSource;
-        private System.Windows.Forms.BindingSource queryBindingSource;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private System.Windows.Forms.BindingSource queryBindingSource1;
         private DevExpress.XtraEditors.SidePanel platformPanel;
         private DevExpress.XtraEditors.SidePanel sidePanel15;
         private DevExpress.XtraEditors.SidePanel sidePanel17;
@@ -1748,12 +1914,8 @@
         private DevExpress.XtraEditors.SidePanel sidePanel14;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SidePanel sidePanel13;
-        private System.Windows.Forms.BindingSource platformBindingSource;
-        private rxdDataSetTableAdapters.platformTableAdapter platformTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn colname;
-        private System.Windows.Forms.BindingSource monitorlineBindingSource;
-        private rxdDataSetTableAdapters.monitorlineTableAdapter monitorlineTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colEdit2;
         private DevExpress.XtraGrid.Columns.GridColumn colDelete2;
         private DevExpress.XtraGrid.Columns.GridColumn editLinkHiper;
@@ -1762,8 +1924,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit platformDelete;
         private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit projectEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit projectDel;
-        private System.Windows.Forms.BindingSource projectBindingSource;
-        private rxdDataSetTableAdapters.projectTableAdapter projectTableAdapter;
         private DevExpress.XtraGrid.Columns.GridColumn colid1;
         private DevExpress.XtraGrid.Columns.GridColumn colname1;
         private DevExpress.XtraGrid.Columns.GridColumn colurl;
@@ -1773,24 +1933,22 @@
         private DevExpress.XtraEditors.SidePanel sidePanel20;
         private DevExpress.XtraEditors.SidePanel sidePanel21;
         private DevExpress.XtraGrid.GridControl gridControl5;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit sensorEdit;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit sensorDel;
         private DevExpress.XtraEditors.SidePanel sidePanel22;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SidePanel sidePanel23;
         private DevExpress.XtraGrid.GridControl gridControl4;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit monitorEdit;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
-        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit repositoryItemHyperLinkEdit4;
+        private DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit monitorDel;
         private DevExpress.XtraEditors.SidePanel sidePanel24;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit3;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
@@ -1798,9 +1956,34 @@
         private DevExpress.XtraEditors.SidePanel sidePanel25;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit4;
         private DevExpress.XtraGrid.Columns.GridColumn colid2;
+        private DevExpress.XtraGrid.Columns.GridColumn colstid;
+        private DevExpress.XtraGrid.Columns.GridColumn colproject_id;
         private DevExpress.XtraGrid.Columns.GridColumn colname2;
         private DevExpress.XtraGrid.Columns.GridColumn colheartbeatTime;
         private DevExpress.XtraGrid.Columns.GridColumn colfrequency;
-        private DevExpress.XtraGrid.Columns.GridColumn colproject_id;
+        private DevExpress.XtraGrid.Columns.GridColumn colcaption;
+        private DevExpress.XtraGrid.Columns.GridColumn colunit;
+        private rxdDataSetTableAdapters.dataviewTableAdapter dataviewTableAdapter;
+        private rxdDataSet rxdDataSet;
+        private System.Windows.Forms.BindingSource dataviewBindingSource;
+        private System.Windows.Forms.BindingSource queryBindingSource;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
+        private System.Windows.Forms.BindingSource queryBindingSource1;
+        private rxdDataSet rxdDataSet1;
+        private System.Windows.Forms.BindingSource platformBindingSource;
+        private rxdDataSetTableAdapters.platformTableAdapter platformTableAdapter;
+        private System.Windows.Forms.BindingSource projectBindingSource;
+        private rxdDataSetTableAdapters.projectTableAdapter projectTableAdapter;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
+        private System.Windows.Forms.BindingSource sensorBindingSource;
+        private rxdDataSetTableAdapters.sensorTableAdapter sensorTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colport;
+        private DevExpress.XtraGrid.Columns.GridColumn colisbasic;
+        private DevExpress.XtraGrid.Columns.GridColumn colstates;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.SimpleButton simpleButton6;
+        private DevExpress.XtraEditors.SimpleButton simpleButton7;
     }
 }

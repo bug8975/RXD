@@ -4,7 +4,6 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Net;
 using NLog;
-using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
 using System.Data;
 using Newtonsoft.Json;
@@ -50,7 +49,8 @@ namespace RXD.common
                 string time = DateTime.Now.ToString("yyyy_M_d_H-0-0");
                 string fileName = @"ReceivedTofile" + id + "-TCPCLIENT-" + time;
 
-                if (states)
+                //传感器状态： 0：关闭；  1：开启
+                if (!states)
                     continue;
 
                 TcpListener tcpListener = new TcpListener(IPAddress.Any, port);
@@ -149,16 +149,16 @@ namespace RXD.common
             string url = urlstr + "/app/monitorData.htm";
             string strJson = JsonConvert.SerializeObject(list);
             Console.WriteLine(strJson);
-            //HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
-            //request.ContentType = "application/json";
-            //request.Method = "POST";
-            ////request.Timeout = 1000;
-            //byte[] data = Encoding.UTF8.GetBytes(strJson);
-            //request.ContentLength = data.Length;
-            //using (Stream reqStream = request.GetRequestStream())
-            //{
-            //    reqStream.Write(data, 0, data.Length);
-            //}
+            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
+            request.ContentType = "application/json";
+            request.Method = "POST";
+            //request.Timeout = 1000;
+            byte[] data = Encoding.UTF8.GetBytes(strJson);
+            request.ContentLength = data.Length;
+            using (Stream reqStream = request.GetRequestStream())
+            {
+                reqStream.Write(data, 0, data.Length);
+            }
         }
 
 

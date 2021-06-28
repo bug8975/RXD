@@ -166,6 +166,18 @@
     <Compile Include="DBForm.Designer.cs">
       <DependentUpon>DBForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialog\monitor\MonitorAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\monitor\MonitorAddForm.Designer.cs">
+      <DependentUpon>MonitorAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\monitor\MonitorEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\monitor\MonitorEditForm.Designer.cs">
+      <DependentUpon>MonitorEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog\platform\PlatformAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +201,18 @@
     </Compile>
     <Compile Include="Dialog\project\ProjectEditForm.Designer.cs">
       <DependentUpon>ProjectEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\sensor\SensorAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\sensor\SensorAddForm.Designer.cs">
+      <DependentUpon>SensorAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\sensor\SensorEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\sensor\SensorEditForm.Designer.cs">
+      <DependentUpon>SensorEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LineForm.cs">
       <SubType>Form</SubType>
@@ -238,6 +262,12 @@
     <EmbeddedResource Include="DBForm.resx">
       <DependentUpon>DBForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\monitor\MonitorAddForm.resx">
+      <DependentUpon>MonitorAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\monitor\MonitorEditForm.resx">
+      <DependentUpon>MonitorEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialog\platform\PlatformAddForm.resx">
       <DependentUpon>PlatformAddForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,13 +280,18 @@
     <EmbeddedResource Include="Dialog\project\ProjectEditForm.resx">
       <DependentUpon>ProjectEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\sensor\SensorAddForm.resx">
+      <DependentUpon>SensorAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\sensor\SensorEditForm.resx">
+      <DependentUpon>SensorEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LineForm.resx">
       <DependentUpon>LineForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -273,7 +308,7 @@
       <DependentUpon>SensorTypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <Content Include="NLog.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="XtraForm2.resx">
       <DependentUpon>XtraForm2.cs</DependentUpon>
@@ -320,9 +355,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dialog\monitor\" />
-    <Folder Include="Dialog\sensor\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

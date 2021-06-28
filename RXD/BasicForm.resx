@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>998, 32</value>
-  </metadata>
-  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ibmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJ0eXBlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImxvbmdpdHVkZSIgVHlwZT0iRG91YmxlIiAvPjxGaWVsZCBOYW1lPSJsYXRpdHVkZSIgVHlwZT0iRG91YmxlIiAvPjxGaWVsZCBOYW1lPSJub2lzZSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9InRpbWVzIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0ic2Vuc29yX2lkIiBUeXBlPSJVSW50MzIiIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
-  </data>
   <metadata name="dataviewTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>776, 32</value>
   </metadata>
@@ -135,6 +129,12 @@
   <metadata name="queryBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1170, 32</value>
   </metadata>
+  <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>998, 32</value>
+  </metadata>
+  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ibmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJ0eXBlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9ImxvbmdpdHVkZSIgVHlwZT0iRG91YmxlIiAvPjxGaWVsZCBOYW1lPSJsYXRpdHVkZSIgVHlwZT0iRG91YmxlIiAvPjxGaWVsZCBOYW1lPSJub2lzZSIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9InRpbWVzIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0ic2Vuc29yX2lkIiBUeXBlPSJVSW50MzIiIC8+PC9WaWV3PjwvRGF0YVNldD4=</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="windowsUIButtonImageOptions1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -541,16 +541,25 @@
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>100</value>
+    <value>112</value>
   </metadata>
+  <metadata name="sensorBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>833, 74</value>
+  </metadata>
+  <metadata name="rxdDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1591, 32</value>
+  </metadata>
+  <metadata name="sqlDataSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>661, 74</value>
+  </metadata>
+  <data name="sqlDataSource2.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTIiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0iaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ibmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJoZWFydGJlYXRUaW1lIiBUeXBlPSJEYXRlVGltZSIgLz48RmllbGQgTmFtZT0iZnJlcXVlbmN5IiBUeXBlPSJVSW50MzIiIC8+PEZpZWxkIE5hbWU9InByb2plY3RfaWQiIFR5cGU9IlVJbnQzMiIgLz48RmllbGQgTmFtZT0ic3RpZCIgVHlwZT0iVUludDMyIiAvPjxGaWVsZCBOYW1lPSJjYXB0aW9uIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9InVuaXQiIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==</value>
+  </data>
   <metadata name="projectBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>509, 74</value>
-  </metadata>
-  <metadata name="monitorlineBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 74</value>
+    <value>237, 74</value>
   </metadata>
   <metadata name="platformBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1591, 32</value>
+    <value>1738, 32</value>
   </metadata>
   <metadata name="alertControl1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>254, 32</value>
@@ -562,12 +571,12 @@
     <value>1376, 32</value>
   </metadata>
   <metadata name="platformTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1819, 32</value>
-  </metadata>
-  <metadata name="monitorlineTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>267, 74</value>
+    <value>17, 74</value>
   </metadata>
   <metadata name="projectTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>725, 74</value>
+    <value>453, 74</value>
+  </metadata>
+  <metadata name="sensorTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1045, 74</value>
   </metadata>
 </root>
